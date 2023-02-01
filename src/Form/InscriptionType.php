@@ -27,7 +27,7 @@ class InscriptionType extends AbstractType
                 ],
                 'label' => 'Adresse email',
                 'label_attr' => [
-                'class' =>'form-label'
+                'class' =>'form-label mt-4'
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),
@@ -45,7 +45,7 @@ class InscriptionType extends AbstractType
                 ],
                 'label' => 'Mots de passe',
                 'label_attr' => [
-                    'class' => 'form-label'
+                    'class' => 'form-label mt-4'
                 ]
             ],
                 'second_options' => [
@@ -54,7 +54,7 @@ class InscriptionType extends AbstractType
                     ],
                     'label' => 'Confirmation du Mots de passe',
                     'label_attr' => [
-                        'class' => 'form-label'
+                        'class' => 'form-label mt-4'
                     ]
                 ],
                 'invalid_message' => 'les mots de passe ne corespondent pas. '
@@ -68,7 +68,7 @@ class InscriptionType extends AbstractType
                 ],
                 'label' => 'nom',
                 'label_attr' => [
-                'class' =>'form-label'
+                'class' =>'form-label mt-4'
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),
@@ -84,7 +84,7 @@ class InscriptionType extends AbstractType
                     ],
                     'label' => 'pseudo (Facultatif)',
                     'label_attr' => [
-                    'class' =>'form-label'
+                    'class' =>'form-label mt-4'
                     ],
                     'constraints' => [
                         new Assert\Length(['min' => 2, 'max' => 50])
@@ -98,7 +98,7 @@ class InscriptionType extends AbstractType
                 ],
                 'label' => 'nom',
                 'label_attr' => [
-                'class' =>'form-label'
+                'class' =>'form-label mt-4'
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),
