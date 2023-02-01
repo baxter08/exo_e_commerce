@@ -19,3 +19,8 @@ body {
     height: 100px;
     border: green solid 2px;
 }
+
+.ensemble_form{
+    width: 100%;
+    padding: 50px 50px 50px 50px;
+}
