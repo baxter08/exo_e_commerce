@@ -23,8 +23,8 @@ class Article
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column]
-    private ?float $prix = null;
+    #[ORM\Column(type:"decimal", scale:2)]
+    private ?DecimalType $prix = null;
 
     #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Image::class)]
     private Collection $images;
