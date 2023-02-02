@@ -19,6 +19,55 @@ class InscriptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+
+        ->add('nom', TextType::class, [
+            'attr' => [
+            'class'  => 'form-control',
+            'minlenght' => '2',
+            'maxlenght' => '50',
+            ],
+            'label' => 'nom',
+            'label_attr' => [
+            'class' =>'form-label mt-4'
+            ],
+            'constraints' => [
+                new Assert\NotBlank(),
+                new Assert\Length(['min' => 2, 'max' => 50])
+            ]
+            ])
+
+        ->add('pseudo', TextType::class, [
+                'attr' => [
+                'class'  => 'form-control',
+                'minlenght' => '2',
+                'maxlenght' => '50',
+                ],
+                'required' => false,
+                'label' => 'pseudo',
+                'label_attr' => [
+                'class' =>'form-label mt-4'
+                ],
+                'constraints' => [
+                    new Assert\Length(['min' => 2, 'max' => 50])
+                ],
+                ])
+
+        ->add('prenom', TextType::class,[ 
+            'attr' => [
+            'class'  => 'form-control',
+            'minlenght' => '2',
+            'maxlenght' => '50',
+            ],
+            'label' => 'prenom',
+            'label_attr' => [
+            'class' =>'form-label mt-4'
+            ],
+            'constraints' => [
+                new Assert\NotBlank(),
+                new Assert\Length(['min' => 2, 'max' => 50])
+            ],
+            ])
+
             ->add('email' , EmailType::class, [
                 'attr' => [
                     'class'  => 'form-control',
@@ -60,55 +109,9 @@ class InscriptionType extends AbstractType
                 'invalid_message' => 'les mots de passe ne corespondent pas. '
             ])
 
-            ->add('nom', TextType::class, [
-                'attr' => [
-                'class'  => 'form-control',
-                'minlenght' => '2',
-                'maxlenght' => '50',
-                ],
-                'label' => 'nom',
-                'label_attr' => [
-                'class' =>'form-label mt-4'
-                ],
-                'constraints' => [
-                    new Assert\NotBlank(),
-                    new Assert\Length(['min' => 2, 'max' => 50])
-                ]
-                ])
-
-            ->add('pseudo', TextType::class, [
-                    'attr' => [
-                    'class'  => 'form-control',
-                    'minlenght' => '2',
-                    'maxlenght' => '50',
-                    ],
-                    'label' => 'pseudo (Facultatif)',
-                    'label_attr' => [
-                    'class' =>'form-label mt-4'
-                    ],
-                    'constraints' => [
-                        new Assert\Length(['min' => 2, 'max' => 50])
-                    ],
-                    ])
-            ->add('prenom', TextType::class,[ 
-                'attr' => [
-                'class'  => 'form-control',
-                'minlenght' => '2',
-                'maxlenght' => '50',
-                ],
-                'label' => 'nom',
-                'label_attr' => [
-                'class' =>'form-label mt-4'
-                ],
-                'constraints' => [
-                    new Assert\NotBlank(),
-                    new Assert\Length(['min' => 2, 'max' => 50])
-                ]
-                ])
-
             ->add('submit', SubmitType::class,[
                 'attr' => [
-                'class' => 'btn btn-primary mt-4'
+                'class' => 'btn btn-secondary mt-4'
                 ]
             ])
         ;

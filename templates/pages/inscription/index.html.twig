@@ -3,6 +3,15 @@
 {% block title %}Hello InscriptionController!{% endblock %}
 
 {% block body %}
-<div class="ensemble_form">{{form(form)}}</div>
+<div class="ensemble_form">
+
+{{form(form)}}
+{% for message in app.flashes('success') %}
+<div class="alert alert-success mt-4">
+{{ message }}
+</div>
+{% endfor %}
+
+</div>
 
 {% endblock %}
