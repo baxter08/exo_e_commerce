@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\DecimalType;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,8 +23,8 @@ class Article
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column]
-    private ?float $prix = null;
+    #[ORM\Column(type:"decimal", scale:2)]
+    private ?DecimalType $prix = null;
 
     #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Image::class)]
     private Collection $images;
