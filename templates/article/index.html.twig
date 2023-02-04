@@ -13,12 +13,12 @@
 
 
 
-    <h1>Liste des articles</h1>
+    {# <h1>Liste des articles</h1><br><br> #}
     {% for article in articles %}
 <div class="corp_produit">
         <div class="images_produit"><img src="{{ asset('build/images/' ~ article.images[0]) }}"></div>
-        <h2 class="titre_produit">{{ article.nom }}</h2>
-        <div class="description_produit">{{ article.description}}</div>
+        <h2 class="titre_produit">{{ article.nom }}</h2><br><br>
+        {# <div class="description_produit">{{ article.description}}</div> #}
         <div class="prix_produit">{{ article.prix}} €</div>
 </div>
     {% endfor %}
