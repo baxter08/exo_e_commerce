@@ -24,7 +24,7 @@ class Article
     private ?string $description = null;
 
     #[ORM\Column(type:"decimal", scale:2)]
-    private ?DecimalType $prix = null;
+    private ?string $prix = null;
 
     #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Image::class)]
     private Collection $images;
