@@ -27,7 +27,7 @@
       {% if is_granted('IS_AUTHENTICATED_FULLY')%}
    {% if app.user %}
         <div class="mb-3">
-            Bienvenue  {{ app.user.userIdentifier }}, <a type="button" class="btn btn-dark" href="{{ path('app_logout') }}">Deconnexion</a>
+            Bienvenue  {{ app.user.userIdentifier }}, <a type="button" class="btn btn-outline-info" href="{{ path('app_logout') }}">Deconnexion</a>
         </div>
     {% endif %}
 {% endif %}

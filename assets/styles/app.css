@@ -41,9 +41,9 @@ body {
     
 }
 
-.mb-3{
-  width: 100%;
-  padding: 33px 400px 33px 400px;
+.mb-3 {
+  width: 86%;
+  padding: 26px 400px 15px 277px;
 }
 
 .btn-secondary{
@@ -56,11 +56,12 @@ body {
   border-radius: 10px;
   margin-bottom: 20px;
   margin-left: 20px;
+  background-color: white;
 }
 
 .example-wrapper {
   margin: 1em auto;
-  max-width: 710px;
+  max-width: 915px;
   width: 95%;
   font: 18px/1.5 sans-serif;
   display: flex;
@@ -68,8 +69,8 @@ body {
 }
 
 .images_produit img{
-  width: 57%;
-  margin-left: 33px;
+  width: 63%;
+  margin-left: 63px;
 }
 
 .titre_produit{
