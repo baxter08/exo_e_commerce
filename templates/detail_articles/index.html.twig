@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DetailArticlesController!
+{% endblock %}
+
+{% block body %}
+
+	{# {% for article in articles.images %}
+	{{article.images}} #}
+	{# {% endfor %} #}
+<div class="ensemble_produit"> 
+        
+    <div class="images_produit"><img src="{{ asset('build/images/' ~ articles.images[0]) }}"></div>
+		
+        <div class="descriptif">
+			<h2 class="titre_produit">{{ articles.nom }}</h2><br><br>
+
+			<div class="prix_produit">{{ articles.prix}}
+				€</div>
+		</div>
+	</div>
+{% endblock %}

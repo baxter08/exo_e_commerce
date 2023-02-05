@@ -20,6 +20,10 @@
         <h2 class="titre_produit">{{ article.nom }}</h2><br><br>
         {# <div class="description_produit">{{ article.description}}</div> #}
         <div class="prix_produit">{{ article.prix}} €</div>
+
+        <div class="voir_article">
+        <a href="{{ path('app_detail_articles' , {'id' : article.id}) }} ">Voir</a>
+        </div>
 </div>
     {% endfor %}
     </div>

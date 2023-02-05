@@ -68,9 +68,12 @@ body {
   /* margin-left: 60px; */
 }
 
-.images_produit img{
-  width: 63%;
+.images_produit img {
+  width: 88%;
+  margin-top: 33px;
   margin-left: 63px;
+  border: 1px solid grey;
+  border-radius: 20px;
 }
 
 .titre_produit{
@@ -101,6 +104,26 @@ body {
   margin-right:20px;
   color: red;
 }
+
+.descriptif {
+  width: 33%;
+  height: 200Px;
+  margin-top: 103px;
+  margin-left: 63px;
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+
+.ensemble_produit {
+    width: 94%;
+    height: 600px;
+    display: flex;
+    margin-left: 63px;
+    border: 1px solid grey;
+    border-radius: 20px;
+}
+
+
 
 
 * {box-sizing:border-box}
