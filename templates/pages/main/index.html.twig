@@ -54,12 +54,12 @@
 <div class="rerchearticle2">
   <div class="row">
     <div class="col-md-3">
-{% include 'Article/_filter.html.twig' with {form: form} only %}
+{% include 'main/_filter.html.twig' with {form: form} only %}
 
     </div>
     <div class="grid">
       {% for article in articles %}
-        {% include 'product/_card.html.twig' with {article: article} only %}
+        {% include 'main/_card.html.twig' with {article: article} only %}
         {% endfor %}
     </div>
     </div>
