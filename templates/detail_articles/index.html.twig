@@ -10,13 +10,25 @@
 	{# {% endfor %} #}
 <div class="ensemble_produit"> 
         
-    <div class="images_produit"><img src="{{ asset('build/images/' ~ articles.images[0]) }}"></div>
-		
-        <div class="descriptif">
-			<h2 class="titre_produit">{{ articles.nom }}</h2><br><br>
+    <div class="images_produit1"><img src="{{ asset('build/images/' ~ articles.images[0]) }}"></div>
+    
 
+        <div class="descriptif1">
+			    <div class"titre_produit1">
+		<h2 class="titre_produit1">{{ articles.nom }}</h2><br><br>
+</div>
+<div class="detail">Detail :</div>
+ <div class="descriptifarticle"> {{ articles.description}}</div>
 			<div class="prix_produit">{{ articles.prix}}
 				€</div>
 		</div>
 	</div>
+{% block footer %}
+<div class="footer1">
+<a class"redirect" href="{{path('app_index')}}"> Accueil</a>
+
+
+</div>
+{% endblock %}
+
 {% endblock %}

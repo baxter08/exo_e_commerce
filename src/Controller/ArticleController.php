@@ -16,13 +16,6 @@ class ArticleController extends AbstractController
     #[Route('/article', name: 'app_article')]
     public function index(ArticleRepository $articleRepo
     ): Response {
-        // $searchData = new SearchData();
-        // $form = $this->createForm(SearchType::class, $searchData);
-
-        // $form->handleRequest($request);
-        // if ($form->isSubmitted() && $form->isValid()){
-        //     dd($searchData);
-        // }
 
         $articles = $articleRepo->findAll();
 
