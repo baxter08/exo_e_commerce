@@ -7,13 +7,13 @@
 		
 <div class="titreVendu">	
 <h1>Les articles les plus vendu</h1>
- <div class="widg_left">
+<div class="voir_article">
 		{% for article in articles %}
-			<div class="card mb-3 {m}{px{100}}">
+			<div class="card mb-3">
 				<h3 class="card-header">{{ article.nom }}</h3>
 				<div class="card-body">
-					<h5 class="card-title">Nos Ensembles</h5>
-					<h6 class="card-subtitle text-muted">Support card subtitle</h6>
+					<h5 class="card-title">Promo du Jour</h5>
+					<h6 class="card-subtitle text-muted">Made in France</h6>
 				</div>
 				<img src="{{ asset('build/images/' ~ article.images[0]) }}" class="d-block user-select-none" width="30%" height="100" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
 					<rect width="30%" height="100%" fill="#868e96"></rect>
@@ -21,7 +21,7 @@
 						<div class="prix_produit">{{ article.prix}}€</div>
 					</text>
 				</img>
-				<div class="voir_article">
+				
 					<a href="{{ path('app_detail_articles' , {'id' : article.id}) }} ">Voir</a>
 				</div>
 			</div>
