@@ -52,43 +52,17 @@
       
         <button class="btn btn-secondary mt-4" type="submit">Chercher</button></div> #}
 <div class="rerchearticle2">
-  <div class="row">
-    <div class="col-md-3">
-{% include 'main/_filter.html.twig' with {form: form} only %}
 
-    </div>
-    <div class="grid">
-      {% for article in articles %}
-        {% include 'main/_card.html.twig' with {article: article} only %}
-        {% endfor %}
-    </div>
-    </div>
-    <div class="col-md-9">
-    
-    </div>
-  </div>
+      
+   
 </div>
 <div class="titreVendu">
 
-	<h1>Les articles les plus vendu</h1>
-  </div>
- 
-	<div class="produit_plus_vendu"><br><br>
-		<div class="example-wrapper">
 
-			{# <h1>Liste des articles</h1><br><br> #}
-			{% for article in articles %}
-				<div class="corp_produit2">
-					<div class="images_produit2"><img src="{{ asset('build/images/' ~ article.images[0]) }}"></div>
-					   <h2 class="titre_produit">{{ article.nom }}</h2><br><br>
-					   {# <div class="description_produit">{{ article.description}}</div> #}
-					<div class="prix_produit">{{ article.prix}}€</div>
-        <div class="voir_article"><a href="{{ path('app_detail_articles' , {'id' : article.id}) }} ">Voir</a>
-  </div>
 </div>
         
 
-			{% endfor %}
+		
 			{# <a href ="{{ path ('article', {'id': article.id })}}"> <img src="public/build/images/{{article.images}}" alt="{{ article.nom}}" class="img-fluid"> </a> #}
 
 			<script>

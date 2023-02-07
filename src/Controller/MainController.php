@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use App\Data\SearchData;
 use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,13 +15,12 @@ class MainController extends AbstractController
     #[Route('/', name: 'app_index')]
     public function index(ArticleRepository $articleRepos): Response
     {
-        $data = new SearchData();
-        $form = $this->createForm(searchForm::class ,$data);
-        $articles = $articleRepos->findSearch();
+       
+        $articles = $articleRepos->findAll();
         return $this->render('pages/main/index.html.twig', [
             'controller_name' => 'jp',
             'articles' => $articles ,
-            'form' => $form->createView()
+          
         ]);
 
        

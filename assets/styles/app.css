@@ -86,12 +86,12 @@ body {
 
 .example-wrapper {
   margin: 1em auto;
-  max-width: 915px;
+  max-width: 100%;
   width: 95%;
   font: 18px/1.5 sans-serif;
   display: flex;
-  /* margin-left: 60px; */
 }
+
 .images_produit img {
   width: 88%;
   margin-top: 18px;
