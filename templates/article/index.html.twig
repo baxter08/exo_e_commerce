@@ -3,29 +3,42 @@
 {% block title %}Hello ArticleController!{% endblock %}
 
 {% block body %}
-<div class="rerchearticle2">
 
-<div class="titreVendu">
+<div class="produit_plus_vendu"><br><br>
+{% for article in articles %}
+<div class="card mb-3">
+  <h3 class="card-header">Card header</h3>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+  </div>
+  <img src="{{ asset('build/images/' ~ article.images[0]) }}" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+    <rect width="100%" height="100%" fill="#868e96"></rect>
+    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+ </img>
+  </div>
+ 
+{% endfor %}
+{# <div class="titreVendu">
 
 	<h1>Les articles les plus vendu</h1>
 
- 
 	<div class="produit_plus_vendu"><br><br>
 		<div class="example-wrapper">
 
 			{# <h1>Liste des articles</h1><br><br> #}
-			{% for article in articles %}
-				<div class="corp_produit2">
-					<div class="images_produit2"><img src="{{ asset('build/images/' ~ article.images[0]) }}"></div>
-					   <h2 class="titre_produit">{{ article.nom }}</h2><br><br>
+			{# {% for article in articles %} #}
+				{# <div class="corp_produit2"> #}
+					{# <div class="images_produit2"><img src="{{ asset('build/images/' ~ article.images[0]) }}"></div> #}
+					   {# <h2 class="titre_produit">{{ article.nom }}</h2><br><br> #}
 					   {# <div class="description_produit">{{ article.description}}</div> #}
-					<div class="prix_produit">{{ article.prix}}€</div>
-        <div class="voir_article"><a href="{{ path('app_detail_articles' , {'id' : article.id}) }} ">Voir</a>
-  </div>
+					{# <div class="prix_produit">{{ article.prix}}€</div>
+        <div class="voir_article"><a href="{{ path('app_detail_articles' , {'id' : article.id}) }} ">Voir</a> #}
+  {# </div>
 </div>
-        
+ </div>  #}
 
-			{% endfor %}
+			{# {% endfor %} #}
 			{# <a href ="{{ path ('article', {'id': article.id })}}"> <img src="public/build/images/{{article.images}}" alt="{{ article.nom}}" class="img-fluid"> </a> #}
 
 
