@@ -4,10 +4,10 @@
 {% endblock %}
 
 {% block body %}
- <div class="widg_left">		
+		
 <div class="titreVendu">	
 <h1>Les articles les plus vendu</h1>
-
+ <div class="widg_left">
 		{% for article in articles %}
 			<div class="card mb-3 {m}{px{100}}">
 				<h3 class="card-header">{{ article.nom }}</h3>
