@@ -42,11 +42,11 @@ class ArticleRepository extends ServiceEntityRepository
    /**
     * @return Article[] Returns an array of Article objects
    */
-    public function findByExampleField($value): array
+    public function findByExampleField($search): array
     {
         return $this->createQueryBuilder('a')
-           ->andWhere('a.nom LIKE:val')
-            ->setParameter('val', $value)
+           ->andWhere('a.description LIKE:val')
+            ->setParameter('val', $search)
            ->orderBy('a.id', 'ASC')
            ->setMaxResults(10)
            ->getQuery()

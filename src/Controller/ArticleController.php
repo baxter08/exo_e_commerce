@@ -28,30 +28,37 @@ class ArticleController extends AbstractController
 
     }
 
-    #[Route('/search', name: 'app_main')]
-    public function search(ArticleRepository $articleRepo, Request $request
+    
+    #[Route('/search', name: 'app_index')]
+    public function search(ArticleRepository $articleRepo, Request $request, $search
     ): Response {
-        //  dd($request);
+         dd($request);
     
         if($search) {
 
-            $articleRepo->search($search)
+            $articleRepo->search($search);
 
-        } else }
+      
+        }else{
 
-                   $articles = $articleRepo->findAll();
+            $articles = $articleRepo->findAll();
 
         }
 
         return $this->render('article/index.html.twig', [
-            'controller_name' => 'ArticleController',
+            'controller_name' => 'jp',
             'articles' => $articles
+           
         
             
         ]);
 
     }
+
 }
+
+
+
 
 // #[Route('/produit/{slug}', name: 'product')]
 //     public function show($): Response
