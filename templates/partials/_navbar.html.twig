@@ -21,11 +21,18 @@
         <li class="nav-item">
           <a class="nav-link" href="{{path('app_article')}}">Article</a>
         </li>
+         {# <li class="nav-item">
+          <a class="nav-link" href="{{path('app_controller')}}">Dashboard</a>
+        </li> #}
 
       
       </ul>
       {% if is_granted('IS_AUTHENTICATED_FULLY')%}
-<div class="name_conect">Vous etes connecter:  {{app.user.nom}}</div>
+   {% if app.user %}
+        <div class="mb-3">
+            Bienvenue  {{ app.user.userIdentifier }}, <a type="button" class="btn btn-outline-info" href="{{ path('app_logout') }}">Deconnexion</a>
+        </div>
+    {% endif %}
 {% endif %}
       <form class="d-flex">
         {# <input class="form-control me-sm-2" type="search" placeholder="Search">

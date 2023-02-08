@@ -1,31 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ArticleController!{% endblock %}
-
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 710px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-
-
-
-
-    <h1>Liste des articles</h1>
-    {% for article in articles %}
-<div class="corp_produit">
-        <div class="images_produit"><img src="{{ asset('build/images/' ~ article.images[0]) }}"></div>
-        <h2 class="titre_produit">{{ article.nom }}</h2>
-        <div class="description_produit">{{ article.description}}</div>
-        <div class="prix_produit">{{ article.prix}} €</div>
-</div>
-    {% endfor %}
-    </div>
-
-
-
-
+{% block title %}Hello ArticleController!
 {% endblock %}
 
+{% block body %}
+		
+<div class="titreVendu" style="background-color:transparent;padding-top:20px">	
+<h1>Les articles les plus vendu :</h1>
+ <div class="widg_left">
+		{% for article in articles %}
+			<div class="card mb-3" style="margin-left:390px;width:70%;box-shadow:2px 3px 2px 1px rgba(0, 0, 0, 0.21);">
+				<h3 class="card-header" style="background-color:white;">{{ article.nom }}</h3>
+				<div class="card-body">
+					<h5 class="card-title"  style="color:red">Promo du Jour</h5>
+					<h6 class="card-subtitle text-muted">Made in France</h6>
+				</div>
+				<img src="{{ asset('build/images/' ~ article.images[0]) }}" class="d-block user-select-none" width="27%" height="100" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle">
+					<rect width="27%" height="100%" fill="#868e96"></rect>
+					<text x="30%" y="50%" fill="#dee2e6" dy=".4em">
+						<div class="prix_produit">{{ article.prix}}€</div>
+					</text>
+				</img>
+				<div class="voir_article">
+					<a href="{{ path('app_detail_articles' , {'id' : article.id}) }} ">Voir</a>
+				</div>
+			</div>
+
+		{% endfor %}
+		{# <div class="titreVendu">
+		
+			<h1>Les articles les plus vendu</h1>
+		
+			<div class="produit_plus_vendu"><br><br>
+				<div class="example-wrapper">
+		
+					{# <h1>Liste des articles</h1><br><br> #}
+	{# {% for article in articles %} #}
+		{# <div class="corp_produit2"> #}
+		{# <div class="images_produit2"><img src="{{ asset('build/images/' ~ article.images[0]) }}"></div> #}
+		{# <h2 class="titre_produit">{{ article.nom }}</h2><br><br> #}
+		{# <div class="description_produit">{{ article.description}}</div> #}
+		{# <div class="prix_produit">{{ article.prix}}€</div>
+		        <div class="voir_article"><a href="{{ path('app_detail_articles' , {'id' : article.id}) }} ">Voir</a> #}
+		{# </div>
+		</div>
+		 </div>  #}
+
+		{# {% endfor %} #}
+		{# <a href ="{{ path ('article', {'id': article.id })}}"> <img src="public/build/images/{{article.images}}" alt="{{ article.nom}}" class="img-fluid"> </a> #}
+
+
+	{% endblock %}

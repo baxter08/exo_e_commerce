@@ -1,6 +1,7 @@
 *{
-    margin:0;
+    margin:20px;
     padding:0;
+    margin: auto;
 }
 
 
@@ -27,8 +28,9 @@ body {
 
 
 .d-blockw-100{
-    width: 100%;
+    width: 68%;
     height:600px;
+    margin-left: 117px;
 }
 
 .carousel-control-next{
@@ -36,37 +38,129 @@ body {
 }
 
 .d-block{
-    width: 100%;
+    width: 68%;
     height:400px;
-    
+    margin-left: 117px;
 }
 
-.mb-3{
-  width: 100%;
-  padding: 33px 400px 33px 400px;
-}
+.mb-3 {
+  width: 86%;
+  padding: 40px 394px 15px 277px;
+  margin-left: 117px;
+} 
+
 
 .btn-secondary{
   margin-left: 400px;
 }
 
 .corp_produit{
-  width: 100%;
+  width: 37%;
   border: solid grey 1px;
   border-radius: 10px;
   margin-bottom: 20px;
+  margin-left: 20px;
+  background-color: white;
 }
 
-.images_produit img{
-width: auto;
-margin-left: 87px;
+.corp_produit2{
+  width:80%;
+  border: solid grey 1px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  background-color: white;
+}
+
+.btn.btn-dark{
+  margin-top: 10px;
+  width:45%;
+  height: 30px;
+  color:white;
+  margin-left: 51px;
+  padding: 3px 3px 3px 3px;
+}
+
+.widg_left{
+  width: 20%;
+  border: 1px solid red;
+  height: auto;
+  position:sticky;
+}
+/* .rerchearticle2 {
+  justify-content: center;
+  width: 100%;
+  /* display: flex;
+  align-items: flex-start; */
+*/
+
+.produit_plus_vendu.titreVendu .example-wrapper {
+  margin: 1em auto;
+  max-width: 100%;
+  width: 95%;
+  font: 18px/1.5 sans-serif;
+  display: flex;
+}
+
+.images_produit img {
+  width: 88%;
+  margin-top: 18px;
+  margin-left: 11px;
+ 
+  border-radius: 20px;
+}
+
+.images_produit1 img {
+  width: 80%;
+  margin-top: 18px;
+  margin-left: 11px;
+ 
+  border-radius: 20px;
+}
+
+.images_produit2 img {
+  width: 57%;
+  margin-top: 33px;
+  margin-left: 49px;
+
+  border-radius: 20px;
+}
+
+.descriptifarticle {
+  width: 50%;
+  text-align: left;
+  margin-left: 167px;
+  margin-top: 23px;
 }
 
 .titre_produit{
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: -51px;
+  font-size: 16px;
 }
 
+.titre_produit:hover{
+  text-align: center;
+  margin-bottom: -51px;
+  font-size: 16px;
+  color:red;
+}
+
+.titre_produit1 {
+  /* text-align: center; */
+  margin-bottom: -51px;
+  font-size: 34px;
+  margin-top: 23px;
+  margin-left: 20px;
+}
+.titre_produit1:hover {
+  /* text-align: center; */
+  margin-bottom: -51px;
+  font-size: 34px;
+  margin-top: 23px;
+  margin-left: 20px;
+  color:red;
+}
 .description_produit{ 
   text-align: center;
   margin-bottom: 10px;
@@ -76,6 +170,13 @@ margin-left: 87px;
   text-align: right;
   margin-right: 10px;
   font-size: 40px;
+}
+
+.prix_produit:hover{
+  text-align: right;
+  margin-right: 10px;
+  font-size: 40px;
+  color:red;
 }
 
 .caroussel_article{
@@ -90,6 +191,79 @@ margin-left: 87px;
   color: red;
 }
 
+.descriptif {
+  width: 33%;
+  height: 200Px;
+  margin-top: 103px;
+  margin-left: 63px;
+  border: 1px solid grey;
+  border-radius: 20px;
+}
+
+
+.descriptif1 {
+  width: 38%;
+  height: 433Px;
+  margin-top: 300px;
+  margin-left: 63px;
+  border: 1px solid grey;
+  border-radius: 20px;
+  box-shadow: 3px 3px 2px 1px rgb(11 11 12 / 17%);
+}
+.detail {
+  margin-left: 28px;
+  margin-top: 14px;
+  font-size: 20px;
+  text-decoration: bold;
+  -webkit-text-stroke: thin;
+}
+.ensemble_produit {
+    width: 94%;
+    height: 600px;
+    display: flex;
+    margin-left: 63px;
+    /* border: 1px solid grey; */
+    border-radius: 20px;
+}
+
+.btn-outline-success  {
+  color: grey;
+  border-color: grey;
+}
+
+.titreVendu h1 {
+  color: black;
+  margin-bottom: 56px;
+}
+
+.barrerecherche {
+  width: 67%;
+  display: flex;
+  margin-bottom: 30px;
+  margin-left: 509px;
+}
+
+
+.footer1 {
+  width: 100%;
+  /* border: 1px solid red; */
+  height: 100px;
+  margin-top: 244px;
+  background-color: #dee2e6;
+}
+
+.footer2{
+  width: 100%;
+  /* border: 1px solid red; */
+  height: 200px;
+  margin-top: 290px;
+  background-color: #dee2e6;
+  position: fixed;
+}
+
+a .redirect  {
+  text-align: center;
+}
 
 * {box-sizing:border-box}
 
@@ -137,7 +311,7 @@ margin-left: 87px;
 /* Caption text */
 .text {
   color: black;
-  font-size: 15px;
+  font-size: 30px;
   padding: 8px 12px;
   position: absolute;
   bottom: 8px;
@@ -170,6 +344,10 @@ margin-left: 87px;
   background-color: #717171;
 }
 
+.article_corp{
+  width: 20%;
+}
+
 /* Fading animation */
 .fade {
   animation-name: fade;
@@ -187,9 +365,24 @@ margin-left: 87px;
   height: 770px;
 }
 
-
-
-
-.produit_plus_vendu{
+.produit_plus_vendu {
   width: 100%;
+  height: auto;
+  display: flex;
+  /* border: 1px red solid; */
+  background-color:#ebebeb94; 
+}
+
+.mb-3 {
+  margin-left: 50px;
+}
+.ensemblecard{
+ 
+  margin-left: 50px;
+}
+
+ .voirarticle {
+  color:#dee2e6;
+  background-color: black;
+
 }
