@@ -355,9 +355,12 @@ a .redirect  {
 
 }
 
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+
+.pagination {
+  --bs-pagination-color: #161616;
+  --bs-pagination-hover-color: #8b2531;
+  --bs-pagination-active-bg: #8b2531;
+  --bs-pagination-active-border-color: #8b2531;
 }
 
 .carousel-item img{
@@ -386,3 +389,10 @@ a .redirect  {
   background-color: black;
 
 }
+
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
