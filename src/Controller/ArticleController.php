@@ -27,7 +27,32 @@ class ArticleController extends AbstractController
         ]);
 
     }
+
+    #[Route('/search', name: 'app_main')]
+    public function search(ArticleRepository $articleRepo, Request $request
+    ): Response {
+        //  dd($request);
+    
+        if($search) {
+
+            $articleRepo->search($search)
+
+        } else }
+
+                   $articles = $articleRepo->findAll();
+
+        }
+
+        return $this->render('article/index.html.twig', [
+            'controller_name' => 'ArticleController',
+            'articles' => $articles
+        
+            
+        ]);
+
+    }
 }
+
 // #[Route('/produit/{slug}', name: 'product')]
 //     public function show($): Response
 //     {
