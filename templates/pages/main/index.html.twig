@@ -2,7 +2,7 @@
 
 {% block title %}Hello MainController!
 {% endblock %}
-{% block javascript %}
+{% block javascripts %}
 
 	{{encore_entry_script_tags('slider') }}
 	{{parent()}}
@@ -55,130 +55,87 @@
 	</div>
 
 	<br><br>
-
-
+	
+	{{form_start(form)}}
+	{{form_row(form.q)}}
+	{{form_row(form.submit)}}
+	{{form_end(form)}}
 	{# <div class="barrerecherche"><input class="form-control me-sm-2" type="search" placeholder="Search">
-	      
-	    <button class="btn btn-secondary mt-4" type="submit">Chercher</button></div> #}
+			      
+			    <button class="btn btn-secondary mt-4" type="submit">Chercher</button></div> #}
+	{# <div class="list-group">
+					<br>
+					<input type="text" name="search_text" id="search_text" placeholder="Rechercher un titre" class="form-control form-black"/>
+				</div> #}
 
-
+	<div class="list-group"> 
+		<div class="col-12 col-sm-7 col-md-9 col-xxl-9">
+			<div class="row">
+				<div class="col-10">
+					<h2 class="text-center text-black" style="margin-left:50%;">Recherche avancée</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
 	<div class="rerchearticle2">
 		<div class="list-group">
-			<br>
-			<input type="text" name="search_text" id="search_text" placeholder="Rechercher un titre" class="form-control form-black"/>
-		</div>
-
-		<div class="list-group">
-
-			<div class="col-12 col-sm-7 col-md-9 col-xxl-9">
-				<div class="row">
-					<div class="col-10">
-						<h2 class="text-center text-black">Recherche avancée</h2>
-					</div>
-				</div>
-				<br>
-				{% for article in articles %}
-					<div class="container">
-						<div id="searchSection">
-							<div class="row filter_data">
-								<div class="corp_produit2" style="width:100%">
-									<img src="{{ asset('build/images/' ~ article.images[0]) }}" class="d-block user-select-none" width="27%" height="100" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle">
-									<h2 class="titre_produit">{{ article.nom }}</h2><br><br>
-									{# <div class="description_produit">{{ article.description}}</div> #}
-									<div class="prix_produit">{{ article.prix}}€</div>
-									<div class="voir_article">
-										<a href="{{ path('app_detail_articles' , {'id' : article.id}) }} ">Voir</a>
-
-									</div>
+			{% for article in articles %}
+				<div class="container">
+					<div id="searchSection">
+						<div class="row filter_data">
+							<div class="corp_produit2" style="width:100%">
+								<img src="{{ asset('build/images/' ~ article.images[0]) }}" class="d-block user-select-none" width="20%" height="100" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle">
+								<h2 class="titre_produit">{{ article.nom }}</h2><br><br>
+								{# <div class="description_produit">{{ article.description}}</div> #}
+								<div class="prix_produit">{{ article.prix}}€</div>
+								<div class="voir_article">
+									<a href="{{ path('app_detail_articles' , {'id' : article.id}) }} ">Voir</a>
 								</div>
 							</div>
 						</div>
 					</div>
-				
-
-				{% endfor %}
-				<div style="margin-top: 15px" class="d-flex justify-content-center">
-					<ul class="pagination">
-						<li class="page-item disabled">
-							<a class="page-link" href="#">Previous</a>
-						</li>
-						<li class="page-item active">
-							<a class="page-link" href="#">1</a>
-						</li>
-						<li class="page-item disabled">
-							<a class="page-link" href="#">Next</a>
-						</li>
-					</ul>
 				</div>
+			{% endfor %}
+			<div style="margin-top: 15px" class="d-flex justify-content-center">
+				<ul class="pagination">
+					<li class="page-item disabled">
+						<a class="page-link" href="#">Previous</a>
+					</li>
+					<li class="page-item active">
+						<a class="page-link" href="#">1</a>
+					</li>
+					<li class="page-item disabled">
+						<a class="page-link" href="#">Next</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="footer1"></div>
 
-				<div class="titreVendu">
-				</div>
-				<div class="footer1">
-				</div>
 
-				<script>
-				$(document).ready(function () {
-				
-				filter_data();
-				function filter_data(main) {
-				var action = 'fetch_data';
-				var search_text = $('#search_text').val();
-				// var types = get_filter('types');
-				// var difficulty = get_filter('difficulty');
-				// var check = get_filter('check');
-				// var category = get_filter('category');
-				var filter_ordre = $('#filter_ordre').val();
-				
-				$.ajax({
-				url: "/filter.php",
-				method: "POST",
-				data: {
-				search: 'search',
-				page: page,
-				action: action,
-				types: types,
-				difficulty: difficulty,
-				check: check,
-				category: category,
-				search_text: search_text,
-				filter_ordre: filter_ordre
-				},
-				success: function (data) {
-				$('.filter_data').html(data);
-				}
-				});
-				}
-				$('#searchSection').on('click', '.page-link', function () {
-				var page = $(this).data('page_number');
-				filter_data(page);
-				});
-				
-				$('#search_text').keyup(function () {
-				var search = $(this).val();
-				filter_data();
-				});
-				
-				$("#filter_ordre").change(function () {
-				var langage = $(this).children("option:selected").val();
-				filter_data();
-				
-				});
-				
-				function get_filter(class_name) {
-				var filter = [];
-				$('.' + class_name + ':checked').each(function () {
-				filter.push($(this).val());
-				});
-				return filter;
-				}
-				
-				$('.common_selector').click(function () {
-				filter_data();
-				});
-				
-				});</script>
-			<script>
-				let slideIndex = 0;
+	<script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+	<script>
+
+		function onClickBtn(event) {
+
+event.preventDefault();
+
+const url = this.refresh;
+
+axios.get(url).then(function (response) { // console.log(response);
+})
+}
+
+document.querySelectorAll('a.js').forEach(function (link) {
+link.addEventListener('click', onClickBtn);
+});
+	</script>
+
+	{# <script type="text/javascript" src="js/ajax.js"></script> #}
+	<script>
+		let slideIndex = 0;
 showSlides();
 
 function showSlides() {
@@ -194,5 +151,6 @@ slideIndex = 1
 slides[slideIndex - 1].style.display = "block";
 setTimeout(showSlides, 4000); // Change image every 4 seconds
 }
-			</script>
-		{% endblock %}
+	</script>
+
+{% endblock %}

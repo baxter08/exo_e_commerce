@@ -5,7 +5,7 @@ error_reporting(0);
 
 $bdd = new PDO("mysql:host=127.0.0.1;dbname=exo_e_commerce;charset=utf8", "root", "");
 
-if(isset($_POST["action"]))
+if(isset($_GET["data-action"]))
 {
 	$limit = '3';
 	$page = 1;
@@ -20,11 +20,11 @@ if(isset($_POST["action"]))
 		$start = 0;
 	}
 
-	$query = "SELECT * FROM article LEFT JOIN `description` b ON a.description = b.id  WHERE a.id
+	$query = "SELECT * FROM article LEFT JOIN `nom` b ON a.nom = b.id  WHERE a.id
 	";
 	if(isset($_POST["search_text"]) && !empty($_POST["search_text"])){
 		if($_POST["search_text"]!=" "){
-	 		$query .= " AND nom LIKE '%".$_POST["search_text"]."%'";
+	 		$query .= " AND description LIKE '%".$_POST["search_text"]."%'";
 		}
 	}
 	if(isset($_GET["category"])){
@@ -69,7 +69,7 @@ if(isset($_POST["action"]))
 			$output .= '
 
 			<div class="col-xl-4 col-12" style=" margin-bottom:20px;">
-				<img src="build/images'. $article['images'] .'"> 
+				<img src="build/images'. $article['images'[0]] .'"> 
 				<p>'. $article['nom'] .'</p>
 		 	</div>
 			';

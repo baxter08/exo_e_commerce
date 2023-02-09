@@ -3,13 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use App\Model\SearchData;
 use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\request;
+use Symfony\Component\HttpFoundation\Request;
 
 class ArticleController extends AbstractController
 {
@@ -29,14 +27,17 @@ class ArticleController extends AbstractController
     }
 
     
-    #[Route('/search', name: 'app_index')]
-    public function search(ArticleRepository $articleRepo, Request $request, $search
+    #[Route('/search', name: 're')]
+    public function search(ArticleRepository $articleRepo, Request $request,
     ): Response {
-         dd($request);
+        //  dd($request,);
     
-        if($search) {
+        if($request) {
 
-            $articleRepo->search($search);
+        
+            $articles = $articleRepo->search($request->get('mots'));
+
+            // dd($articles);
 
       
         }else{
@@ -47,13 +48,17 @@ class ArticleController extends AbstractController
 
         return $this->render('article/index.html.twig', [
             'controller_name' => 'jp',
-            'articles' => $articles
+            'articles' => $articles,
+           
            
         
             
         ]);
+        
 
     }
+
+
 
 }
 
