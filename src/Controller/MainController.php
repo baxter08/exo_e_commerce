@@ -61,7 +61,7 @@ class MainController extends AbstractController
     // }
     
     
-    #[Route('/search', name: 'search_text')]
+    #[Route('/', name: 'search_text')]
     public function search(ArticleRepository $articleRepo, Request $request,
     ): Response {
         //  dd($request);

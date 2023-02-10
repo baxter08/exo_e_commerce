@@ -43,13 +43,23 @@ body {
     margin-left: 117px;
 }
 
-.mb-3 {
+.card.mb-3 {
   width: 86%;
   padding: 40px 394px 15px 277px;
-  margin-left: 117px;
+  margin-left: 100px;
 } 
+/* .group{
+  width:80%;
+  height: auto;
+  border: 1px solid green;
+} */
 
 
+.widg{
+  position:right ;
+  display: flex;
+  margin-left:163px;
+}
 .btn-secondary{
   margin-left: 400px;
 }
@@ -64,7 +74,7 @@ body {
 }
 
 .corp_produit2{
-  width:80%;
+  width:50%;
   border: solid grey 1px;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -81,18 +91,35 @@ body {
   padding: 3px 3px 3px 3px;
 }
 
-.widg_left{
-  width: 20%;
-  border: 1px solid red;
-  height: auto;
-  position:sticky;
+.descript {
+  width: 33%;
+  height: 564px;
+  margin-right: 194px;
+  margin-top: 122px;
+  box-shadow: 2px 3px 2px 3px rgb(0 0 0 / 21%);
 }
-/* .rerchearticle2 {
-  justify-content: center;
-  width: 100%;
-  /* display: flex;
-  align-items: flex-start; */
-*/
+
+.card-title {
+  text-align: center;
+  margin-bottom: var(--bs-card-title-spacer-y);
+}
+.card-title1 {
+  text-align: center;
+  margin-bottom: var(--bs-card-title-spacer-y);
+  margin-top: 10px;
+  font-size: 27px;
+}
+.card-subtitle {
+  margin-top: calc(-.5 * var(--bs-card-title-spacer-y));
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.card-subtitle1 {
+  margin-top: calc(-.5 * var(--bs-card-title-spacer-y));
+  margin-bottom: 0;
+  text-align: center;
+}
 
 .produit_plus_vendu.titreVendu .example-wrapper {
   margin: 1em auto;
@@ -166,6 +193,20 @@ body {
   margin-bottom: 10px;
 }
 
+.description_produit1 {
+  text-align: center;
+  margin-top: 85px;
+  margin-bottom: 10px;
+  font-size: 19px;
+}
+
+.solde {
+  width: 24%;
+  margin-top: 75px;
+  display: flex;
+  
+}
+
 .prix_produit{
   text-align: right;
   margin-right: 10px;
@@ -173,6 +214,19 @@ body {
 }
 
 .prix_produit:hover{
+  text-align: right;
+  margin-right: 10px;
+  font-size: 40px;
+  color:red;
+}
+
+.prix_produit2{
+  text-align: right;
+  margin-right: 10px;
+  font-size: 40px;
+}
+
+.prix_produit2:hover{
   text-align: right;
   margin-right: 10px;
   font-size: 40px;
@@ -390,6 +444,21 @@ a .redirect  {
 
 }
 
+.tourecherche{
+display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.div1{
+  width: 50%;
+  text-align: right;  
+  margin-right: 15px;
+}
+
+.div2{
+  width: 50%;
+}
 
 @keyframes fade {
   from {opacity: .4}

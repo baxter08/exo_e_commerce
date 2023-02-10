@@ -58,9 +58,10 @@ class ArticleController extends AbstractController
 
     }
 
+    }
 
 
-}
+
 
 
 

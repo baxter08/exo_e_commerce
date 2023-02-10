@@ -5,30 +5,38 @@
 
 {% block body %}
 
-	{# {% for article in articles.images %}
-	{{article.images}} #}
-	{# {% endfor %} #}
-<div class="ensemble_produit"> 
-        
-    <div class="images_produit1"><img src="{{ asset('build/images/' ~ articles.images[0]) }}"></div>
-    
 
-        <div class="descriptif1">
-			    <div class"titre_produit1">
-		<h2 class="titre_produit1">{{ articles.nom }}</h2><br><br>
-</div>
-<div class="detail">Detail :</div>
- <div class="descriptifarticle"> {{ articles.description}}</div>
-			<div class="prix_produit">{{ articles.prix}}
-				€</div>
+<div class="group">
+		<div class="widg"> 
+			<div class="card mb-5" style="margin-top:120px;width:50%;box-shadow:2px 3px 2px 1px rgba(0, 0, 0, 0.21);">
+				<h3 class="card-header" style="background-color:white;">{{ articles.nom }}</h3>
+					<div class="card-body">
+						{# <h5 class="card-title" style="color:red">Promo du Jour</h5>
+							<h6 class="card-subtitle text-muted">Made in France</h6> #}
+						</div>
+								<img src="{{ asset('build/images/' ~ articles.images[0]) }}" class="d-block user-select-none" width="27%" height="50px" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle">
+									<rect width="27%" height="100%" fill="#868e96"></rect>
+										<text x="30%" y="50%" fill="#dee2e6" dy=".4em">
+											<div class="prix_produit">{{ articles.prix}}€</div>
+										</text>
+								</img>
+						<div class="voir_article">
+				<a href="{{ path('app_detail_articles' , {'id' : articles.id}) }} ">Voir</a>
+			</div>
 		</div>
-	</div>
-{% block footer %}
-<div class="footer1">
-<a class"redirect" href="{{path('app_index')}}"> Accueil</a>
-
-
+	<div class="descript">
+	<h5 class="card-title1"  style="color:red">Promo du Jour</h5>
+	<h6 class="card-subtitle1 text-muted">Made in France</h6>
+	<div class="description_produit1">{{ articles.description}}</div>
+	<img src="{{ asset('build/images/Capture_-_20_-removebg-preview (1).png')}}" class="solde"></div>
+	</div>	
 </div>
-{% endblock %}
 
+{% endblock %}
+{% block footer %}
+	<div class="footer1">
+		<a class"redirect" href="{{path('app_index')}}">
+			Accueil</a>
+
+	</div>
 {% endblock %}
