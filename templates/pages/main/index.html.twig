@@ -93,7 +93,9 @@
 							{# <div class="description_produit">{{ article.description}}</div> #}
 							<div class="prix_produit">{{ article.prix}}€</div>
 							<div class="voir_article">
-								<a href="{{ path('app_detail_articles' , {'id' : article.id}) }} ">Voir</a>
+								<a href="{{ path('app_detail_articles' , {'id' : article.id}) }}" class="btn btn-light mb-2 " style="margin-top:10px:margin-left:10px" >Voir</a>
+								<a href="{{path("cart_add", {'id' : article.id})}}" class="btn btn-light mb-4" style="margin-left:550px">Ajouter</a>
+									<i class="bi bi-cart-plus"></i>
 						</div>
 					</div>
 				</div>
