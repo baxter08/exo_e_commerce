@@ -58,10 +58,78 @@ class CartController extends AbstractController
 
         return $this->redirectToRoute("cart_index");
        
+    }
+
+     /**
+     * @Route("/remove/{id}", name="remove")
+     * @return void
+     */
+    public function remove(Article $article, SessionInterface $session)
+    {
+        //on récupère le panier actuel
+        //mon panier vaudra als soit panier ou soit un tableau vide
+        $panier = $session->get("panier", []);
+        $id = $article->getId();
+      
+        if(!empty($panier[$id])){
+            if($panier[$id] > 1){
+                 $panier[$id]--;  
+            }else{
+                unset($panier[$id]);
+            }
+        }
+        
+        //on sauvgarde ds la session
+        $session->set("panier", $panier);
+
+        return $this->redirectToRoute("cart_index");
+       
+      
+       
+    }
+
+     /**
+     * @Route("/delete/{id}", name="delete")
+     * @return void
+     */
+    public function delete(Article $article, SessionInterface $session)
+    {
+        //on récupère le panier actuel
+        //mon panier vaudra als soit panier ou soit un tableau vide
+        $panier = $session->get("panier", []);
+        $id = $article->getId();
+      
+        if(!empty($panier[$id])){
+                unset($panier[$id]);
+            
+        }
+        
+        //on sauvgarde ds la session
+        $session->set("panier", $panier);
+
+        return $this->redirectToRoute("cart_index");
+       
+      
+       
+    }
+
+     /**
+     * @Route("/delete", name="delete_all")
+     * @return void
+     */
+    public function deleteall(SessionInterface $session)
+    {
+       
+
+        $session->set("panier", []);
+
+        return $this->redirectToRoute("cart_index");
+       
       
        
     }
 }
+
 
 
     // $session->set("panier", 3);

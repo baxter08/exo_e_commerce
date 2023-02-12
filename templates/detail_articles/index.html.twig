@@ -21,7 +21,8 @@
 										</text>
 								</img>
 						<div class="voir_article">
-				<a href="{{ path('app_detail_articles' , {'id' : articles.id}) }} ">Voir</a>
+				{# <a href="{{ path('app_detail_articles' , {'id' : articles.id}) }}" class="btn btn-light mb-2 " style="margin-top:10px:margin-left:10px" >Voir</a> #}
+				<a href="{{path("cart_add", {'id' : articles.id})}}" class="btn btn-light mb-2" style="align-items:center;border:1px solid grey">Ajouter</a>
 			</div>
 		</div>
 	<div class="descript">
