@@ -473,3 +473,11 @@ display: flex;
   to {opacity: 1}
 }
 
+.ligne_top{
+  height: 100px;
+  padding-top: 5vh;
+}
+
+.hauteur{
+  height: 115px;
+}
