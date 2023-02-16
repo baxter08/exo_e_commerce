@@ -1,0 +1,24 @@
+{% for article in articles %}
+				<div class="rerchearticle2">
+					<div class="container">
+						<div id="searchSection">
+							<div class="row filter_data">
+								<div class="corp_produit2" style="width:100%">
+									<img src="{{ asset('build/images/' ~ article.images[0]) }}" class="d-block user-select-none" width="20%" height="100" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle">
+									<h2 class="titre_produit">{{ article.nom }}</h2><br><br>
+									{# <div class="description_produit">{{ article.description}}</div> #}
+									<div class="prix_produit">{{ article.prix}}€</div>
+									<div class="voir_article">
+										<a href="{{ path('app_detail_articles' , {'id' : article.id}) }}" class="btn btn-light mb-2 " style="margin-top:10px:margin-left:10px">Voir</a>
+										<a href="{{path("cart_add", {'id' : article.id})}}" class="btn btn-light mb-4" style="margin-left:550px">Ajouter</a>
+										<i class="bi bi-cart-plus"></i>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			{% endfor %}

@@ -21,12 +21,14 @@ class SearchType extends AbstractType
             ])
 
         ->add('submit', SubmitType::class,[
+            'label_format' => 'border:1px solid black',
             'attr'=> [
                 'class'=> 'btn btn-light'
             ],
-            'label' => 'Filtrer'
-        ])
-        ;
+            'label' => 'Rechercher'
+            
+        ]);
+        
     }
 
     public function configureOptions(OptionsResolver $resolver)
