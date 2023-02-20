@@ -1,7 +1,10 @@
 framework:
-    default_locale: en
+    default_locale: fr
     translator:
         default_path: '%kernel.project_dir%/translations'
+        paths:
+            - '%kernel.project_dir%/translations'
+            - '%kernel.project_dir%/vendor/easycorp/easyadmin-bundle/src/Resources/translations'
         fallbacks:
             - en
 #        providers:
