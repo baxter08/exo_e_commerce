@@ -6,7 +6,7 @@ framework:
             - '%kernel.project_dir%/translations'
             - '%kernel.project_dir%/vendor/easycorp/easyadmin-bundle/src/Resources/translations'
         fallbacks:
-            - en
+            - fr
 #        providers:
 #            crowdin:
 #                dsn: '%env(CROWDIN_DSN)%'
