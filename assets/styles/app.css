@@ -44,22 +44,20 @@ body {
     color:black;
 }
 
-.d-block{
-    width: 68%;
-    height:400px;
-    margin-left: 117px;
+.d-block {
+  width: 91%;
+  height: 165px;
+  /* margin-left: 123px; */
+  margin-bottom: 10px;
 }
-
 .card.mb-3 {
   width: 86%;
-  padding: 40px 394px 15px 277px;
+  padding: 39px 394px 15px 420px;
   margin-left: 100px;
 } 
-/* .group{
-  width:80%;
-  height: auto;
-  border: 1px solid green;
-} */
+.container{
+  flex-direction: column;
+}
 
 
 .widg{
@@ -85,7 +83,7 @@ body {
   border: solid grey 1px;
   border-radius: 10px;
   margin-bottom: 20px;
-  margin-left: 30px;
+  margin-left: 10px;
   background-color: white;
 }
 
@@ -100,7 +98,7 @@ body {
 
 .descript {
   width: 34%;
-  height: 600px;
+  height: 507px;
   margin-right: 194px;
   margin-top: 122px;
   box-shadow: 2px 3px 2px 3px rgb(0 0 0 / 21%);
@@ -208,16 +206,16 @@ body {
   padding: 10px 14px 11px 14px;
 }
 .solde {
-  width: 24%;
-  margin-top: 75px;
+  width: 20%;
+  margin-top: 22px;
   display: flex;
-  
 }
 
-.prix_produit{
+.prix_produit {
   text-align: right;
   margin-right: 5px;
-  font-size: 40px;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .prix_produit:hover{
@@ -480,4 +478,53 @@ display: flex;
 
 .hauteur{
   height: 115px;
+}
+.rerchearticle2 {
+  border: 1px solid red;
+  width: 100%;
+  display: flex;
+  height: 1681px;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+}
+
+.container_jp{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.cards_ensemble_jp{
+  width: 23%;
+  margin: 15px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.image_jp{
+  margin-top: 10px;
+}
+
+.image_jp img {
+  width: 78%;
+  margin-left: 47px;
+  height: 91%;
+}
+
+.titre_produit_jp{
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.prix_produit_jp{
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.voir_article_jp{
+  display: flex;
 }

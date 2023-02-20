@@ -1,3 +1,6 @@
+
+
+
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello MainController!
@@ -64,7 +67,7 @@
 		<div class="tourecherche">
 
 			<div class="div1">
-				{{form_start(form)}}
+				{{form_start(form, {'id': 'search_q'})}}
 				{{form_row(form.q)}}
 			</div>
 			<div class="div2">
@@ -72,7 +75,7 @@
 				{{form_end(form)}}</div>
 
 		</div>
-		<div class="list-group">
+		{# <div class="list-group"> #}
 			<div class="col-12 col-sm-7 col-md-9 col-xxl-9">
 				<div class="row">
 					<div class="col-10">
@@ -82,10 +85,16 @@
 			</div>
 			<br>
 
+			{# <div id="container" style="widt:723px">
 			{% include 'pages/main/result.html.twig'%}
-				
+			</div> #}
 
-			<div style="margin-top: 15px" class="d-flex justify-content-center">
+			<div class="container_jp" id="container_jp">
+{% include 'pages/main/result.html.twig'%}
+
+			</div>
+
+			{# <div style="margin-top: 15px" class="d-flex justify-content-center">
 				<ul class="pagination">
 					<li class="page-item disabled">
 						<a class="page-link" href="#">Previous</a>
@@ -97,9 +106,8 @@
 						<a class="page-link" href="#">Next</a>
 					</li>
 				</ul>
-			</div>
+			</div> #}
 		</div>
-<
 		<div class="footer1"></div>
 
 
@@ -137,4 +145,5 @@ slides[slideIndex - 1].style.display = "block";
 setTimeout(showSlides, 4000); // Change image every 4 seconds
 }
 		</script>
+
 	{% endblock %}

@@ -57,8 +57,21 @@ class ArticleController extends AbstractController
         
 
     }
+    
+    #[Route('/result', name: 'app_result')]
+public function result(ArticleRepository $articleRepo, Request $request)
+{
+    $articles = $articleRepo->search($request->get('keywords'));
+    $keywords = $request->get('keywords');
+
+    return $this->render('pages/main/result.html.twig', [
+        'articles' => $articles,
+        'keywords' => $keywords
+    ]);
+}
 
 }
+
 
 
 
