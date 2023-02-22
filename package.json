@@ -24,6 +24,7 @@
     "dependencies": {
         "bootstrap": "^5.3.0-alpha1",
         "bootstrap-icons": "^1.10.3",
-        "htmx.org": "^1.8.5"
+        "htmx.org": "^1.8.5",
+        "swiper": "^9.0.5"
     }
 }

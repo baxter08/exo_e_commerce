@@ -7,6 +7,8 @@
 {% endblock %}
 {% block javascripts %}
 {{ encore_entry_script_tags('ajax')}}
+{{ encore_entry_script_tags('app')}}
+{{ encore_entry_script_tags('slides')}}
 	{{encore_entry_script_tags('slider') }}
 	{{parent()}}
 {% endblock %}
@@ -63,7 +65,23 @@
 
 		<br><br>
 
-		
+		<div class="group_complet">
+<div class="carousel">
+  <ul class="slides">
+    {% for article in articles %}
+    <a><img src="{{asset('build/images/desktop-top-banner-1920x840-home-65895391a1058202e380aa6f485d0726.jpg')}}" style="margin-left:-35px"></a>
+	
+	<a><img src="{{asset('build/images/d.jpg')}}"></a>
+	 
+	{% endfor %}
+  </ul>
+  
+  <nav class="carousel-nav">
+    <button class="prevp"><</button>
+    <button class="nextm">></button>
+  </nav>
+</div>
+</div>
 		<div class="tourecherche">
 
 			<div class="div1">
@@ -93,27 +111,12 @@
 {% include 'pages/main/result.html.twig'%}
 
 			</div>
+			
 
-			{# <div style="margin-top: 15px" class="d-flex justify-content-center">
-				<ul class="pagination">
-					<li class="page-item disabled">
-						<a class="page-link" href="#">Previous</a>
-					</li>
-					<li class="page-item active">
-						<a class="page-link" href="#">1</a>
-					</li>
-					<li class="page-item disabled">
-						<a class="page-link" href="#">Next</a>
-					</li>
-				</ul>
-			</div> #}
-		</div>
 		<div class="footer1"></div>
 
-
-		<script src="js/app.js"></script>
-
-		<script>
+<script src="./assets/js/app.js"></script>
+<script>
 			function onClickBtn(event) {
 
 event.preventDefault();
