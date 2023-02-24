@@ -20,7 +20,7 @@ class ArticleCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            ImageField::new(propertyName: 'imageFile')
+            ImageField::new(propertyName: 'image')
             ->setLabel(label: 'image'),
             IdField::new('id'),
             TextField::new('nom'),

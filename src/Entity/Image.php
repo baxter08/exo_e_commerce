@@ -2,14 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ImageRepository;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Doctrine\ORM\Mapping as ORM;
 
 
-#[Vich\Uploadable]
 #[ORM\Entity(repositoryClass: ImageRepository::class)]
 class Image
 {
@@ -21,20 +17,18 @@ class Image
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
-    
-    #[Vich\UploadableField(mapping: 'article_image', fileNameProperty: 'imageName', size: 'imageSize')]
-    private $imageFile;
-
-
     #[ORM\ManyToOne(inversedBy: 'images')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Article $Article = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    private ?\DateTimeImmutable $created_at = null;
 
+    public function __construct()
+    {
+        $this->created_at = new \DateTimeImmutable();
+    }
 
-    
     public function getId(): ?int
     {
         return $this->id;
@@ -52,27 +46,6 @@ class Image
         return $this;
     }
 
-    /**
-     * @return File|null
-     */
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
-    }
-
-    /**
-     * @param File|UploadedFile|null $imageFile
-     */
-    public function setImageFile(?File $imageFile = null)
-    {
-        $this->image = $imageFile;
-
-        if(null !== $imageFile) {
-            $this->createdAt = new \DateTimeImmutable();
-        }
-
-    }
-
     public function getArticle(): ?Article
     {
         return $this->Article;
@@ -85,20 +58,20 @@ class Image
         return $this;
     }
 
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
     public function __toString()
     {
         return $this->image;
-    }
-
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
     }
 }
