@@ -70,6 +70,8 @@ public function result(ArticleRepository $articleRepo, Request $request)
     ]);
 }
 
+
+
 }
 
 

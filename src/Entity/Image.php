@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ImageRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: ImageRepository::class)]
 class Image
 {
@@ -20,6 +21,8 @@ class Image
     #[ORM\JoinColumn(nullable: false)]
     private ?Article $Article = null;
 
+
+    
     public function getId(): ?int
     {
         return $this->id;

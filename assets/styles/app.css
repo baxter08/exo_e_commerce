@@ -594,6 +594,20 @@ display: flex;
   color:black;
 }
 
+.container_bande{
+  width: 100%;
+  height: 100px;
+  background-color: white;
+}
 
+.container_bande2{
+  width: 100%;
+  height: 70px;
+  background-color: rgb(14, 9, 9);
+}
 
-
+.container_bande3{
+  width: 100%;
+  height: 100px;
+  background-color: gray;
+}
