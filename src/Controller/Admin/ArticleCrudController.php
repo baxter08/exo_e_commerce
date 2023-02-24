@@ -21,7 +21,7 @@ class ArticleCrudController extends AbstractCrudController
     {
         return [
             ImageField::new(propertyName: 'imageFile')
-            ->setLabel(label: 'images'),
+            ->setLabel(label: 'image'),
             IdField::new('id'),
             TextField::new('nom'),
             TextEditorField::new('description'),
