@@ -5,40 +5,34 @@
 
 {% block body %}
 
-    <div class="titreVendu" style="background-color:transparent;padding-top:20px">
-        <h1>Les articles les plus vendus :</h1>
-        {% if articles is empty %}
-            <p>Aucun article n'a été vendu</p>
-        {% else %}
-            {% for article, quantity in best_selling_articles %}
-                <div class="card mb-3" style="margin-left:400px;width:54%;box-shadow:2px 3px 2px 1px rgba(0, 0, 0, 0.21);">
-                    <h3 class="card-header" style="background-color:white;">{{ article.nom }}</h3>
-                    <div class="card-body">
-                        <h5 class="card-title" style="color:red">Promo du Jour</h5>
-                        <h6 class="card-subtitle text-muted">Made in France</h6>
-                    </div>
-                    <img src="{{ asset('build/images/' ~ article.images[0]) }}" class="d-block user-select-none" width="27%" height="100" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle">
-                    <rect width="27%" height="100%" fill="#868e96"></rect>
-                    <text x="30%" y="50%" fill="#dee2e6" dy=".4em">
-                        <div class="prix_produit">{{ article.prix }}€</div>
-                    </text>
-                    </img>
-                    <div class="boutte_group11">
-                        <div class="voir_article">
-                            <a href="{{ path('app_detail_articles' , {'id' : article.id}) }}" class="btn btn-light mb-4 " style=":margin-left:10px;border:1px solid grey">Voir</a>
-                        </div>
-                        <div class="ajouter_article">
-                            <a href="{{ path('cart_add', {'id': article.id}) }}" class="btn btn-light mb-4" style="margin-top:10px:margin-left:10px;border:1px solid grey">Ajouter</a>
-                        </div>
-                    </div>
-                    <div class="card-footer text-muted">
-                        Vendu {{ quantity }} fois
-                    </div>
-                </div>
-            {% endfor %}
-        {% endif %}
+	<div class="titreVendu" style="background-color:transparent;padding-top:20px">
+		<h1>Les articles les plus vendu :</h1>
+		<div class="widg_left">
+			{% for article in articles %}
+				<div class="card mb-3" style="margin-left:400px;width:54%;box-shadow:2px 3px 2px 1px rgba(0, 0, 0, 0.21);">
+					<h3 class="card-header" style="background-color:white;">{{ article.nom }}</h3>
+					<div class="card-body">
+						<h5 class="card-title" style="color:red">Promo du Jour</h5>
+						<h6 class="card-subtitle text-muted">Made in France</h6>
+					</div>
+					<img src="{{ asset('build/images/' ~ article.images[0]) }}" class="d-block user-select-none" width="27%" height="100" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle">
+						<rect width="27%" height="100%" fill="#868e96"></rect>
+						<text x="30%" y="50%" fill="#dee2e6" dy=".4em">
+							<div class="prix_produit">{{ article.prix}}€</div>
+						</text>
+					</img>
+					<div class="boutte_group11">
+						<div class="voir_article">
+							<a href="{{ path('app_detail_articles' , {'id' : article.id}) }}" class="btn btn-light mb-4 " style=":margin-left:10px;border:1px solid grey">Voir</a>
+						</div>
+						<div class="ajouter_article">
+							<a href="{{path("cart_add", {'id' : article.id})}}" class="btn btn-light mb-4" style="margin-top:10px:margin-left:10px;border:1px solid grey">Ajouter</a>
+						</div>
+					</div>
+				</div>
 
-        <div class="mt-4"></div>
-        <div class="footer1"></div>
-    </div>
-{% endblock %}
+			{% endfor %}
+
+			<div class="mt-4"></div>
+			<div class="footer1"></div>
+		{% endblock %}

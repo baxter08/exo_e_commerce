@@ -76,11 +76,6 @@ public function result(ArticleRepository $articleRepo, Request $request)
 
 
 
-
-
-
-
-
 // #[Route('/produit/{slug}', name: 'product')]
 //     public function show($): Response
 //     {
