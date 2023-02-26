@@ -9,7 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -26,7 +26,7 @@ class InscriptionType extends AbstractType
             'minlenght' => '2',
             'maxlenght' => '50',
             ],
-            'label' => 'nom',
+            'label' => 'Nom',
             'label_attr' => [
             'class' =>'form-label mt-4'
             ],
@@ -43,7 +43,7 @@ class InscriptionType extends AbstractType
                 'maxlenght' => '50',
                 ],
                 'required' => false,
-                'label' => 'pseudo',
+                'label' => 'Pseudo',
                 'label_attr' => [
                 'class' =>'form-label mt-4'
                 ],
@@ -58,7 +58,7 @@ class InscriptionType extends AbstractType
             'minlenght' => '2',
             'maxlenght' => '50',
             ],
-            'label' => 'prenom',
+            'label' => 'Prénom',
             'label_attr' => [
             'class' =>'form-label mt-4'
             ],
@@ -86,35 +86,53 @@ class InscriptionType extends AbstractType
 
             ])
 
-            ->add('password', RepeatedType::class,[
-                'type' => PasswordType::class,
-                'first_options' => [
+            ->add('email', EmailType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ],
-                'label' => 'Mots de passe',
+                'label' => 'Email',
                 'label_attr' => [
                     'class' => 'form-label mt-4'
+                ],
+                'constraints' => [
+                    new Assert\NotBlank(),
+                    new Assert\Email(),
+                    new Assert\Length(['max' => 180])
                 ]
-            ],
+            ])
+            ->add('password', RepeatedType::class,[
+                'type' => PasswordType::class,
+                'first_options' => [
+                    'attr' => [
+                        'class' => 'form-control'
+                    ],
+                    'label' => 'Mot de passe',
+                    'label_attr' => [
+                        'class' => 'form-label mt-4'
+                    ],
+                    'constraints' => [
+                        new Assert\NotBlank(),
+                        new Assert\Length(['min' => 6, 'max' => 32]),
+                        new Assert\Regex('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,32}$/')
+                    ],
+                ],
                 'second_options' => [
                     'attr' => [
                         'class' => 'form-control'
                     ],
-                    'label' => 'Confirmation du Mots de passe',
+                    'label' => 'Confirmation du mot de passe',
                     'label_attr' => [
                         'class' => 'form-label mt-4'
                     ]
                 ],
-                'invalid_message' => 'les mots de passe ne corespondent pas. '
+                'invalid_message' => 'Les mots de passe ne correspondent pas. Veuillez choisir un mot de passe contenant au moins une lettre majuscule, une lettre minuscule et un chiffre.',
             ])
-
             ->add('submit', SubmitType::class,[
                 'attr' => [
-                'class' => 'btn btn-secondary mt-4'
-                ]
-            ])
-        ;
+                    'class' => 'btn btn-secondary mt-4'
+                ],
+                'label' => 'S\'inscrire'
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
