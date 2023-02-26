@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
 class Commande
 {
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -33,6 +34,8 @@ class Commande
     #[ORM\JoinColumn(nullable: false)]
     private ?Article $Article = null;
 
+
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -109,4 +112,7 @@ class Commande
 
         return $this;
     }
+
+    
 }
+

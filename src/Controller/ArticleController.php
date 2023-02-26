@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\OrderItem;
 use App\Repository\ArticleRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 
 class ArticleController extends AbstractController
 {
@@ -26,7 +28,33 @@ class ArticleController extends AbstractController
 
     }
 
-    
+     /**
+     * @param EntityManagerInterface $entityManager
+     * @param int $limit
+     * @return array
+     */
+    public static function getBestSellingArticles(EntityManagerInterface $entityManager, int $limit = 10): array
+    {
+        $bestSellingArticles = $entityManager->getRepository(OrderItem::class)->getBestSellingArticles();
+        $queryBuilder = $entityManager->createQueryBuilder();
+
+        $queryBuilder
+            ->select('article', 'SUM(item.quantity) as totalQuantity')
+            ->from(OrderItem::class, 'item')
+            ->join('item.article', 'article')
+            ->groupBy('article')
+            ->orderBy('totalQuantity', 'DESC')
+            ->setMaxResults($limit);
+
+        $query = $queryBuilder->getQuery();
+
+        return $query->getResult([
+            'bestSellingArticles' => $bestSellingArticles
+        ]
+            );
+        
+    }
+
     #[Route('/search', name: 're')]
     public function search(ArticleRepository $articleRepo, Request $request,
     ): Response {
@@ -69,6 +97,8 @@ public function result(ArticleRepository $articleRepo, Request $request)
         'keywords' => $keywords
     ]);
 }
+
+
 
 
 
