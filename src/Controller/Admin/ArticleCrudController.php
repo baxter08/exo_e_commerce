@@ -1,13 +1,13 @@
 <?php
-
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -16,18 +16,20 @@ class ArticleCrudController extends AbstractCrudController
         return Article::class;
     }
 
-    
     public function configureFields(string $pageName): iterable
     {
-        return [
-            ImageField::new(propertyName: 'image')
-            ->setLabel(label: 'image'),
-            IdField::new('id'),
-            TextField::new('nom'),
-            TextEditorField::new('description'),
-        ];
+        yield IdField::new('id');
+        yield TextField::new('nom');
+        yield TextareaField::new('description');
+        // yield ImageField::new('image')
+        //     ->setBasePath('upload/images/articles')
+        //     ->setUploadDir('public/upload/images/articles')
+        //     ->setFormType(ImageType::class);
     }
- 
-           
-       
+    
 }
+
+
+
+
+

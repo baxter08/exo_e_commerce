@@ -1,26 +1,57 @@
-{# templates/index.html.twig #}
-
 {% extends 'base.html.twig' %}
 
-{% block title %}Les 10 articles les plus vendus{% endblock %}
-
 {% block body %}
-    <h1>Les 10 articles les plus vendus</h1>
+    <h1>Liste des commandes les plus chères et ou ya le plus d'article commander </h1>
 
     <table>
         <thead>
-            <tr>
-                <th>Article</th>
-                <th>Quantité vendue</th>
+            <tr style="padding:10px 10px 10px 10px">
+			<th></th>
+                <th style="padding:10px 10px 10px 10px">ID</th>
+				<th></th>
+                <th>Montant |</th>
+				<th></th>
+                <th>Quantite</th>
+                <th></th>
+                <th>Date de création |</th>
+				<th></th>
             </tr>
         </thead>
         <tbody>
-            {% for article in getBestSellingArticles %}
+            {% for commande in commandes %}
                 <tr>
-                    <td>{{ article[0].getTitle() }}</td>
-                    <td>{{ article['totalQuantity'] }}</td>
+				<td></td>
+                    <td style="padding:10px 10px 10px 10px">{{ commande.id }}</td>
+					<td></td>
+                    <td>{{ commande.montant }}</td>
+					<td></td>
+                    <td>{{ commande.quantite }}</td>
+                    <td></td>
+                    <td>{{ commande.getCreatedAt()|date('d/m/Y H:i:s') }}</td>
+					<td></td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+
+    {# <h1>Liste des articles commandés</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="padding:10px 50px 10px 50px">ID</th>
+                <th>Nom</th>
+                <th>prix</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+                <tr >
+                    <td style="padding:10px 50px 10px 50px">{{ article.id }}</td>
+                    <td>{{ article.nom }}</td>
+                    <td>{{ article.prix }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table> #}
 {% endblock %}

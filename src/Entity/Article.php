@@ -16,6 +16,8 @@ use App\Entity\Commande;
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
+   
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -184,7 +186,7 @@ class Article
         return $this;
     }
 
-   
+  
    
 
 }

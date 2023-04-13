@@ -1,10 +1,15 @@
 <?php
 
 namespace App\Entity;
-
+use App\Entity\Article;
+use App\Entity\Commande;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+
+
+/**
+ * @entity
+ */
 class Order
 {
     #[ORM\Id]

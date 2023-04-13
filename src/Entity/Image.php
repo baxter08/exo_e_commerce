@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\ImageRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ImageRepository;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+
 
 
 #[ORM\Entity(repositoryClass: ImageRepository::class)]
@@ -28,15 +30,17 @@ class Image
     {
         $this->created_at = new \DateTimeImmutable();
     }
+    
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getImage(): ?string
+    public function getImage(): ?ImageField 
     {
         return $this->image;
+        
     }
 
     public function setImage(string $image): self
@@ -74,4 +78,5 @@ class Image
     {
         return $this->image;
     }
+    
 }
