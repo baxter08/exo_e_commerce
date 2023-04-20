@@ -1,0 +1,10 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block body_class 'page-content'%}
+
+{% block body_title %}
+{% endblock %}
+
+{% block content_title %}{{ block('page_title')}}{% endblock %}
+
+{% block main %}{{ block('page_content')}}{% endblock %}

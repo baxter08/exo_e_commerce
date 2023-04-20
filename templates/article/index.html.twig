@@ -1,55 +1,57 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ArticleController!
-{% endblock %}
-
 {% block body %}
-		
-<div class="titreVendu" style="background-color:transparent;padding-top:20px">	
-<h1>Les articles les plus vendu :</h1>
- <div class="widg_left">
-		{% for article in articles %}
-			<div class="card mb-3" style="margin-left:390px;width:70%;box-shadow:2px 3px 2px 1px rgba(0, 0, 0, 0.21);">
-				<h3 class="card-header" style="background-color:white;">{{ article.nom }}</h3>
-				<div class="card-body">
-					<h5 class="card-title"  style="color:red">Promo du Jour</h5>
-					<h6 class="card-subtitle text-muted">Made in France</h6>
-				</div>
-				<img src="{{ asset('build/images/' ~ article.images[0]) }}" class="d-block user-select-none" width="27%" height="100" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle">
-					<rect width="27%" height="100%" fill="#868e96"></rect>
-					<text x="30%" y="50%" fill="#dee2e6" dy=".4em">
-						<div class="prix_produit">{{ article.prix}}€</div>
-					</text>
-				</img>
-				<div class="voir_article">
-					<a href="{{ path('app_detail_articles' , {'id' : article.id}) }} ">Voir</a>
-				</div>
-			</div>
+    <h1>Liste des commandes les plus chères et ou ya le plus d'article commander </h1>
 
-		{% endfor %}
-		{# <div class="titreVendu">
-		
-			<h1>Les articles les plus vendu</h1>
-		
-			<div class="produit_plus_vendu"><br><br>
-				<div class="example-wrapper">
-		
-					{# <h1>Liste des articles</h1><br><br> #}
-	{# {% for article in articles %} #}
-		{# <div class="corp_produit2"> #}
-		{# <div class="images_produit2"><img src="{{ asset('build/images/' ~ article.images[0]) }}"></div> #}
-		{# <h2 class="titre_produit">{{ article.nom }}</h2><br><br> #}
-		{# <div class="description_produit">{{ article.description}}</div> #}
-		{# <div class="prix_produit">{{ article.prix}}€</div>
-		        <div class="voir_article"><a href="{{ path('app_detail_articles' , {'id' : article.id}) }} ">Voir</a> #}
-		{# </div>
-		</div>
-		 </div>  #}
+    <table>
+        <thead>
+            <tr style="padding:10px 10px 10px 10px">
+			<th></th>
+                <th style="padding:10px 10px 10px 10px">ID</th>
+				<th></th>
+                <th>Montant |</th>
+				<th></th>
+                <th>Quantite</th>
+                <th></th>
+                <th>Date de création |</th>
+				<th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for commande in commandes %}
+                <tr>
+				<td></td>
+                    <td style="padding:10px 10px 10px 10px">{{ commande.id }}</td>
+					<td></td>
+                    <td>{{ commande.montant }}</td>
+					<td></td>
+                    <td>{{ commande.quantite }}</td>
+                    <td></td>
+                    <td>{{ commande.getCreatedAt()|date('d/m/Y H:i:s') }}</td>
+					<td></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-		{# {% endfor %} #}
-		{# <a href ="{{ path ('article', {'id': article.id })}}"> <img src="public/build/images/{{article.images}}" alt="{{ article.nom}}" class="img-fluid"> </a> #}
-<div class="mt-4">
+    {# <h1>Liste des articles commandés</h1>
 
-</div>
-<div class="footer1"></div>
-	{% endblock %}
+    <table>
+        <thead>
+            <tr>
+                <th style="padding:10px 50px 10px 50px">ID</th>
+                <th>Nom</th>
+                <th>prix</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+                <tr >
+                    <td style="padding:10px 50px 10px 50px">{{ article.id }}</td>
+                    <td>{{ article.nom }}</td>
+                    <td>{{ article.prix }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table> #}
+{% endblock %}

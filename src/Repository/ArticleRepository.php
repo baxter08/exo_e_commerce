@@ -21,10 +21,12 @@ class ArticleRepository extends ServiceEntityRepository
         parent::__construct($registry, Article::class);
     }
 
+    
+
     public function save(Article $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
-
+        
         if ($flush) {
             $this->getEntityManager()->flush();
         }
@@ -39,20 +41,32 @@ class ArticleRepository extends ServiceEntityRepository
         }
     }
 
+    public function countArticlesByArticle(): array
+{
+    return $this->createQueryBuilder('a')
+        ->leftJoin('a.lignesCommandes', 'lc')
+        ->select('a.id, a.designation, a.prixUnitaire, COUNT(lc.id) as nbArticles')
+        ->groupBy('a.id')
+        ->orderBy('nbArticles', 'DESC')
+        ->getQuery()
+        ->getResult();
+}
    /**
     * @return Article[] Returns an array of Article objects
    */
-    public function findByExampleField($search): array
+    public function search($mots)
     {
-        return $this->createQueryBuilder('a')
-           ->andWhere('a.description LIKE:val')
-            ->setParameter('val', $search)
+        return $this->createQueryBuilder('a')    
+           ->andWhere('a.nom LIKE :val')
+            ->setParameter('val', "%{$mots}%")
            ->orderBy('a.id', 'ASC')
-           ->setMaxResults(10)
+           ->setMaxResults(3)
            ->getQuery()
            ->getResult()
        ;
   }
+
+  
 
 //    public function findOneBySomeField($value): ?Article
 //    {
