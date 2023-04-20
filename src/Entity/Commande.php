@@ -55,6 +55,7 @@ class Commande
 
     public function getQuantite(): ?int
     {
+        
         return $this->quantite;
     }
 
@@ -103,16 +104,26 @@ class Commande
 
     public function getArticle(): ?Article
     {
+        
         return $this->Article;
     }
 
     public function setArticle(?Article $Article): self
     {
+        
         $this->Article = $Article;
-
+    
         return $this;
     }
 
+    protected $createdAt;
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    
     
 }
 

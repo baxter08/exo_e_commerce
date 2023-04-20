@@ -26,7 +26,7 @@ class ArticleRepository extends ServiceEntityRepository
     public function save(Article $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
-
+        
         if ($flush) {
             $this->getEntityManager()->flush();
         }
@@ -41,6 +41,16 @@ class ArticleRepository extends ServiceEntityRepository
         }
     }
 
+    public function countArticlesByArticle(): array
+{
+    return $this->createQueryBuilder('a')
+        ->leftJoin('a.lignesCommandes', 'lc')
+        ->select('a.id, a.designation, a.prixUnitaire, COUNT(lc.id) as nbArticles')
+        ->groupBy('a.id')
+        ->orderBy('nbArticles', 'DESC')
+        ->getQuery()
+        ->getResult();
+}
    /**
     * @return Article[] Returns an array of Article objects
    */
