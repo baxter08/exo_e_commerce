@@ -50,6 +50,12 @@ body {
   /* margin-left: 123px; */
   margin-bottom: 10px;
 }
+.ensemble_article{
+  border:solid red 1px;
+  width: 66%;
+  height: 800px;
+}
+
 .card.mb-3 {
   width: 86%;
   padding: 39px 394px 15px 420px;

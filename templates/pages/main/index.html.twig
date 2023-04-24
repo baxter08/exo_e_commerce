@@ -3,9 +3,9 @@
 {% block title %}Accueil
 {% endblock %}
 {% block javascripts %}
-{{ encore_entry_script_tags('ajax')}}
-{{ encore_entry_script_tags('app')}}
-{{ encore_entry_script_tags('slides')}}
+	{{ encore_entry_script_tags('ajax')}}
+	{{ encore_entry_script_tags('app')}}
+	{{ encore_entry_script_tags('slides')}}
 	{{encore_entry_script_tags('slider') }}
 	{{parent()}}
 {% endblock %}
@@ -15,7 +15,7 @@
 	<div id="response-div">
 		<div class="slideshow-container active">
 
-			{% for article in articles %}
+			
 				<!-- Full-width images with number and caption text -->
 				<div
 					class="mySlides active ">
@@ -44,7 +44,7 @@
 
 				</div>
 
-			{% endfor %}
+			
 
 			<!-- Next and previous buttons -->
 			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -63,29 +63,28 @@
 		<br><br>
 
 		<div class="group_complet">
-<div class="carousel">
-  <ul class="slides">
-    {% for article in articles %}
-    <a><img src="{{asset('build/images/FRNACHINI_DOUCHE.jpg')}}" style="margin-left:-35px"></a>
-	
-	<a><img src="{{asset('build/images/FRNACHINI_DOUCHE.jpg')}}"></a>
-	 
-	<a style="margin-left:-140px"><img src="{{asset('build/images/FRNACHINI_DOUCHE.jpg')}}"></a>
-	{% endfor %}
-  </ul>
-  
-  <nav class="carousel-nav">
-    <button class="prevp"><</button>
-    <button class="nextm">></button>
-  </nav>
- 
-</div>
- 
-</div>
-<div class="container_bande">
-<div class="container_bande2"></div>
+			<div class="carousel">
+				<ul class="slides">
+					{% for article in articles %}
+						<a><img src="{{asset('build/images/FRNACHINI_DOUCHE.jpg')}}" style="margin-left:-35px"></a>
 
-</div>
+						<a><img src="{{asset('build/images/FRNACHINI_DOUCHE.jpg')}}"></a>
+
+						<a style="margin-left:-140px"><img src="{{asset('build/images/FRNACHINI_DOUCHE.jpg')}}"></a>
+					{% endfor %}
+				</ul>
+
+				<nav class="carousel-nav">
+					<button class="prevp"><</button><buttonclass="nextm">></button>
+				</nav>
+
+			</div>
+
+		</div>
+		<div class="container_bande">
+			<div class="container_bande2"></div>
+
+		</div>
 		<div class="tourecherche">
 
 			<div class="div1">
@@ -98,29 +97,29 @@
 
 		</div>
 		{# <div class="list-group"> #}
-			<div class="col-12 col-sm-7 col-md-9 col-xxl-9">
-				<div class="row">
-					<div class="col-10">
-						<h2 class="text-center text-black" style="margin-left:50%;"></h2>
-					</div>
+		<div class="col-12 col-sm-7 col-md-9 col-xxl-9">
+			<div class="row">
+				<div class="col-10">
+					<h2 class="text-center text-black" style="margin-left:50%;"></h2>
 				</div>
 			</div>
-			<br>
+		</div>
+		<br>
 
-			{# <div id="container" style="widt:723px">
+		{# <div id="container" style="widt:723px">
+					{% include 'pages/main/result.html.twig'%}
+					</div> #}
+
+		<div class="container_jp" id="container_jp">
 			{% include 'pages/main/result.html.twig'%}
-			</div> #}
 
-			<div class="container_jp" id="container_jp">
-{% include 'pages/main/result.html.twig'%}
+		</div>
 
-			</div>
-			
 
 		<div class="footer1"></div>
 
-<script src="./assets/js/app.js"></script>
-<script>
+		<script src="./assets/js/app.js"></script>
+		<script>
 			function onClickBtn(event) {
 
 event.preventDefault();
