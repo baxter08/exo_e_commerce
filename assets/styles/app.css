@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 /* c'est pour les textes */
 .librebaskerville {
@@ -20,9 +22,10 @@
   margin: auto;
   background-color: #b1b2b3;
 }
+
 body {
-  font-family: ' Libre Baskerville','Open Sauce Light', sans-serif;
-  background-color: #b1b2b3;
+  font-family: ' Libre Baskerville', 'Open Sauce Light', sans-serif;
+  background-color: #3e6892;
 }
 
 .boutte_group11 {
@@ -62,8 +65,8 @@ body {
   margin-bottom: 10px;
 }
 
-.ensemble_article{
-  border:solid red 1px;
+.ensemble_article {
+  border: solid red 1px;
 
 
   width: 66%;
