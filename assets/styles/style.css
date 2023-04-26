@@ -1,3 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+   font-family: 'Libre Baskerville';
+   src: url('/public/fonts/LibreBaskerville-Regular.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Open Sauce Light';
+   src: url('/public/fonts/OpenSauceOne-Light.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+/* c'est pour les textes */
+.librebaskerville {
+   font-family: 'Libre Baskerville', serif;
+}
+
+/* c'est pour les titres */
+.opensauce {
+   font-family: 'Open Sans', sans-serif;
+}
+
 .content-card {
    max-width: 1024px;
    width: 100%;
@@ -7,9 +39,11 @@
    justify-content: center;
    align-items: center;
 }
-.ensemble_article{
-   border:solid red 1px;
-   width: 66%;
+
+.ensemble_article {
+   border: solid red 1px;
+   background-color: rgb(255, 255, 255);
+   width: 90%;
    height: auto;
 }
 

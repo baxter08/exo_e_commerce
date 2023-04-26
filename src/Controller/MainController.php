@@ -34,7 +34,7 @@ class MainController extends AbstractController
         }
         // $articles = $articleRepos->findAll();
 
-        return $this->render('pages/main/accueil.html.twig', [
+        return $this->render('pages/main/index.html.twig', [
             'articles' => $articles,
             'form' => $form->createView()
 

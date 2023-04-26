@@ -16,7 +16,7 @@ use App\Entity\Commande;
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
-   
+
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -29,7 +29,7 @@ class Article
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(type:"decimal", scale:2)]
+    #[ORM\Column(type: "decimal", scale: 2)]
     private ?string $prix = null;
 
     #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Image::class)]
@@ -46,9 +46,8 @@ class Article
         $this->images = new ArrayCollection();
         $this->y = new ArrayCollection();
         $this->commandes = new ArrayCollection();
-        
     }
-    
+
 
     public function getId(): ?int
     {
@@ -96,7 +95,7 @@ class Article
      */
     public function getImages(): Collection
     {
-        
+
         return $this->images;
     }
 
@@ -118,13 +117,12 @@ class Article
             if ($image->getArticle() === $this) {
                 $image->setArticle(null);
             }
-            
         }
 
         return $this;
     }
 
- 
+
 
     /**
      * @return Collection<int, Panier>
@@ -185,8 +183,4 @@ class Article
 
         return $this;
     }
-
-  
-   
-
 }
