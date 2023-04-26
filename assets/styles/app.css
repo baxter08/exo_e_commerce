@@ -20,7 +20,6 @@
   margin: 20px;
   padding: 0;
   margin: auto;
-  background-color: #b1b2b3;
 }
 
 body {
@@ -67,10 +66,11 @@ body {
 
 .ensemble_article {
   border: solid red 1px;
-
-
+  background-color: #EEEEEE;
   width: 66%;
   height: 800px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .card.mb-3 {
@@ -339,9 +339,9 @@ body {
 .footer1 {
   width: 100%;
   /* border: 1px solid red; */
-  height: 100px;
-  margin-top: 244px;
-  background-color: #dee2e6;
+  height: 233px;
+  margin-top: 60px;
+  background-color: #828BA5;
 }
 
 .footer2 {
@@ -492,6 +492,7 @@ a .redirect {
   display: flex;
   flex-direction: row;
   width: 100%;
+  margin-left: 66px;
 }
 
 .div1 {
@@ -639,19 +640,22 @@ a .redirect {
 }
 
 .container_bande {
-  width: 100%;
-  height: 100px;
-  background-color: white;
+  width: 66%;
+  height: 77px;
+  background-color: #FFFFFF;
+  border: F;
+  display: flex;
 }
-
 .container_bande2 {
   width: 50%;
   height: 50px;
-  background-color: rgb(162, 160, 160);
+  background-color: #828BA5;
+  display: flex;
 }
 
 .container_bande3 {
   width: 100%;
   height: 100px;
   background-color: gray;
+
 }
