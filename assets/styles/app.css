@@ -78,8 +78,10 @@ body {
   margin-bottom: 10px;
 }
 
-.ensemble_article {
-  border: solid red 1px;
+.ensemble_article{
+  border:solid red 1px;
+
+
   width: 66%;
   height: 800px;
 }
