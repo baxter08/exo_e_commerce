@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('ajax')}}
+	{{ encore_entry_script_tags('app')}}
+	{{ encore_entry_script_tags('slides')}}
+	{{encore_entry_script_tags('slider') }}
+	{{parent()}}
+{% endblock %}
+{% block body %}
+
+	<div class="ensemble_article"></div>
+
+	<div class="container_bande">
+
+		<div class="container_bande2"></div>
+
+	</div>
+	<div class="ensemble_article">
+		<div class="tourecherche">
+
+			<div class="div1">
+				{{form_start(form, {'id': 'search_q'})}}
+				{{form_row(form.q)}}
+			</div>
+			<div class="div2">
+				{{form_row(form.submit)}}
+				{{form_end(form)}}</div>
+
+		</div>
+		{# <div class="list-group"> #}
+		<div class="col-12 col-sm-7 col-md-9 col-xxl-9">
+			<div class="row">
+				<div class="col-10">
+					<h2 class="text-center text-black" style="margin-left:50%;"></h2>
+				</div>
+			</div>
+		</div>
+		<br>
+
+		{# <div id="container" style="widt:723px">
+											{% include 'pages/main/result.html.twig'%}
+											</div> #}
+
+		<div class="container_jp" id="container_jp">
+			{% include 'pages/main/result.html.twig'%}
+		</div>
+	</div>
+</div>
+
+<div class="footer1"></div>{% endblock %}

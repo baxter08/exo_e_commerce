@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<form method="POST">
+<div class="ensemble_form">
+    <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
+    <label for="inputEmail">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    <label for="inputPassword">Password</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+    </div>
+
+    <button class="btn btn-secondary mt-4" type="submit">
+        Sign in
+    </button>
+</form>		
+<script src="./assets/js/app.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+	<script src="https://cdn.tailwindcss.com/3.3.0"></script>
+{% endblock %}
+

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello InscriptionController!{% endblock %}
+
+{% block body %}
+<div class="ensemble_form">
+
+{{form(form)}}
+{% for message in app.flashes('success') %}
+<div class="alert alert-success mt-4">
+{{ message }}
+</div>
+{% endfor %}
+
+</div>
+		<script src="./assets/js/app.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+	<script src="https://cdn.tailwindcss.com/3.3.0"></script>
+{% endblock %}
