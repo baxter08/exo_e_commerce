@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DetailArticlesController!
+{% endblock %}
+
+{% block body %}
+
+
+<div class="group">
+		<div class="widg"> 
+			<div class="card mb-2" style=";width:30%;box-shadow:2px 3px 2px 1px rgba(0, 0, 0, 0.21);">
+				<h3 class="card-header" style="background-color:white;">{{ articles.nom }}</h3>
+					<div class="card-body">
+						{# <h5 class="card-title" style="color:red">Promo du Jour</h5>
+							<h6 class="card-subtitle text-muted">Made in France</h6> #}
+						</div>
+								<img src="{{ asset('build/images/' ~ articles.images[0]) }}" class="d-block user-select-none" width="27%" height="50px" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle;margin-bottom:87px;margin-top:63px;">
+									<rect width="27%" height="100%" fill="#868e96"></rect>
+										<text x="30%" y="50%" fill="#dee2e6" dy=".4em">
+											<div class="prix_produit">{{ articles.prix}}€</div>
+										</text>
+								</img>
+						<div class="voir_article">
+				{# <a href="{{ path('app_detail_articles' , {'id' : articles.id}) }}" class="btn btn-light mb-2 " style="margin-top:10px:margin-left:10px" >Voir</a> #}
+				<a href="{{path("cart_add", {'id' : articles.id})}}" class="btn btn-light mb-2" style="align-items:center;border:1px solid grey">Ajouter</a>
+			</div>
+		</div>
+	<div class="descript">
+	<h5 class="card-title1"  style="color:red">Promo du Jour</h5>
+	<h6 class="card-subtitle1 text-muted">Made in France</h6>
+	<div class="description_produit1">{{ articles.description}}</div>
+	<img src="{{ asset('build/images/Capture_-_20_-removebg-preview (1).png')}}" class="solde"></div>
+	</div>	
+</div>
+
+{% endblock %}
+{% block footer %}
+	<div class="footer1">
+		<a class"redirect" href="{{path('app_index')}}">
+			Accueil</a>
+
+	</div>
+{% endblock %}

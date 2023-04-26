@@ -14,40 +14,44 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class InscriptionController extends AbstractController
 {
     #[Route('/inscription', name: 'app_inscription', methods: ['GET', 'POST'] )]
-    public function index(Request $request, EntityManagerInterface $manager,UserPasswordHasherInterface $passwordHasher): Response
+    public function index(Request $request, EntityManagerInterface $manager, UserPasswordHasherInterface $passwordHasher): Response
     {
         $user = new User();
         $form = $this->createForm(InscriptionType::class, $user);
 
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
-            $user = $form->getData();
-
-                 // hash the password (based on the security.yaml config for the $user class)
-                 $hashedPassword = $passwordHasher->hashPassword(
-                    $user,
-                    $form->get('password')->getData()
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Vérification du mot de passe
+            $password = $form->get('password')->getData();
+            if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/', $password)) {
+                $this->addFlash(
+                    'error',
+                    'Le mot de passe doit contenir au moins 6 caractères, dont une majuscule, une minuscule et un chiffre.'
                 );
-                $user->setPassword($hashedPassword);
+                return $this->redirectToRoute('app_inscription');
+            }
+
+            // Hashage du mot de passe
+            $hashedPassword = $passwordHasher->hashPassword(
+                $user,
+                $password
+            );
+            $user->setPassword($hashedPassword);
 
             $this->addFlash(
                 'success',
-                'votre compte a bien été crée .'
+                'Votre compte a bien été créé.'
             );
 
             $manager->persist($user);
             $manager->flush();
 
-            return $this->redirectToRoute('app_inscription');
-
+            return $this->redirectToRoute('app_login');
         }
-        
 
         return $this->render('pages/inscription/index.html.twig', [
             'controller_name' => 'InscriptionController',
             'form' => $form->createView()
-        
         ]);
     }
-    
 }

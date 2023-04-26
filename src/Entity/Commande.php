@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
 class Commande
 {
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -33,6 +34,8 @@ class Commande
     #[ORM\JoinColumn(nullable: false)]
     private ?Article $Article = null;
 
+
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +55,7 @@ class Commande
 
     public function getQuantite(): ?int
     {
+        
         return $this->quantite;
     }
 
@@ -100,13 +104,26 @@ class Commande
 
     public function getArticle(): ?Article
     {
+        
         return $this->Article;
     }
 
     public function setArticle(?Article $Article): self
     {
+        
         $this->Article = $Article;
-
+    
         return $this;
     }
+
+    protected $createdAt;
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    
+    
 }
+

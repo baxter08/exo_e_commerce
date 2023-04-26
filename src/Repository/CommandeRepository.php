@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\Article;
 use App\Entity\Commande;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Commande>
@@ -16,6 +17,7 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class CommandeRepository extends ServiceEntityRepository
 {
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Commande::class);
@@ -24,7 +26,7 @@ class CommandeRepository extends ServiceEntityRepository
     public function save(Commande $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
-
+        $articles = $this->getDoctrine()->getRepository(Article::class)->countArticlesByArticle();
         if ($flush) {
             $this->getEntityManager()->flush();
         }

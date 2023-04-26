@@ -2,16 +2,22 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\DBAL\Types\DecimalType;
+use App\Entity\Image;
+use App\Entity\Panier;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\DBAL\Types\DecimalType;
+use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use App\Entity\Commande;
+
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
+
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -23,7 +29,7 @@ class Article
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(type:"decimal", scale:2)]
+    #[ORM\Column(type: "decimal", scale: 2)]
     private ?string $prix = null;
 
     #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Image::class)]
@@ -41,6 +47,7 @@ class Article
         $this->y = new ArrayCollection();
         $this->commandes = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -88,8 +95,10 @@ class Article
      */
     public function getImages(): Collection
     {
+
         return $this->images;
     }
+
 
     public function addImage(Image $image): self
     {
@@ -112,6 +121,8 @@ class Article
 
         return $this;
     }
+
+
 
     /**
      * @return Collection<int, Panier>

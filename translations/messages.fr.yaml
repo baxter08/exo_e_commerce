@@ -1,0 +1,29 @@
+easy_admin:
+    delete:
+        title: 'Confirmation de suppression'
+        message: 'Êtes-vous sûr de vouloir supprimer cet élément ?'
+        confirm: 'Supprimer'
+        cancel: 'Annuler'
+    global_csv_export:
+        label: 'Exporter en CSV'
+    global_actions:
+        delete: 'Supprimer'
+        action: 'Action'
+        actions: 'Actions'
+        filters: 'Filtres'
+        search: 'Recherche'
+        select: 'Sélectionner'
+    label_inaccessible: 'Inaccessible'
+    pagination:
+        first: 'Premier'
+        previous: 'Précédent'
+        next: 'Suivant'
+        last: 'Dernier'
+        results:
+            other: '{{ count }} résultats'
+            one: '{{ count }} résultat'
+    search:
+        no_results: 'Aucun résultat'
+    sorting:
+        sort_ascending: 'Trier par ordre croissant'
+        sort_descending: 'Trier par ordre décroissant'
