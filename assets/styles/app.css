@@ -3,22 +3,6 @@
 @tailwind utilities;
 
 
-@font-face {
-  font-family: 'Libre Baskerville';
-  src: url('/public/fonts/LibreBaskerville-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Open Sauce Light';
-  src: url('/public/fonts/OpenSauceOne-Light.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 /* c'est pour les textes */
 .librebaskerville {

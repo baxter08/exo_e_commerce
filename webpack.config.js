@@ -22,7 +22,6 @@ Encore
      */
     .addEntry('app', './assets/app.js')
     .addEntry('slider', './assets/js/slider.js')
-
     .addEntry('ajax', './assets/js/app.js')
     .addEntry('slides', './assets/js/slide.js')
 
