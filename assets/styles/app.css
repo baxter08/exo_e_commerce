@@ -72,6 +72,14 @@ body {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+.ensemble_article2 {
+  border: solid red 1px;
+  background-color: #FFFFFF;
+  width: 66%;
+  height: 800px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 
 .card.mb-3 {
   width: 86%;
