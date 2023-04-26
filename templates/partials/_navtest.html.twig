@@ -1,0 +1,35 @@
+<!-- Main navigation container -->
+<nav class="relative flex w-full flex-nowrap items-center justify-between bg-white py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4" data-te-navbar-ref>
+		<!-- Collapsible navbar container -->
+		<div
+			class="!visible mt-2 hidden flex-grow basis-[80%] items-center lg:mt-0 lg:!flex lg:basis-auto" id="navbarSupportedContent3" data-te-collapse-item>
+			<!-- Navbar title -->
+			<a class="w-16 text-black dark:text-neutral-200" href="{{path('app_index')}}"><img src="{{ asset('build/images/plumberie-logo-removebg-preview.png') }}"></img></a>
+			<!-- Left links -->
+			<ul
+				class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
+				<!-- Home link -->
+				<li class="lg:pr-2" data-te-nav-item-ref>
+					{# <a class="active disabled:text-black/30 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" aria-current="page" href="{{path('app_index')}}"data-te-nav-link-ref>Accueil</a> #}
+				</li>
+				<!-- Features link -->
+				<li class="lg:pr-2" data-te-nav-item-ref>
+					<a class="pt-1 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="{{path('app_inscription')}}" data-te-nav-link-ref>Inscription</a>
+				</li>
+				<!-- Pricing link -->
+				<li class="lg:pr-2" data-te-nav-item-ref>
+					<a class="p-0 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="{{path('app_login')}}" data-te-nav-link-ref>Connexion</a>
+				</li>
+				<!-- Disabled link -->
+				<li class="lg:pr-2" >
+					<a class="nav-link" href="{{path('cart_index')}}">
+						<i class="fa-solid fa-cart-arrow-down"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+		<script src="./assets/js/app.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+	<script src="https://cdn.tailwindcss.com/3.3.0"></script>
