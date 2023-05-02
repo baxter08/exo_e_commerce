@@ -22,9 +22,9 @@
   margin: auto;
 }
 
-body {
+.body {
   font-family: ' Libre Baskerville', 'Open Sauce Light', sans-serif;
-  color:white;
+  background-color: #f8f8f8;
 }
 
 .boutte_group11 {
@@ -64,19 +64,39 @@ body {
   margin-bottom: 10px;
 }
 
+.ensemble_caroussel{
+  border: solid green 1px;
+  background-color: #f5f4d46e;
+  width: 83%;
+  height: auto;
+}
+
 .ensemble_article {
   border: solid red 1px;
-  background-color: #EEEEEE;
+
   width: 66%;
-  height: 800px;
+  height: auto;
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+.Qui_somme_nous{
+  border: solid violet 1px;
+  width: 66%;
+  height: 320px;
+}
+
+.Qui_sommenous_haut{
+  border: solid violet 1px;
+  width: 66%;
+  height: 80px;
+}
+
 .ensemble_article2 {
   border: solid red 1px;
   background-color: #FFFFFF;
-  width: 66%;
-  height: 800px;
+  width: 69%;
+  height: auto;
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -347,18 +367,9 @@ body {
 .footer1 {
   width: 100%;
   /* border: 1px solid red; */
-  height: 233px;
+  height: 533px;
   margin-top: 60px;
   background-color: #828BA5;
-}
-
-.footer2 {
-  width: 100%;
-  /* border: 1px solid red; */
-  height: 200px;
-  margin-top: 290px;
-  background-color: #dee2e6;
-  position: fixed;
 }
 
 a .redirect {
@@ -499,16 +510,31 @@ a .redirect {
 .tourecherche {
   display: flex;
   flex-direction: row;
-  width: 100%;
-  margin-left: 66px;
+  width: 33%;
+  /* margin-left: 91px; */
+}
+
+.div_placeholder {
+  width: auto;
+  height: auto;
+  text-align: right;
+  border: solid black 1px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .div1 {
-  width: 50%;
+  width: auto;
+  height: auto;
   text-align: right;
-  margin-right: 15px;
+  border: solid black 1px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 }
-
 .div2 {
   width: 50%;
 }
@@ -549,11 +575,26 @@ a .redirect {
   justify-content: flex-start;
 }
 
-.cards_ensemble_jp {
-  width: 23%;
-  margin: 15px;
-  border: 1px solid black;
+.card-1 {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: auto;
+  margin: 1rem;
+  position: relative;
+  width: 20%;
+  /* background-color: #828BA5; */
+  /* border: 1px solid #17a2b8; */
   border-radius: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .image_jp {
@@ -561,11 +602,10 @@ a .redirect {
 }
 
 .image_jp img {
-  width: 78%;
-  margin-left: 47px;
-  height: 91%;
+  width: 63%;
+  margin-left: 45px;
+  border-radius: 100px;
 }
-
 .titre_produit_jp {
   font-size: 18px;
   font-weight: bold;
@@ -648,17 +688,19 @@ a .redirect {
 }
 
 .container_bande {
-  width: 66%;
+  width: 83%;
   height: 77px;
   background-color: #FFFFFF;
-  border: F;
-  display: flex;
 }
+
 .container_bande2 {
   width: 50%;
   height: 50px;
-  background-color: #828BA5;
+  /* background-color: #828BA5; */
   display: flex;
+  padding: auto;
+  border: solid 1px black;
+  /* transition: all 0.3s cubic-bezier(.25,.8,.25,1); */
 }
 
 .container_bande3 {
@@ -667,3 +709,4 @@ a .redirect {
   background-color: gray;
 
 }
+

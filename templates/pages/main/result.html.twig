@@ -1,39 +1,40 @@
-
-
 {% for article in articles %}
 
-<div class="cards_ensemble_jp">
+	<div class="card-1">
+        <div class="titre_produit_jp">{{ article.nom }}</div>
+		<div class="image_jp"><img src="{{ asset('build/images/' ~ article.images[0]) }}"></div>
 
-	<div class="image_jp"><img src="{{ asset('build/images/' ~ article.images[0]) }}" ></div>
-	
 
-	<div class="titre_produit_jp">{{ article.nom }}</div>
-	<div class="prix_produit_jp">{{ article.prix}}€</div>
-
-	<div class="voir_article_jp">
-
-		<div class="div1"><a href="{{ path('app_detail_articles' , {'id' : article.id}) }}" class="btn btn-light mb-2 " >Voir</a></div>
-		<div class="div2"><a href="{{path("cart_add", {'id' : article.id})}}" class="btn btn-light mb-2" >Ajouter</a>
-		<i class="bi bi-cart-plus"></i></div>
 		
-		
+		<div class="prix_produit_jp">{{ article.prix}}€</div>
+
+		<div class="voir_article_jp">
+
+			<div class="div1">
+            <a href="{{ path('app_detail_articles' , {'id' : article.id}) }}" type="button" class="btn btn-outline-info mb-1 px-4 m-2">Info</a>
+				{# <a href="{{ path('app_detail_articles' , {'id' : article.id}) }}" class="btn btn-light mb-1 px-4 m-2">Voir</a> #}
+				<a href="{{path("cart_add", {'id' : article.id})}}" class="btn btn-outline-info mb-2 px-4 m-2">Devis</a>
+				<i class="bi bi-cart-plus"></i>
+			</div>
+
+
+		</div>
 	</div>
-</div>
 
 {% endfor %}
 <script>
-    // Récupérer les paramètres de requête actuels de l'URL
-    const currentParams = new URLSearchParams(window.location.search);
-    // Récupérer la valeur du paramètre 'keywords' (si présent)
-    const keywords = currentParams.get('keywords');
-    
-    // Si le paramètre 'keywords' est défini, mettre à jour l'URL avec le nouveau paramètre
-    if (keywords) {
-        // Créer un nouvel objet URL avec les mêmes segments de chemin que l'URL actuelle
-        const newUrl = new URL(window.location);
-        // Ajouter ou mettre à jour le paramètre 'keywords' dans la chaîne de requête de l'URL
-        newUrl.searchParams.set('keywords', keywords);
-        // Remplacer l'URL actuelle par le nouvel URL avec le paramètre de requête mis à jour
-        window.history.replaceState({}, '', newUrl);
-    }
+	// Récupérer les paramètres de requête actuels de l'URL
+const currentParams = new URLSearchParams(window.location.search);
+// Récupérer la valeur du paramètre 'keywords' (si présent)
+const keywords = currentParams.get('keywords');
+
+// Si le paramètre 'keywords' est défini, mettre à jour l'URL avec le nouveau paramètre
+if (keywords) {
+// Créer un nouvel objet URL avec les mêmes segments de chemin que l'URL actuelle
+const newUrl = new URL(window.location);
+// Ajouter ou mettre à jour le paramètre 'keywords' dans la chaîne de requête de l'URL
+newUrl.searchParams.set('keywords', keywords);
+// Remplacer l'URL actuelle par le nouvel URL avec le paramètre de requête mis à jour
+window.history.replaceState({}, '', newUrl);
+}
 </script>

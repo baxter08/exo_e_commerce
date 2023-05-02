@@ -23,7 +23,7 @@ class SearchType extends AbstractType
         ->add('submit', SubmitType::class,[
             'label_format' => 'border:1px solid black',
             'attr'=> [
-                'class'=> 'btn btn-light'
+                'class'=> 'btn btn-outline-info mb-1 px-4 m-2'
             ],
             'label' => 'Rechercher'
             
