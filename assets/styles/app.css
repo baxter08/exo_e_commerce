@@ -8,7 +8,7 @@
 
 /* c'est pour les textes */
 .librebaskerville {
-  font-family: 'Libre Baskerville','DM Serif Display', serif;
+  font-family: 'Libre Baskerville', 'DM Serif Display', serif;
 }
 
 /* c'est pour les titres */
@@ -26,9 +26,11 @@
   font-family: ' Libre Baskerville', 'Open Sauce Light', sans-serif;
   background-color: #f8f8f8;
 }
-h1{
-  font-family: 'Libre Baskerville','DM Serif Display', serif;
+
+h1 {
+  font-family: 'Libre Baskerville', 'DM Serif Display', serif;
 }
+
 .boutte_group11 {
   width: 100%;
 
@@ -91,7 +93,7 @@ h1{
 .Qui_sommenous_haut {
   width: 100%;
   height: auto;
-  padding-right: 487px;
+  padding-right: 363px;
   padding-left: 487px;
   display: -webkit-inline-box;
   background-color: white;
@@ -128,6 +130,8 @@ h1{
   width: 100%;
   height: 360px;
   display: flex;
+  padding-left: 200px;
+  padding-right: 106px;
   margin-bottom: 55px;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -137,11 +141,29 @@ h1{
 }
 
 .photos_douche {
-  /* border: solid blue 1px; */
-  width: 28%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  width: 38%;
   height: auto;
-  margin-top: 60px;
-  margin-left: 264px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin: 300px 0;
+  border-radius: 7px;
+}
+
+.div {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  height: 300px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #1cd8d2, #93edc7);
+  color: white;
+  margin: 500px 0;
+  border-radius: 7px;
+  margin-left: 20%;
 }
 
 
@@ -162,7 +184,7 @@ h1{
   border: solid rgb(18, 193, 209) 1px;
   width: 90%;
   height: 43px;
-  font-family: "DM Serif Display",serif;
+  font-family: "DM Serif Display", serif;
 }
 
 .text_descript_douche {
@@ -174,10 +196,19 @@ h1{
 
 .contenaire_blanc {
   width: 36%;
-  height: 227px;
-  border: solid black 1px;
+  height: 152px;
+  /* border: solid black 1px; */
   padding: 3px 3px 3px 3px;
+  margin-bottom: 61px;
 }
+
+.decouvrez_texte {
+  border: solid rgb(0, 255, 55) 1px;
+  width: auto;
+  padding-top: 20px;
+  height: 100px;
+}
+
 
 .NosExemple {
   width: 17%;
@@ -186,19 +217,85 @@ h1{
   margin-bottom: 10px;
   margin-top: 10px;
   padding-top: 5px;
-  padding-bottom: 12px;
-  border: solid rebeccapurple 1px;
+  display: flex;
+  padding-bottom: 8px;
+  border: solid black 1px;
+  flex-wrap: nowrap;
+  /* align-content: center; */
+  align-items: center;
+  justify-content: center;
 }
 
-.NosExemple_texte .h2{
+.NosExemple_texte .h2 {
   width: 50%;
   height: 90px;
-  border:solid rgb(119, 46, 84) 1px;
+  border: solid rgb(119, 46, 84) 1px;
 }
+
 .container {
   flex-direction: column;
 }
+.box_slide_article_lien {
+  width: 86%;
+  height: 415px;
+  border: solid yellow 1px;
+  display: flex;
+  flex-direction: row-reverse;
+}
 
+.slides-container {
+	-ms-overflow-style: none; /* Internet Explorer 10+ */
+	scrollbar-width: none; /* Firefox */
+}
+.slides-container::-webkit-scrollbar {
+	display: none; /* Safari and Chrome */
+}
+
+.card-width {
+  width: 23%;
+  border:solid rgb(244, 17, 17) 1px;
+}
+.card-height {
+  height: 410px;
+  border:solid white 1px;
+}
+.card-title {
+  height: 50px;
+  /* margin-top: 71px; */
+  width: 100%;
+  border: solid green 1px;
+}
+.slides-container{
+  width: 90%;
+  height: 410px;
+  border:solid violet 1px
+}
+/* .card-bo{
+  width: 100%;
+  border:solid rgb(237, 236, 235) 1px;
+}  */
+
+.containerslider_article {
+  border: solid red 1px;
+  margin-top: 47px;
+  width: 70%;
+  height: 500px;
+}
+.containerdescription_article {
+  border: solid blue 1px;
+  width: 20%;
+  height: 183px;
+  margin-top: 192px;
+  padding: 4px;
+  margin-left: 42px;
+}
+
+.trai_droit {
+  width: 1%;
+  position: absolute;
+  margin-left: 121px;
+  border: solid black 1px;
+}
 
 .widg {
   position: right;
@@ -622,6 +719,7 @@ a .redirect {
   justify-content: center;
   align-items: center;
 }
+
 .div2 {
   width: 50%;
 }
@@ -669,19 +767,19 @@ a .redirect {
   height: auto;
   margin: 1rem;
   position: relative;
-  width: 14%;
+  width: 15%;
   /* background-color: #828BA5; */
   /* border: 1px solid #17a2b8; */
   border-radius: 10px;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
 .card-1:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .image_jp {
@@ -693,6 +791,7 @@ a .redirect {
   margin-left: 45px;
   border-radius: 100px;
 }
+
 .titre_produit_jp {
   font-size: 18px;
   font-weight: bold;
@@ -781,7 +880,7 @@ a .redirect {
 }
 
 .container_bande2 {
-  width: 83%;
+  width: 86%;
   height: 55px;
   background-color: black;
   display: flex;
@@ -794,4 +893,3 @@ a .redirect {
   background-color: gray;
 
 }
-

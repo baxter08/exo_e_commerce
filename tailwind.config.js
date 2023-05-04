@@ -4,6 +4,12 @@ module.exports = {
     './node_modules/tw-elements/dist/js/**/*.js',
   ],
   theme: {
+    height: {
+      sm: '8px',
+      md: '16px',
+      lg: '24px',
+      xl: '62px',
+    },
     colors: {
       indigo: '#5c6ac4',
       blue: '#007ace',
@@ -14,7 +20,7 @@ module.exports = {
         '200': '#eeeeee',
         '300': '#e0e0e0',
         '400': '#bdbdbd',
-        '500': '#9e9e9e',
+        '500': '#ffffff',
         '600': '#757575',
         '700': '#616161',
         '800': '#424242',
