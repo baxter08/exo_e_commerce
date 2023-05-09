@@ -203,7 +203,7 @@ h1 {
 }
 
 .decouvrez_texte {
-  border: solid rgb(0, 255, 55) 1px;
+  /* border: solid rgb(0, 255, 55) 1px; */
   width: auto;
   padding-top: 20px;
   height: 100px;
@@ -238,7 +238,7 @@ h1 {
 .box_slide_article_lien {
   width: 86%;
   height: 415px;
-  border: solid yellow 1px;
+  /* border: solid yellow 1px; */
   display: flex;
   flex-direction: row-reverse;
 }
@@ -253,22 +253,22 @@ h1 {
 
 .card-width {
   width: 23%;
-  border:solid rgb(244, 17, 17) 1px;
+  /* border:solid rgb(244, 17, 17) 1px; */
 }
 .card-height {
   height: 410px;
-  border:solid white 1px;
+  /* border:solid white 1px; */
 }
 .card-title {
   height: 50px;
   /* margin-top: 71px; */
   width: 100%;
-  border: solid green 1px;
+  /* border: solid green 1px; */
 }
 .slides-container{
   width: 90%;
   height: 410px;
-  border:solid violet 1px
+  /* border:solid violet 1px */
 }
 /* .card-bo{
   width: 100%;
@@ -276,18 +276,79 @@ h1 {
 }  */
 
 .containerslider_article {
-  border: solid red 1px;
+  /* border: solid red 1px; */
   margin-top: 47px;
   width: 70%;
   height: 500px;
 }
 .containerdescription_article {
-  border: solid blue 1px;
+  /* border: solid blue 1px; */
   width: 20%;
-  height: 183px;
+  height: 270px;
   margin-top: 192px;
   padding: 4px;
   margin-left: 42px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.descript_decouvrez {
+  width: 90%;
+  height: 100px;
+  display: flex;
+  /* border: solid red 1px; */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.ensemble_article_detail {
+  width: 100%;
+  display: flex;
+  background-color: #e0ccad54;
+  flex-wrap: nowrap;
+}
+
+.container_info_article {
+
+  width: 33%;
+  height: 668px;
+  background-color: white;
+}
+
+.container_slider_detail {
+  width: 60%;
+}
+
+.container_infos_1 {
+  width: 53%;
+  padding-top: 30px;
+  margin-top: 50px;
+  height: 100px;
+}
+
+.container_infos_2 {
+  width: 53%;
+  margin-top: 20px;
+  height: 210px;
+}
+
+.titre_lesplus {
+  height: 48px;
+  padding-top: 8px;
+  width: 100%;
+}
+
+.titre_lesplus2 {
+  height: 162px;
+  width: 100%;
+}
+.container_infos_3 {
+  width: 53%;
+  margin-top: 20px;
+  height: 153px;
 }
 
 .trai_droit {
@@ -295,6 +356,18 @@ h1 {
   position: absolute;
   margin-left: 121px;
   border: solid black 1px;
+}
+
+.image-container {
+  overflow: hidden;
+}
+
+.zoomable-image {
+  transition: transform 0.3s;
+}
+
+.zoomable-image:hover {
+  transform: scale(1.2);
 }
 
 .widg {
