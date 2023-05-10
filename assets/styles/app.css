@@ -306,7 +306,8 @@ h1 {
 }
 
 .ensemble_article_detail {
-  width: 100%;
+  width: 91%;
+  margin-top: 20px;
   display: flex;
   background-color: #e0ccad54;
   flex-wrap: nowrap;
@@ -967,12 +968,41 @@ a .redirect {
   /* border: solid 1px black; */
 }
 
-.bande_lien_encre{
-  border:solid red 1px;
+.lien_1 {
+  width: 8%;
+  padding-left: 6px;
+  height: 24px;
+  border-right: solid black 2px;
+}
+
+.lien_2 {
+  width: 7%;
+  padding-left: 5px;
+  height: 24px;
+  border-right: solid black 2px;
+}
+
+.lien_3 {
+  width: 15%;
+  height: 24px;
+  /* border-right: solid black 2px; */
+}
+
+.lien{
+  width: 33%;
+  height: 48px;
+
+}
+
+.bande_lien_encre {
+
   height: 70px;
   margin-top: 60px;
-  width: 100%;
+  width: 91%;
+  display: flex;
   background-color: #e0ccad54;
+  justify-content: center;
+  align-items: center;
 }
 
 .container_bande3 {
