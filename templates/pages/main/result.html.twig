@@ -1,12 +1,12 @@
 {% for article in articles %}
 
 	<div class="card-1">
-        <div class="titre_produit_jp">{{ article.nom }}</div>
+        <div class="titre_produit_jp text-base">{{ article.nom }}</div>
 		<div class="image_jp"><img src="{{ asset('build/images/' ~ article.images[0]) }}"></div>
 
 
 		
-		<div class="prix_produit_jp">{{ article.prix}}€</div>
+		<div class="prix_produit_jp mr-8 text-xl">{{ article.prix}}€</div>
 
 		<div class="voir_article_jp">
 

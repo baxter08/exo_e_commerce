@@ -70,10 +70,9 @@ h1 {
 
 .ensemble_caroussel {
   /* border: solid green 1px; */
-  background-color: #e0ccad54;
+  background-color: #e0ccad33;
   width: 85%;
   height: auto;
-
 }
 
 .ensemble_article {
@@ -102,10 +101,12 @@ h1 {
 .ensemble_article2 {
   /* border: solid red 1px; */
   background-color: #FFFFFF;
-  width: 83%;
+  width: 86%;
   height: auto;
   margin-top: 30px;
   margin-bottom: 30px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgb(255 235 205 / 18%) 50%, rgb(255 235 205 / 33%) 100%);
+
 }
 
 .card.mb-3 {
@@ -137,7 +138,7 @@ h1 {
   flex-wrap: nowrap;
   justify-content: space-evenly;
   align-items: center;
-  background: linear-gradient(to bottom, rgb(255 235 205 / 18%) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(to bottom, rgb(255 235 205 / 5%) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
 }
 
 .photos_douche {
@@ -285,7 +286,7 @@ h1 {
   /* border: solid blue 1px; */
   width: 20%;
   height: 270px;
-  margin-top: 192px;
+  margin-top: 127px;
   padding: 4px;
   margin-left: 42px;
   display: flex;
@@ -826,6 +827,7 @@ a .redirect {
   justify-content: space-evenly;
 }
 
+
 .container_jp {
   display: flex;
   flex-direction: row;
@@ -835,9 +837,8 @@ a .redirect {
 
 .card-1 {
   background: #fff;
-  border-radius: 2px;
   display: inline-block;
-  height: auto;
+  height: 367px;
   margin: 1rem;
   position: relative;
   width: 15%;
@@ -850,6 +851,11 @@ a .redirect {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
+.container-indication{
+  border:solid red 1px;
+  width: 20%;
+  height: 34px;
+}
 
 .card-1:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -860,9 +866,9 @@ a .redirect {
 }
 
 .image_jp img {
-  width: 63%;
-  margin-left: 45px;
-  border-radius: 100px;
+  width: 95%;
+  /* margin-left: 45px; */
+  border-radius: 8px;
 }
 
 .titre_produit_jp {
