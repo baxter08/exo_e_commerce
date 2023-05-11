@@ -11,7 +11,7 @@ use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use App\Entity\Commande;
-
+use phpDocumentor\Reflection\Types\Null_;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
@@ -28,6 +28,12 @@ class Article
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $description2 = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $essentiel = null;
 
     #[ORM\Column(type: "decimal", scale: 2)]
     private ?string $prix = null;
@@ -74,6 +80,31 @@ class Article
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDescription2(): ?string
+    {
+        return $this->description2;
+    }
+
+    public function setDescription2(string $description2): self
+    {
+        $this->description2 = $description2;
+
+        return $this;
+    }
+
+
+    public function getEssentiel(): ?string
+    {
+        return $this->essentiel;
+    }
+
+    public function setEssentiel(string $essentiel): self
+    {
+        $this->essentiel = $essentiel;
 
         return $this;
     }

@@ -2,146 +2,182 @@
 
 {% block title %}Article
 {% endblock %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('ajax')}}
+	{{ encore_entry_script_tags('app')}}
+	{{ encore_entry_script_tags('slides')}}
+	{{encore_entry_script_tags('slider') }}
+	{{parent()}}
+{% endblock %}
 
 {% block body %}
 
-	<div class="ensemble_article_detail">
-		<div class="container_slider_detail">
-			<div
-				id="carouselExampleIndicators" class="relative" data-te-carousel-init data-te-carousel-slide>
-				<!--Carousel indicators-->
-				<div class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0" data-te-carousel-indicators>
-					<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="0" data-te-carousel-active class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-current="true" aria-label="Slide 1"></button>
-					<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="1" class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-label="Slide 2"></button>
-					<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="2" class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-label="Slide 3"></button>
-					<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="3" class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-label="Slide 4"></button>
-				</div>
+			<div class="ensemble_article_detail">
+					<div class="container_slider_detail">
+							<div
+									id="carouselExampleIndicators" class="relative" data-te-carousel-init data-te-carousel-slide>
+									<!--Carousel indicators-->
+									<div class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0" data-te-carousel-indicators>
+										<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="0" data-te-carousel-active class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-current="true" aria-label="Slide 1"></button>
+										<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="1" class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-label="Slide 2"></button>
+										<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="2" class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-label="Slide 3"></button>
+										<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="3" class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-label="Slide 4"></button>
+									</div>
 
-				<!--Carousel items-->
-				<div
-					class="relative w-2/2 overflow-hidden after:clear-both after:block after:content-['']">
-					<!--First item-->
-					<div class="relative float-left -mr-[100%] w-2/2 transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item data-te-carousel-active>
-						<img src="{{ asset('build/images/' ~ articles.images[0]) }}" class="block w-2/2" alt="Wild Landscape"/>
+									<!--Carousel items-->
+									<div
+										class="relative w-2/2 overflow-hidden after:clear-both after:block after:content-['']">
+										<!--First item-->
+										<div class="relative float-left -mr-[100%] w-2/2 transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item data-te-carousel-active>
+											<img src="{{ asset('build/images/' ~ articles.images[0]) }}" class="block w-2/2" alt="Wild Landscape"/>
+										</div>
+										<!--Second item-->
+										<div class="relative float-left -mr-[100%] hidden w-2/2 transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
+											<img src="{{ asset('build/images/' ~ articles.images[1]) }}" class="block w-2/2" alt="Camera"/>
+										</div>
+										<!--Third item-->
+										<div class="relative float-left -mr-[100%] hidden w-2/2 transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
+											<img src="{{ asset('build/images/' ~ articles.images[2]) }}" class="block w-2/2" alt="Exotic Fruits"/>
+										</div>
+
+										<div class="relative float-left -mr-[100%] hidden w-2/2 transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
+											<img src="{{ asset('build/images/' ~ articles.images[3]) }}" class="block w-2/2" alt="handicap"/>
+										</div>
+									</div>
+
+									<!--Carousel controls - prev item-->
+									<button class="absolute bottom-0 left-0 top-0 z-[1] flex w-[18%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none" type="button" data-te-target="#carouselExampleIndicators" data-te-slide="prev">
+										<span class="inline-block h-8 w-8">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-6 w-6">
+												<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+											</svg>
+										</span>
+										<span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
+									</button>
+									<!--Carousel controls - next item-->
+									<button class="absolute bottom-0 right-0 top-0 z-[1] flex w-[5%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none" type="button" data-te-target="#carouselExampleIndicators" data-te-slide="next">
+										<span class="inline-block h-8 w-8">
+											<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+												<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+											</svg>
+										</span>
+										<span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
+									</button>
+								</div>
+							</div>
+							<div class="container_info_article">
+								<div class="container_infos_1">
+									<h3 class="card-head text-2xl font-bold hover:text-tahiti-500 text-left">{{ articles.nom }}</h3>
+								</div>
+								<div class="container_infos_2">
+									<div class="titre_lesplus font-semibold">
+										<h5>LES PLUS</h5>
+									</div>
+									<div class="titre_lesplus2">
+										<img class="w-full p-3 object-cover" src="{{ asset('build/images/' ~ articles.images[4]) }}" alt="les_plus"></div>
+								</div>
+								<div class="container_infos_3">
+									<div class="titre_lesplus font-semibold">
+										<h5>LES CONFIGURATIONS POSSIBLES</h5>
+									</div>
+									<div class="titre_lesplus2">
+										<img class="w-full p-3 object-cover" src="{{ asset('build/images/' ~ articles.images[(5)]) }}" alt="les_configue"></div>
+								</div>
+							</div>
 					</div>
-					<!--Second item-->
-					<div class="relative float-left -mr-[100%] hidden w-2/2 transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
-						<img src="{{ asset('build/images/' ~ articles.images[1]) }}" class="block w-2/2" alt="Camera"/>
-					</div>
-					<!--Third item-->
-					<div class="relative float-left -mr-[100%] hidden w-2/2 transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
-						<img src="{{ asset('build/images/' ~ articles.images[2]) }}" class="block w-2/2" alt="Exotic Fruits"/>
-					</div>
+				</div>
+				<div class="bande_lien_encre mb-8">
+					<div class="lien"></div>
+					<div class="lien_1 text-black font-bold">LES ESSENTIELS</div>
+					<div class="lien_2 text-black font-bold">DESCRIPTION</div>
+					<div class="lien_3 text-black font-bold">CARACTÉRISTIQUES TECHNIQUES</div>
+					<div class="lien"></div>
+				</div>
+				<div class="container_essentiel">
+					<div class="container1_essentiel">
 
-					<div class="relative float-left -mr-[100%] hidden w-2/2 transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
-						<img src="{{ asset('build/images/' ~ articles.images[3]) }}" class="block w-2/2" alt="handicap"/>
+						<div class="bg_1">
+							<div class="blok_text_essenssiel">
+									<div class="titre_esentiel text-black text-3xl font-bold hover:text-tahiti-500">Les essentiels</div>
+									<div class="trai_droit_article"></div>
+							</div>
+
+								<div class="blok_text_essenssiel2">
+							<lu class="list-inside">
+								<li class="mb-2 text-base">Receveur extra-plat antidérapant PN24</li>
+								<li class="mb-2 text-base">{{ articles.essentiel}}</li>
+								<li class="mb-2 text-base" >Espace douche avec porte coulissante,meuble vasque suspendu, WC suspendu.</li>
+								<li class="mb-2 text-base">Accessoires : radiateur sèche-serviettes, miroir, étagères, prise électrique…</li>
+								<li class="mb-2 text-base">Montage en 2 jours, sans gros travaux préliminaires.</li>
+							</lu>
+							
+							</div>
+							{# <div class="blok_text_essenssiel"></div> #}
+						</div>
+
+						<div class="bg_2"></div>
+
+					</div>
+					
+					<div class="container2_essentiel">
+						<div class="bg_2droite">
+							<div data-aos="fade-left" class="container_images">
+								<image class="w-full object-cover" src="{{ asset('build/images/pub.png') }}"></img>
+						</div>
+					</div>
+					<div class="bg_1droite">
 					</div>
 				</div>
+			</div>
+				<div class="contenaire_article_description">
+					<div class="container_desc_1"></div>
 
-				<!--Carousel controls - prev item-->
-				<button class="absolute bottom-0 left-0 top-0 z-[1] flex w-[18%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none" type="button" data-te-target="#carouselExampleIndicators" data-te-slide="prev">
-					<span class="inline-block h-8 w-8">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-6 w-6">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
-						</svg>
-					</span>
-					<span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
-				</button>
-				<!--Carousel controls - next item-->
-				<button class="absolute bottom-0 right-0 top-0 z-[1] flex w-[5%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none" type="button" data-te-target="#carouselExampleIndicators" data-te-slide="next">
-					<span class="inline-block h-8 w-8">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
-						</svg>
-					</span>
-					<span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
-				</button>
-			</div>
-		</div>
-		<div class="container_info_article">
-			<div class="container_infos_1">
-				<h3 class="card-head text-2xl font-bold hover:text-tahiti-500 text-left">{{ articles.nom }}</h3>
-			</div>
-			<div class="container_infos_2">
-				<div class="titre_lesplus font-semibold">
-					<h5>LES PLUS</h5>
+					<div class="container_desc_2">
+						<div class="description_art1">
+							<div class="titre_description text-black text-3xl font-bold hover:text-tahiti-500">Description du produit</div>
+							<div class="trai_droit_article_desc"></div>
+							
+			   	 		</div>
+							<div class="text_desc_article2">
+							<div class="a_dscript p-4 text-left text-base font-bold">{{ articles.description}}</div>
+							<div></div>
+							</div>	
+						<div class="description_art2"></div>
+					</div>
 				</div>
-				<div class="titre_lesplus2">
-					<img class="w-full p-3 object-cover" src="{{ asset('build/images/' ~ articles.images[4]) }}" alt="les_plus"></div>
-			</div>
-			<div class="container_infos_3">
-				<div class="titre_lesplus font-semibold">
-					<h5>LES CONFIGURATIONS POSSIBLES</h5>
+				<div class="group">
+				<div class="widg">
+					<div class="card mb-2" style=";width:30%;box-shadow:2px 3px 2px 1px rgba(0, 0, 0, 0.21);">
+						<h3 class="card-header" style="background-color:white;">{{ articles.nom }}</h3>
+						<div
+							class="card-body">{# <h5 class="card-title" style="color:red">Promo du Jour</h5>
+																							<h6 class="card-subtitle text-muted">Made in France</h6> #}
+						</div>
+						<img src="{{ asset('build/images/' ~ articles.images[0]) }}" class="d-block user-select-none" width="27%" height="50px" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle;margin-bottom:87px;margin-top:63px;">
+							<rect width="27%" height="100%" fill="#868e96"></rect>
+							<text x="30%" y="50%" fill="#dee2e6" dy=".4em">
+								<div class="prix_produit">{{ articles.prix}}€</div>
+							</text>
+						</img>
+						<div
+							class="voir_article">
+							{# <a href="{{ path('app_detail_articles' , {'id' : articles.id}) }}" class="btn btn-light mb-2 " style="margin-top:10px:margin-left:10px" >Voir</a> #}
+							<a href="{{path("cart_add", {'id' : articles.id})}}" class="btn btn-light mb-2" style="align-items:center;border:1px solid grey">Ajouter</a>
+						</div>
+					</div>
+					<div class="descript">
+						<h5 class="card-title1" style="color:red">Promo du Jour</h5>
+						<h6 class="card-subtitle1 text-muted">Made in France</h6>
+						<div class="description_produit1">{{ articles.essentiel}}</div>
+						<img src="{{ asset('build/images/Capture_-_20_-removebg-preview (1).png')}}" class="solde"></div>
 				</div>
-				<div class="titre_lesplus2">
-					<img class="w-full p-3 object-cover" src="{{ asset('build/images/' ~ articles.images[(5)]) }}" alt="les_configue"></div>
 			</div>
-		</div>
-	</div>
-</div>
-<div class="bande_lien_encre mb-8">
-	<div class="lien"></div>
-	<div class="lien_1 text-black font-bold">LES ESSENTIELS</div>
-	<div class="lien_2 text-black font-bold">DESCRIPTION</div>
-	<div class="lien_3 text-black font-bold">CARACTÉRISTIQUES TECHNIQUES</div>
-	<div class="lien"></div>
-</div>
-<div class="container_essentiel">
-	<div class="container1_essentiel">
-
-		<div class="bg_1"></div>
-		<div class="bg_2"></div>
-
-	</div>
-	<div class="container2_essentiel">
-				<div class="tout_nos_douche">
-			<div class="photos_douche" data-aos="fade-right">
-				<div class="divphoto">
-				<div class="image-container">
-				<image src="{{ asset('build/images/parois.png') }}"></img>
-			</div>
-			</div>
-		</div>
-		</div>
-		<div class="bg_1droite"></div>
-	</div>
-
-</div>
-<div class="group">
-	<div class="widg">
-		<div class="card mb-2" style=";width:30%;box-shadow:2px 3px 2px 1px rgba(0, 0, 0, 0.21);">
-			<h3 class="card-header" style="background-color:white;">{{ articles.nom }}</h3>
-			<div
-				class="card-body">{# <h5 class="card-title" style="color:red">Promo du Jour</h5>
-												<h6 class="card-subtitle text-muted">Made in France</h6> #}
-			</div>
-			<img src="{{ asset('build/images/' ~ articles.images[0]) }}" class="d-block user-select-none" width="27%" height="50px" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle;margin-bottom:87px;margin-top:63px;">
-				<rect width="27%" height="100%" fill="#868e96"></rect>
-				<text x="30%" y="50%" fill="#dee2e6" dy=".4em">
-					<div class="prix_produit">{{ articles.prix}}€</div>
-				</text>
-			</img>
-			<div
-				class="voir_article">
-				{# <a href="{{ path('app_detail_articles' , {'id' : articles.id}) }}" class="btn btn-light mb-2 " style="margin-top:10px:margin-left:10px" >Voir</a> #}
-				<a href="{{path("cart_add", {'id' : articles.id})}}" class="btn btn-light mb-2" style="align-items:center;border:1px solid grey">Ajouter</a>
-			</div>
-		</div>
-		<div class="descript">
-			<h5 class="card-title1" style="color:red">Promo du Jour</h5>
-			<h6 class="card-subtitle1 text-muted">Made in France</h6>
-			<div class="description_produit1">{{ articles.description}}</div>
-			<img src="{{ asset('build/images/Capture_-_20_-removebg-preview (1).png')}}" class="solde"></div>
-	</div>
-</div>
-
-
 <script src="./assets/js/app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-	const slidesContainer = document.querySelector(".slides-container");
+const slidesContainer = document.querySelector(".slides-container");
 const slideWidth = slidesContainer.querySelector(".slide").clientWidth;
 const prevButton = document.querySelector(".prev");
 const nextButton = document.querySelector(".next");
@@ -153,4 +189,7 @@ slidesContainer.scrollLeft += slideWidth * 2;
 prevButton.addEventListener("click", () => {
 slidesContainer.scrollLeft -= slideWidth * 2;
 });
-</script>{% endblock %}
+</script>
+<script>AOS.init();</script>
+
+{% endblock %}
