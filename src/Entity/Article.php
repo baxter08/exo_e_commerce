@@ -36,6 +36,9 @@ class Article
     private ?string $description3 = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    private ?string $description4 = null;
+
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $essentiel = null;
 
     #[ORM\Column(type: "decimal", scale: 2)]
@@ -107,6 +110,18 @@ class Article
     public function setDescription3(string $description3): self
     {
         $this->description3 = $description3;
+
+        return $this;
+    }
+
+    public function getDescription4(): ?string
+    {
+        return $this->description4;
+    }
+
+    public function setDescription4(string $description4): self
+    {
+        $this->description4 = $description4;
 
         return $this;
     }
