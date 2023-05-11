@@ -717,14 +717,14 @@ h1 {
 
 .titre_description {
   border: solid red 1px;
-  width: 59%;
+  width: 56%;
   /* margin-top: 100px; */
   height: 57px;
 }
 
 .text_desc_article2 {
   border: solid rgb(235, 13, 217) 1px;
-  width: 40%;
+  width: 56%;
   margin-top: 45px;
   height: 629px;
 }
