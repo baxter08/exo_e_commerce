@@ -41,6 +41,10 @@ class Article
     #[ORM\Column(type: Types::TEXT)]
     private ?string $essentiel = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $sous_categorie = null;
+
+
     #[ORM\Column(type: "decimal", scale: 2)]
     private ?string $prix = null;
 
@@ -135,6 +139,20 @@ class Article
     public function setEssentiel(string $essentiel): self
     {
         $this->essentiel = $essentiel;
+
+        return $this;
+    }
+
+    public function getSous_categorie(): ?string
+    {
+       
+        return $this->sous_categorie;
+    }
+
+    public function setSous_categorie(string $sous_categorie): self
+    {
+        $this->sous_categorie = $sous_categorie;
+        
 
         return $this;
     }

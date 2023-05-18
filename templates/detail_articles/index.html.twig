@@ -77,12 +77,13 @@
 										<img class="w-full p-3 object-cover" src="{{ asset('build/images/' ~ articles.images[4]) }}" alt="les_plus"></div>
 								</div>
 								<div class="container_infos_3">
-									<div class="titre_lesplus font-semibold">
+									<div class="titre_lesplus font-semibold pl-2">
 										<h5>LES CONFIGURATIONS POSSIBLES</h5>
 									</div>
 									<div class="titre_lesplus2">
 										<img class="w-full p-3 object-cover" src="{{ asset('build/images/' ~ articles.images[(5)]) }}" alt="les_configue"></div>
 								</div>
+								<a href="{{path("cart_add", {'id' : articles.id})}}" class="btn btn-info mt-16 ml-40 text-black " type="button" style="align-items:center;border:1px solid grey">Ajouter</a>
 							</div>
 					</div>
 				</div>
@@ -122,7 +123,7 @@
 					<div class="container2_essentiel">
 						<div class="bg_2droite">
 							<div data-aos="fade-left" class="container_images">
-								<image class="w-full object-cover" src="{{ asset('build/images/pub.png') }}"></img>
+								<image class="w-full object-cover" src="{{ asset('build/images/' ~ articles.images[(6)]) }}"></img>
 						</div>
 					</div>
 					<div class="bg_1droite">
@@ -140,44 +141,59 @@
 			   	 		</div>
 							<div class="text_desc_article2">
 								<div class="a_dscript p-4 text-left text-base font-bold">{{ articles.description}}</div>
-								<div class="a_dscript2 p-4 text-left text-base font-bold">{{ articles.description2}}</div>
-								<div class="a_dscript3 pl-4 text-left text-base font-bold"> Modulo Sécurité+, c’est un espace douche facilement accessible :</div>	
+								<div class="a_dscript2 pl-4 pt-2 pb-2 text-left text-base font-bold">{{ articles.description2}}</div>
+								<div class="a_dscript3 pl-4 text-left text-base font-bold"> Pour un espace facilement accessible :</div>	
 									<p class="text-left pl-4">- receveur de douche extra-plat</p>
 									<p class="text-left pl-4">- porte coulissante avec large ouverture (jusqu’à 74 cm)</p>
 									<p class="text-left pl-4">- 3 barres de maintien ergonomiques</p>
 
-									<div class="a_dscript2 p-4 text-left text-base font-bold">{{ articles.description3}}</div>
+									<div class="a_dscript2 pl-4 pt-4 pb-2 text-left text-base font-bold">{{ articles.description3}}</div>
 
 									<p class="text-left pl-4">- receveur antidérapant PN24</p>
-									<p class="text-left pl-4">- équipement complet : mitigeur Grohe, douchette ultra plate, barre de douche, flexible d’alimentation et porte-flacons.</p>
+									<p class="text-left pl-4">- équipement complet : mitigeur Grohe, douchette ultra plate, barre de douche, flexible d’alimentation et porte-flacons.</p><br>
 									
-									<div class="a_dscript3 pl-4 text-left text-base"> Elle s’installe en niche, en angle ou contre un mur (avec le kit de montage spécifique). Selon la configuration de votre salle de bain, vous pouvez choisir parmi 3 versions : </div>	
+									<div class="a_dscript3 pl-4 pb-2 text-left text-base"> Elle s’installe en niche, en angle ou contre un mur (avec le kit de montage spécifique). Selon la configuration de votre salle de bain, vous pouvez choisir parmi 3 versions : </div>	
 									
 									<p class="text-left pl-4">- porte coulissante avec large ouverture (jusqu’à 74 cm)</p>
 									<p class="text-left pl-4">- 3 barres de maintien ergonomiques</p>
+
+									<div class="a_dscript3 p-4 text-left text-base font-bold"> Au-delà de l’accessibilité, simple et rapide à installer, en 1 journée :</div>
+									<div class="a_dscript2 pl-4 text-left text-base text-justify ">{{ articles.description4}}</div>
 								</div>	
 								
 									<div class="description_art2"></div>
 					</div>
 				</div>
-				<div class="group">
+				<div class="description_art_1">
+							<div class="titre_description2 text-black text-3xl font-bold hover:text-tahiti-500">Les caractéristiques techniques</div>
+							<div class="trai_droit_article_desc2"></div>
+			   	</div>
+
+				<div class="caracteristique_technique mb-10">
+					<image class="object-cover" src="{{ asset('build/images/' ~ articles.images[(7)]) }}"></img>
+				</div>
+
+
+
+
+				{# <div class="group">
 				<div class="widg">
 					<div class="card mb-2" style=";width:30%;box-shadow:2px 3px 2px 1px rgba(0, 0, 0, 0.21);">
-						<h3 class="card-header" style="background-color:white;">{{ articles.nom }}</h3>
-						<div
-							class="card-body">{# <h5 class="card-title" style="color:red">Promo du Jour</h5>
-																							<h6 class="card-subtitle text-muted">Made in France</h6> #}
+						<h3 class="card-header" style="background-color:white;">{{ articles.sous_categorie }}</h3>
+						<div #}
+							{# class="card-body"><h5 class="card-title" style="color:red">Promo du Jour</h5>
+																							<h6 class="card-subtitle text-muted">Made in France</h6>
 						</div>
 						<img src="{{ asset('build/images/' ~ articles.images[0]) }}" class="d-block user-select-none" width="27%" height="50px" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle;margin-bottom:87px;margin-top:63px;">
 							<rect width="27%" height="100%" fill="#868e96"></rect>
 							<text x="30%" y="50%" fill="#dee2e6" dy=".4em">
 								<div class="prix_produit">{{ articles.prix}}€</div>
-							</text>
-						</img>
+							</text> #}
+						{# </img>
 						<div
 							class="voir_article">
-							{# <a href="{{ path('app_detail_articles' , {'id' : articles.id}) }}" class="btn btn-light mb-2 " style="margin-top:10px:margin-left:10px" >Voir</a> #}
-							<a href="{{path("cart_add", {'id' : articles.id})}}" class="btn btn-light mb-2" style="align-items:center;border:1px solid grey">Ajouter</a>
+							<a href="{{ path('app_detail_articles' , {'id' : articles.id}) }}" class="btn btn-light mb-2 " style="margin-top:10px:margin-left:10px" >Voir</a>
+							
 						</div>
 					</div>
 					<div class="descript">
@@ -185,8 +201,9 @@
 						<h6 class="card-subtitle1 text-muted">Made in France</h6>
 						<div class="description_produit1">{{ articles.essentiel}}</div>
 						<img src="{{ asset('build/images/Capture_-_20_-removebg-preview (1).png')}}" class="solde"></div>
-				</div>
+				</div>  #}
 			</div>
+{% include 'partials/footer.html.twig' %}
 <script src="./assets/js/app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
