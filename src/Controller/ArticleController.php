@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Categorie;
 use App\Repository\ArticleRepository;
+use App\Repository\CategorieRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ArticleController extends AbstractController
 {
     #[Route('/article', name: 'app_article')]
-    public function index(ArticleRepository $articleRepo, EntityManagerInterface $entityManager): Response
+    public function index(ArticleRepository $articleRepo, EntityManagerInterface $entityManager,CategorieRepository $categorieRepos, ): Response
     {
         $articles = $articleRepo->findAll();
 
@@ -23,26 +25,56 @@ class ArticleController extends AbstractController
             FROM App\Entity\Commande c
             ORDER BY c.montant DESC'
         )->setMaxResults(10);
-
+// dd($articles);
         $commandes = $query->getResult();
+        // $categorie = $categorieRepos->find();
+
+        $categorieId = 1; // Remplacez 1 par l'ID de la catégorie souhaitée
+        $categorie = $categorieRepos->findAll();
+        
+        if (!$categorie) {
+            throw $this->createNotFoundException('La catégorie spécifiée n\'existe pas.');
+        }
+        
+        $queryBuilder = $articleRepo->createQueryBuilder('a')
+            ->innerJoin('a.categories', 'c')
+            ->where('c.id = :categorieId')
+            ->setParameter('categorieId', $categorieId);
+        
+        $articles = $queryBuilder->getQuery()->getResult();
+    
+        return $this->render('article/index.html.twig', [
+            'articles' => $articles,
+            'categorie' => $categorie,
+        ]);
 
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
             'articles' => $articles,
-            'commandes' => $commandes
+            'commandes' => $commandes,
+            'categorie' => $categorie,
         ]);
+       
     }
-    #[Route('/article', name: 'article')]
-    public function showArticlesByCategory(ArticleRepository $articleRepository): Response
-    {
-        $articlesDouche = $articleRepository->findBy(['sous_categorie' => 'La douche']);
-        $articlesRemplacementBaignoire = $articleRepository->findBy(['sous_categorie' => 'Le remplacement de baignoire']);
+//     #[Route('/article', name: 'article')]
+//     public function showArticlesByCategory(CategorieRepository $categorieRepo): Response
+//     {
+//         $categorieId = 1; // Remplacez 1 par l'ID de la catégorie souhaitée
+//         $categorie = $categorieRepo->find($categorieId);
+        
+//         if (!$categorie) {
+//             throw $this->createNotFoundException('La catégorie spécifiée n\'existe pas.');
+//         }
+        
+//         $articles = $categorie->getArticles();
+// // dd($articles);
+//         return $this->render('article/index.html.twig', [
+//             'articles' => $articles,
+//             'categorie' => $categorie,
+//         ]);
     
-        return $this->render('categorie/index.html.twig', [
-            'articlesDouche' => $articlesDouche,
-            'articlesRemplacementBaignoire' => $articlesRemplacementBaignoire,
-        ]);
-    }
+       
+    // }
 
     public function getBestSellingArticles(EntityManagerInterface $entityManager, int $limit = 10): array
     {
@@ -88,12 +120,20 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    public function configureFields(string $imageName): iterable
+    public function configureFields(string $imageNom): iterable
     {
         yield ImageField::new('image')
             ->setBasePath('/uploads/images/')
             ->setLabel('Image')
             ->setSortable(false);
     }
-    
+
+    public function articlesByCategorieAction($categorieId, ArticleRepository $articleRepository)
+    {
+        $articles = $articleRepository->findByCategorie($categorieId);
+
+        return $this->render('article/index.html.twig', [
+            'articles' => $articles,
+    ]);
+}
 }

@@ -15,7 +15,7 @@
 				class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
 				<!-- Home link -->
 				<li class="nav-item">
-					<a class="nav-link text-black" href="{{path('app_index')}}">Accueil</a>
+					<a class="pt-1 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="{{path('app_index')}}">Accueil</a>
 				</li>
 				<li class="lg:pr-2" data-te-nav-item-ref>
 					{# <a class="active disabled:text-black/30 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" aria-current="page" href="{{path('app_index')}}"data-te-nav-link-ref>Accueil</a> #}
@@ -23,20 +23,32 @@
 				<!-- Features link -->
 				<li class="lg:pr-2" data-te-nav-item-ref>
 					<a class="pt-1 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="{{path('app_inscription')}}" data-te-nav-link-ref>Inscription</a>
+				<span class="visually-hidden">(current)</span>
 				</li>
 				<!-- Pricing link -->
 				<li class="lg:pr-2" data-te-nav-item-ref>
 					<a class="p-0 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="{{path('app_login')}}" data-te-nav-link-ref>Connexion</a>
 				</li>
+		
 				<!-- Disabled link -->
 				<li class="lg:pr-2" >
 					<a class="nav-link" href="{{path('cart_index')}}">
 						<i class="fa-solid fa-cart-arrow-down"></i>
 					</a>
 				</li>
+							{% if is_granted('IS_AUTHENTICATED_FULLY')%}
+				{% if app.user %}
+					<div class="mb-3 mt-3 h8">
+						Bienvenue
+						{{ app.user.pseudo }},
+						<a type="button" class="btn btn-outline-info" href="{{ path('app_logout') }}">Deconnexion</a>
+					</div>
+				{% endif %}
+			{% endif %}
 			</ul>
 		</div>
 	</div>
+	
 </nav>
 		<script src="./assets/js/app.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>

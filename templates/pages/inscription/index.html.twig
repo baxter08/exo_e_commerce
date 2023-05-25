@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello InscriptionController!{% endblock %}
+{% block title %}Inscription
+{% endblock %}
 
 {% block body %}
 <div class="ensemble_form">
+ <h1 class="h3 mb-2 mt-3 font-weight-normal">Inscription</h1>
 
 {{form(form)}}
 {% for message in app.flashes('success') %}
@@ -13,6 +15,15 @@
 {% endfor %}
 
 </div>
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6LfwSiImAAAAANrrpXNh5_y5gLSSWIAstMxRK4bb"></script>
+<script>
+   grecaptcha.ready(function() {
+    grecaptcha.execute('6LfwSiImAAAAANrrpXNh5_y5gLSSWIAstMxRK4bb', {action: 'homepage'}).then(function(token) {
+        document.getElementById('recaptchaResponse').value = token
+   
+    });
+});
+</script>
 		<script src="./assets/js/app.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
 	<script src="https://cdn.tailwindcss.com/3.3.0"></script>

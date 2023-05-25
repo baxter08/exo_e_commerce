@@ -46,9 +46,13 @@ h1 {
 }
 
 .ensemble_form {
-  width: 100%;
-  padding: 33px 400px 33px 400px;
+  width: 33%;
+  padding: 15px 50px 33px 50px;
+  border: solid darkgrey 1px;
+  margin-top: 50px;
+  background: linear-gradient(to bottom, rgb(255 235 205 / 47%) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 100%);
 }
+
 
 
 .d-blockw-100 {
@@ -1178,7 +1182,8 @@ a .redirect {
   width: 80%;
   display: flex;
   height: auto;
-  flex-wrap: nowrap;
+  padding: 10px 10px 10px 130px;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -1186,8 +1191,9 @@ a .redirect {
   /* border: solid rgb(25, 99, 189) 1px; */
   width: 80%;
   display: flex;
-  height: 400px;
-  background-color:#e0ccad33 ;
+  height: 333px;
+  padding: 10px 10px 10px 130px;
+  background-color: #e0ccad33;
   flex-wrap: nowrap;
   align-items: center;
 }
@@ -1196,10 +1202,12 @@ a .redirect {
   /* border: solid rgb(25, 99, 189) 1px; */
   width: 80%;
   display: flex;
-  height: 400px;
+  height: 333px;
   flex-wrap: nowrap;
   align-items: center;
+  padding: 10px 10px 10px 130px;
 }
+
 .container_vide_right {
   /* border: solid rgb(25, 99, 189) 1px; */
   width: 38%;
