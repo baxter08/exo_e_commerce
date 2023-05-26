@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\CategorieRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Article;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CategorieRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 class Categorie
@@ -18,12 +19,24 @@ class Categorie
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
-    #[ORM\ManyToMany(targetEntity: Article::class, mappedBy: 'categorie')]
-    private Collection $articles;
+    #[ORM\Column(length: 255)]
+    private ?string $image_categorie= null;
+
+    
+    #[ORM\ManyToMany(targetEntity:"Article", mappedBy:"categories")]
+    private $articles;
 
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticle(): Collection
+    {
+        return $this->articles;
     }
 
     public function getId(): ?int
@@ -43,6 +56,19 @@ class Categorie
         return $this;
     }
 
+    
+    public function getImage_categorie(): ?string
+    {
+        return $this->image_categorie;
+    }
+
+    public function setImage_categorie(string $image_categorie): self
+    {
+        $this->nom = $image_categorie;
+
+        return $this;
+    }
+
     /**
      * @return Collection<int, Article>
      */
@@ -51,7 +77,7 @@ class Categorie
         return $this->articles;
     }
 
-    public function addArticle(Article $article): self
+    public function addCategorie(Article $article): self
     {
         if (!$this->articles->contains($article)) {
             $this->articles->add($article);
@@ -61,7 +87,7 @@ class Categorie
         return $this;
     }
 
-    public function removeArticle(Article $article): self
+    public function removeCategorie(Article $article): self
     {
         if ($this->articles->removeElement($article)) {
             $article->removeCategorie($this);

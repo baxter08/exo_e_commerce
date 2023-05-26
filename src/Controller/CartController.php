@@ -4,17 +4,19 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
+use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\Loader\Configurator\request;
 /**
  * @Route("/cart", name="cart_")
  */
 class CartController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(SessionInterface $session, ArticleRepository $articleRepository): Response 
+    public function index(SessionInterface $session, ArticleRepository $articleRepository,$request): Response 
     {
         $panier = $session->get("panier", []);
 
@@ -30,6 +32,40 @@ class CartController extends AbstractController
             ];
             $total += $article->getPrix() * $quantite;
         }
+        $nouvelElement = $request->request->get('nouvel_element');
+
+    // Récupérer le service de session
+    $session = $request->getSession($session);
+
+    // Ajouter l'élément au panier dans la variable de session
+    $panier = $session->get('panier', []);
+    $panier[] = $nouvelElement;
+    $session->set('panier', $panier);
+    $panierSerialise = json_encode($panier);
+
+    // Créer un cookie contenant les données du panier
+    $cookie = new Cookie('panier', $panierSerialise, strtotime('+1 day'));
+
+    // Ajouter le cookie à la réponse
+    $response = new Response();
+    $response->headers->setCookie($cookie);
+
+        // Récupérer les données du panier à partir du cookie
+        $cookiePanier = $request->cookies->get('panier');
+
+        if ($cookiePanier) {
+            // Désérialiser les données du panier
+            $panier = json_decode($cookiePanier, true);
+    
+            // Récupérer le service de session
+            $session = $request->getSession();
+    
+            // Stocker les données du panier dans la variable de session
+            $session->set('panier', $panier);
+        }
+
+    // Retourner la réponse
+    return $response;
                     //utiliser compact pour eviter de retaper tout
         return $this->render('cart/index.html.twig', compact("dataPanier",
          "total"));

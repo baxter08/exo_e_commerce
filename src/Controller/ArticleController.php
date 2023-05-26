@@ -27,26 +27,22 @@ class ArticleController extends AbstractController
         )->setMaxResults(10);
 // dd($articles);
         $commandes = $query->getResult();
-        // $categorie = $categorieRepos->find();
-
-        $categorieId = 1; // Remplacez 1 par l'ID de la catégorie souhaitée
         $categorie = $categorieRepos->findAll();
+
+        // $categorieId = 1; // Remplacez 1 par l'ID de la catégorie souhaitée
+        // $categorie = $categorieRepos->findAll();
         
-        if (!$categorie) {
-            throw $this->createNotFoundException('La catégorie spécifiée n\'existe pas.');
-        }
+        // if (!$categorie) {
+        //     throw $this->createNotFoundException('La catégorie spécifiée n\'existe pas.');
+        // }
         
-        $queryBuilder = $articleRepo->createQueryBuilder('a')
-            ->innerJoin('a.categories', 'c')
-            ->where('c.id = :categorieId')
-            ->setParameter('categorieId', $categorieId);
+        // $queryBuilder = $articleRepo->createQueryBuilder('a')
+        //     ->innerJoin('a.categories', 'c')
+        //     ->where('c.id = :categorieId')
+        //     ->setParameter('categorieId', $categorieId);
         
-        $articles = $queryBuilder->getQuery()->getResult();
-    
-        return $this->render('article/index.html.twig', [
-            'articles' => $articles,
-            'categorie' => $categorie,
-        ]);
+        // $articles = $queryBuilder->getQuery()->getResult();
+
 
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',

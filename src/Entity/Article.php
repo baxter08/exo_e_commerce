@@ -4,14 +4,15 @@ namespace App\Entity;
 
 use App\Entity\Image;
 use App\Entity\Panier;
+use App\Entity\Commande;
+use App\Entity\Categorie;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\DBAL\Types\DecimalType;
 use App\Repository\ArticleRepository;
+use phpDocumentor\Reflection\Types\Null_;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Commande;
-use phpDocumentor\Reflection\Types\Null_;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
@@ -57,13 +58,28 @@ class Article
     #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Commande::class, orphanRemoval: true)]
     private Collection $commandes;
 
-    public function __construct()
+    
+    #[ORM\ManyToMany(targetEntity:"Categorie", inversedBy:"articles")]
+    #[ORM\JoinTable(name:"article_categorie")]
+    private $categories;
+
+     public function __construct()
     {
+        $this->categories = new ArrayCollection();
         $this->images = new ArrayCollection();
         $this->y = new ArrayCollection();
         $this->commandes = new ArrayCollection();
     }
 
+
+    /**
+     * @return Collection|Categorie[]
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+  
 
     public function getId(): ?int
     {
@@ -259,6 +275,30 @@ class Article
                 $commande->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Categorie>
+     */
+    public function getCategorie(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategorie(Categorie $categorie): self
+    {
+        if (!$this->categories->contains($categorie)) {
+            $this->categories->add($categorie);
+        }
+
+        return $this;
+    }
+
+    public function removeCategorie(Categorie $categorie): self
+    {
+        $this->categories->removeElement($categorie);
 
         return $this;
     }
