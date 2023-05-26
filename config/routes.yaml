@@ -1,3 +1,5 @@
-controllers:
-    resource: ../src/Controller/
-    type: attribute
+    controller: 'App\Controller\ArticleController::showArticlesByCategory'
+app_article:
+    path: /article
+    controller: App\Controller\ArticleController::index
+    methods: [GET]

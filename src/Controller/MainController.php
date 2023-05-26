@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Form\SearchType;
 use App\Repository\ArticleRepository;
+use App\Entity\Categorie;
+use App\Repository\CategorieRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,7 +18,7 @@ class MainController extends AbstractController
 
 
     #[Route('/', name: 'app_index')]
-    public function index(ArticleRepository $articleRepos, Request $request): Response
+    public function index(ArticleRepository $articleRepos, Request $request, CategorieRepository $categorieRepos): Response
     {
 
         $form = $this->createForm(SearchType::class);
@@ -33,13 +35,15 @@ class MainController extends AbstractController
             $articles = $articleRepos->findAll();
         }
         // $articles = $articleRepos->findAll();
+        $categorie = $categorieRepos->findAll();
 
-
+        // dd($categorie);
 
         return $this->render('pages/main/index.html.twig', [
 
             'articles' => $articles,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'categorie' => $categorie, // Ajoutez cette ligne pour passer la variable à la vue
 
         ]);
     }

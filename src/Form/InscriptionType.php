@@ -36,7 +36,7 @@ class InscriptionType extends AbstractType
             ]
             ])
 
-        ->add('pseudo', TextType::class, [
+            ->add('pseudo', TextType::class, [
                 'attr' => [
                 'class'  => 'form-control',
                 'minlenght' => '2',
@@ -106,7 +106,7 @@ class InscriptionType extends AbstractType
                     'attr' => [
                         'class' => 'form-control'
                     ],
-                    'label' => 'Mot de passe',
+                    'label' => 'Mot de passe (obligatoire: 1 majuscule, 1 chiffre, 1 minuscule)',
                     'label_attr' => [
                         'class' => 'form-label mt-4'
                     ],
@@ -129,11 +129,14 @@ class InscriptionType extends AbstractType
             ])
             ->add('submit', SubmitType::class,[
                 'attr' => [
-                    'class' => 'btn btn-secondary mt-4'
+                    'class' => 'btn btn-info text-black mt-4'
+
                 ],
                 'label' => 'S\'inscrire'
+
             ]);
     }
+
 
     public function configureOptions(OptionsResolver $resolver): void
     {
