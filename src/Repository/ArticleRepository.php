@@ -64,16 +64,18 @@ class ArticleRepository extends ServiceEntityRepository
            ->getQuery()
            ->getResult()
        ;
-  }
+    }
 
-  public function findByCategorie()
-  {
-      return $this->createQueryBuilder('a')
-          ->innerJoin('a.categorie', 'c')
-          ->where('c.id = :categorieId')
-          ->getQuery()
-          ->getResult();
-  }
+    public function findByCategorie()
+    {
+        return $this->createQueryBuilder('a')
+            ->innerJoin('a.categorie', 'c')
+            ->where('c.id = :categorieId')
+            ->getQuery()
+            ->getResult();
+    }
+
+  
 
 //    public function findOneBySomeField($value): ?Article
 //    {

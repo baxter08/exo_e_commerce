@@ -36,22 +36,6 @@ class InscriptionType extends AbstractType
             ]
             ])
 
-            ->add('pseudo', TextType::class, [
-                'attr' => [
-                'class'  => 'form-control',
-                'minlenght' => '2',
-                'maxlenght' => '50',
-                ],
-                'required' => false,
-                'label' => 'Pseudo',
-                'label_attr' => [
-                'class' =>'form-label mt-4'
-                ],
-                'constraints' => [
-                    new Assert\Length(['min' => 2, 'max' => 50])
-                ],
-                ])
-
         ->add('prenom', TextType::class,[ 
             'attr' => [
             'class'  => 'form-control',
@@ -67,6 +51,22 @@ class InscriptionType extends AbstractType
                 new Assert\Length(['min' => 2, 'max' => 50])
             ],
             ])
+
+            ->add('pseudo', TextType::class, [
+                'attr' => [
+                'class'  => 'form-control',
+                'minlenght' => '2',
+                'maxlenght' => '50',
+                ],
+                'required' => false,
+                'label' => 'Pseudo',
+                'label_attr' => [
+                'class' =>'form-label mt-4'
+                ],
+                'constraints' => [
+                    new Assert\Length(['min' => 2, 'max' => 50])
+                ],
+                ])
 
             ->add('email' , EmailType::class, [
                 'attr' => [
@@ -130,13 +130,12 @@ class InscriptionType extends AbstractType
             ->add('submit', SubmitType::class,[
                 'attr' => [
                     'class' => 'btn btn-info text-black mt-4'
-
+                        
                 ],
                 'label' => 'S\'inscrire'
-
+                
             ]);
     }
-
 
     public function configureOptions(OptionsResolver $resolver): void
     {
