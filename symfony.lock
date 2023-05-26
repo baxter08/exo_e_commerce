@@ -36,7 +36,7 @@
         ]
     },
     "easycorp/easyadmin-bundle": {
-        "version": "4.5",
+        "version": "4.6",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -56,18 +56,6 @@
             "./.env.test",
             "./phpunit.xml.dist",
             "./tests/bootstrap.php"
-        ]
-    },
-    "sensio/framework-extra-bundle": {
-        "version": "6.2",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "5.2",
-            "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
-        },
-        "files": [
-            "./config/packages/sensio_framework_extra.yaml"
         ]
     },
     "symfony/console": {
@@ -283,25 +271,6 @@
         },
         "files": [
             "./config/packages/messenger.yaml"
-        ]
-    },
-    "symfony/webpack-encore-bundle": {
-        "version": "1.16",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "main",
-            "version": "1.10",
-            "ref": "f8fc53f1942f76679e9ee3c25fd44865355707b5"
-        },
-        "files": [
-            "./assets/app.js",
-            "./assets/bootstrap.js",
-            "./assets/controllers.json",
-            "./assets/controllers/hello_controller.js",
-            "./assets/styles/app.css",
-            "./config/packages/webpack_encore.yaml",
-            "./package.json",
-            "./webpack.config.js"
         ]
     },
     "twig/extra-bundle": {

@@ -1,12 +1,9 @@
 framework:
-    default_locale: fr
+    default_locale: en
     translator:
         default_path: '%kernel.project_dir%/translations'
-        paths:
-            - '%kernel.project_dir%/translations'
-            - '%kernel.project_dir%/vendor/easycorp/easyadmin-bundle/src/Resources/translations'
         fallbacks:
-            - fr
+            - en
 #        providers:
 #            crowdin:
 #                dsn: '%env(CROWDIN_DSN)%'
