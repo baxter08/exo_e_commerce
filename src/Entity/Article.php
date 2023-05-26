@@ -4,14 +4,15 @@ namespace App\Entity;
 
 use App\Entity\Image;
 use App\Entity\Panier;
+use App\Entity\Commande;
+use App\Entity\Categorie;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\DBAL\Types\DecimalType;
 use App\Repository\ArticleRepository;
+use phpDocumentor\Reflection\Types\Null_;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
-use App\Entity\Commande;
-
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
@@ -29,6 +30,22 @@ class Article
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $description2 = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $description3 = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $description4 = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $essentiel = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $sous_categorie = null;
+
+
     #[ORM\Column(type: "decimal", scale: 2)]
     private ?string $prix = null;
 
@@ -41,13 +58,28 @@ class Article
     #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Commande::class, orphanRemoval: true)]
     private Collection $commandes;
 
-    public function __construct()
+    
+    #[ORM\ManyToMany(targetEntity:"Categorie", inversedBy:"articles")]
+    #[ORM\JoinTable(name:"article_categorie")]
+    private $categories;
+
+     public function __construct()
     {
+        $this->categories = new ArrayCollection();
         $this->images = new ArrayCollection();
         $this->y = new ArrayCollection();
         $this->commandes = new ArrayCollection();
     }
 
+
+    /**
+     * @return Collection|Categorie[]
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+  
 
     public function getId(): ?int
     {
@@ -74,6 +106,69 @@ class Article
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getDescription2(): ?string
+    {
+        return $this->description2;
+    }
+
+    public function setDescription2(string $description2): self
+    {
+        $this->description2 = $description2;
+
+        return $this;
+    }
+
+    public function getDescription3(): ?string
+    {
+        return $this->description3;
+    }
+
+    public function setDescription3(string $description3): self
+    {
+        $this->description3 = $description3;
+
+        return $this;
+    }
+
+    public function getDescription4(): ?string
+    {
+        return $this->description4;
+    }
+
+    public function setDescription4(string $description4): self
+    {
+        $this->description4 = $description4;
+
+        return $this;
+    }
+
+
+    public function getEssentiel(): ?string
+    {
+        return $this->essentiel;
+    }
+
+    public function setEssentiel(string $essentiel): self
+    {
+        $this->essentiel = $essentiel;
+
+        return $this;
+    }
+
+    public function getSous_categorie(): ?string
+    {
+       
+        return $this->sous_categorie;
+    }
+
+    public function setSous_categorie(string $sous_categorie): self
+    {
+        $this->sous_categorie = $sous_categorie;
+        
 
         return $this;
     }
@@ -180,6 +275,30 @@ class Article
                 $commande->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Categorie>
+     */
+    public function getCategorie(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategorie(Categorie $categorie): self
+    {
+        if (!$this->categories->contains($categorie)) {
+            $this->categories->add($categorie);
+        }
+
+        return $this;
+    }
+
+    public function removeCategorie(Categorie $categorie): self
+    {
+        $this->categories->removeElement($categorie);
 
         return $this;
     }
