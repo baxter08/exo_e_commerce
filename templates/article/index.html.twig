@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block body %}
-
+{% for categories in categorie %}
 	<div class="bandeau_categorie mt-10">
 		<h1 class="ml-40 mt-5 pt-5 text-black text-3xl font-bold hover:text-tahiti-500 ">Catégories produits</h1>
 		<p class="ml-40 mt-6 text-base ">Découvrez toutes nos solutions pour la salle de bain</p>
@@ -20,34 +20,38 @@
 	    <div class="ensemble_titre_container_vide mt-3 mb-3">
 	    	<div class="bandeau_categorie1 mt-3 mb-3">
 	    		<div class="titre_cat ml-3">
-                
-	    			<h1 class="text-black text-3xl font-bold hover:text-tahiti-500 mt-4">{{ categorie[0].nom}}</h1>
+	    			<h1 class="text-black text-3xl font-bold hover:text-tahiti-500 mt-4">{{categories.nom}}</h1>
 	    		</div>
+ 
 	    		<div class="container_vector_image">
-	    			<img class="w-16" src="{{ asset('build/images/vector_douche.png') }}">
+				{# {{dump(categories.image_categorie)}} #}
+	    			<img class="w-16" src="{{ asset('build/images/' ~ categories.image_categorie) }}">
 	    		</div>
+    
 	    	</div>
 	    	<div class="container_vide_right mt-3"></div>
 	    </div>
 		
     <div class="bandeau_categorie_article">
-     {% for article in articles %}
+     {% for article in categories.articles %} 
 	    <div class="card-1">
-            <div class="titre_produit_jp text-lg">{{ article.nom}}</div>
+		{# {{ dump(article) }} #}
+            <div class="titre_produit_jp text-lg">{{article.nom}}</div>
 	    	<div class="image_jp"><a href="https://127.0.0.1:8000/detail/articles/3"><img  src="{{ asset('build/images/' ~ article.images[0]) }}"></a></div>
     
 	    	{# <div class="prix_produit_jp mr-8 text-xl">1190 €</div> #}
-            <a href="https://127.0.0.1:8000/detail/articles/3" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
+            <a href="{{path("app_detail_articles", {'id' : article.id})}}" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
     
 	    </div>
 	{% endfor %}
     </div>
-	
+{% endfor %}
+{# 	
     <div class="ensemble_titre_container_vide2 mt-3">
 	    	<div class="bandeau_categorie1 mt-3 mb-3">
 	    		<div class="titre_cat ml-3">
                 
-	    			<h1 class="text-black text-3xl font-bold hover:text-tahiti-500 mt-4">{{ categorie[].nom}}</h1>
+	    			<h1 class="text-black text-3xl font-bold hover:text-tahiti-500 mt-4">categorie 2</h1>
 	    		</div>
 	    		<div class="container_vector_image">
 	    			<img class="w-16" src="{{ asset('build/images/vector_bain.png') }}">
@@ -61,76 +65,77 @@
 	    	<div class="image_jp"><a href="https://127.0.0.1:8000/detail/articles/4"><img  src="{{ asset('build/images/duo_pack_combine2.png') }}"></a></div>
     
 	    	{# <div class="prix_produit_jp mr-8 text-xl">299.99 €</div> #}
-            <a href="https://127.0.0.1:8000/detail/articles/5" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
+            {# <a href="https://127.0.0.1:8000/detail/articles/5" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a> #}
     
-	    </div>
+	    {# </div>
               <div class="card-1">
             <div class="titre_produit_jp text-lg">Duo - Pack Sérénité+</div>
 	    	<div class="image_jp"><a href="https://127.0.0.1:8000/detail/articles/6"><img  src="{{ asset('build/images/duo_pack_sérénité+.png') }}"></a></div>
     
 	    	{# <div class="prix_produit_jp mr-8 text-xl">299.99 €</div> #}
-            <a href="https://127.0.0.1:8000/detail/articles/6" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
+            {# <a href="https://127.0.0.1:8000/detail/articles/6" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a> #}
     
-	    </div>
-        <div class="card-1">
+	    {# </div> #} 
+        {# <div class="card-1">
             <div class="titre_produit_jp text-lg">Par-Bain Smart Design</div>
 	    	<div class="image_jp"><a href="https://127.0.0.1:8000/detail/articles/12"><img  src="{{ asset('build/images/par-bain.png') }}"></a></div>
-    
+     #}
 	    	{# <div class="prix_produit_jp mr-8 text-xl">299.99 €</div> #}
-            <a href="https://127.0.0.1:8000/detail/articles/12" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
-    
-	    </div>
+            {# <a href="https://127.0.0.1:8000/detail/articles/12" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
+     #}
+	    {# </div>
         <div class="card-1">
             <div class="titre_produit_jp text-lg">Par-Bain Hydra</div>
 	    	<div class="image_jp"><a href="https://127.0.0.1:8000/detail/articles/13"><img  src="{{ asset('build/images/Pare-bain_hydra.png') }}"></a></div>
-    
+     #}
 	    	{# <div class="prix_produit_jp mr-8 text-xl">299.99 €</div> #}
-            <a href="https://127.0.0.1:8000/detail/articles/13" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
-    
-	    </div>
+            {# <a href="https://127.0.0.1:8000/detail/articles/13" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
+     #}
+	    {# </div>
          <div class="card-1">
             <div class="titre_produit_jp text-lg">Par-Bain Lyra</div>
 	    	<div class="image_jp"><a href="https://127.0.0.1:8000/detail/articles/14"><img  src="{{ asset('build/images/Par-bain_Lydra.png') }}"></a></div>
-    
+     #}
 	    	{# <div class="prix_produit_jp mr-8 text-xl">299.99 €</div> #}
-            <a href="https://127.0.0.1:8000/detail/articles/14" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
+            {# <a href="https://127.0.0.1:8000/detail/articles/14" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
     
 	    </div>
     
-    </div>
+    </div> #}
 
     
 
-      <div class="ensemble_titre_container_vide3 mt-3">
+      {# <div class="ensemble_titre_container_vide3 mt-3">
 	    	<div class="bandeau_categorie1 mt-3 mb-3">
 	    		<div class="titre_cat ml-3">
                 
-	    			<h1 class="text-black text-3xl font-bold hover:text-tahiti-500 mt-4">Le remplacement de baignoire</h1>
+	    			<h1 class="text-black text-3xl font-bold hover:text-tahiti-500 mt-4">categorie 3</h1>
+
 	    		</div>
 	    		<div class="container_vector_image">
 	    			<img class="w-16" src="{{ asset('build/images/vecktor_bain_remplacement.png') }}">
 	    		</div>
 	    	</div>
 	    	<div class="container_vide_right mt-3"></div>
-	    </div>
-    <div class="bandeau_categorie_article3">
+	    </div> #}
+    {# <div class="bandeau_categorie_article3">
      <div class="card-1">
             <div class="titre_produit_jp text-lg">Modulo Sécurité+</div>
 	    	<div class="image_jp"><a href="https://127.0.0.1:8000/detail/articles/1"><img  src="{{ asset('build/images/Douche_securiser_avant.png') }}"></a></div>
     
 	    	{# <div class="prix_produit_jp mr-8 text-xl">299.99 €</div> #}
-            <a href="https://127.0.0.1:8000/detail/articles/1" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
+            {# <a href="https://127.0.0.1:8000/detail/articles/1" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
     
-	    </div>
-        <div class="card-1">
+	    </div> #}
+        {# <div class="card-1">
             <div class="titre_produit_jp text-lg">Modulo Concept</div>
 	    	<div class="image_jp"><a href="https://127.0.0.1:8000/detail/articles/2"><img  src="{{ asset('build/images/Concept_Modulo.png') }}"></a></div>
-    
+     #}
 	    	{# <div class="prix_produit_jp mr-8 text-xl">299.99 €</div> #}
-            <a href="https://127.0.0.1:8000/detail/articles/2" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
-    
-	    </div>
-    </div>
+            {# <a href="https://127.0.0.1:8000/detail/articles/2" type="button" class="btn btn-info mb-1 px-4 m-2 text-black">Voir</a>
+      #}
+	    {# </div> #}
+    {# </div>  #}
 {% include 'partials/footer.html.twig' %}
 	<script src="./assets/js/app.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
