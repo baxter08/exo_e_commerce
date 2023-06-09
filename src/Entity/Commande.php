@@ -41,6 +41,11 @@ class Commande
         return $this->id;
     }
 
+    public function setId(string $id): ?int
+    {
+        return $this->id = $id;
+    }
+
     public function getNumero(): ?string
     {
         return $this->numero;
