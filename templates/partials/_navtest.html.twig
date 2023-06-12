@@ -29,7 +29,12 @@
 				<li class="lg:pr-2" data-te-nav-item-ref>
 					<a class="p-0 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="{{path('app_login')}}" data-te-nav-link-ref>Connexion</a>
 				</li>
-		
+				 <!-- Dashboard link visible only for super admin -->
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+            <li class="lg:pr-2" data-te-nav-item-ref>
+                <a class="p-0 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="{{ path('admin') }}" data-te-nav-link-ref>Dashboard</a>
+            </li>
+			{% endif %}
 				<!-- Disabled link -->
 				<li class="lg:pr-2" >
 					<a class="nav-link" href="{{path('cart_index')}}">

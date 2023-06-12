@@ -28,8 +28,6 @@ class ArticleCrudController extends AbstractCrudController
     {
         
   
-      
-   
         // yield IdField::new('id');p
         yield TextField::new('nom');
         yield TextareaField::new('description');
