@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie produit
+{% endblock %}
+{% block javascripts %}
+	{{ encore_entry_script_tags('ajax')}}
+	{{ encore_entry_script_tags('app')}}
+	{{ encore_entry_script_tags('slides')}}
+	{{encore_entry_script_tags('slider') }}
+	{{parent()}}
+{% endblock %}
+
+{% block body %}
+{% for categories in categorie %}
+	<div class="bandeau_categorie mt-10">
+		<h1 class="ml-40 mt-5 pt-5 text-black text-3xl font-bold hover:text-tahiti-500 ">Catégories produits</h1>
+		<p class="ml-40 mt-6 text-base ">Découvrez toutes nos solutions pour la salle de bain</p>
+	</div>
+
+	    <div class="ensemble_titre_container_vide mt-3 mb-3">
+	    	<div class="bandeau_categorie1 mt-3 mb-3">
+	    		<div class="titre_cat ml-3">
+	    			<h1 class="text-black text-3xl font-bold hover:text-tahiti-500 mt-4">{{categories.nom}}</h1>
+	    		</div>
+ 
+	    		<div class="container_vector_image">
+				{# {{dump(categories.image_categorie)}} #}
+	    			<img class="w-16" src="{{ asset('build/images/' ~ categories.image_categorie) }}">
+	    		</div>
+    
+	    	</div>
+	    	<div class="container_vide_right mt-3"></div>
+	    </div>
+		
+    <div class="bandeau_categorie_article">
+     {% for article in categories.articles %} 
+	    <div class="card-1">
+		{# {{ dump(article) }} #}
+            <div class="titre_produit_jp text-lg">{{article.nom}}</div>
+	    	<div class="image_jp"><a href="https://127.0.0.1:8000/detail/articles/3"><img  src="{{ asset('build/images/' ~ article.images[0]) }}"></a></div>
+    
+	    	{# <div class="prix_produit_jp mr-8 text-xl">1190 €</div> #}
+              <input type="hidden" id="article-id" value="{{ article.id }}">
+	    </div>
+	{% endfor %}
+    </div>
+{% endfor %}
+
+ <script src="{{ asset('assets/index.js') }}"></script>

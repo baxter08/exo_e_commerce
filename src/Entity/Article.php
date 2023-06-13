@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
+// use Cocur\Slugify\Slugify;
 use App\Entity\Image;
 use App\Entity\Panier;
 use App\Entity\Commande;
 use App\Entity\Categorie;
+use Cocur\Slugify\Slugify;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\DBAL\Types\DecimalType;
+
 use App\Repository\ArticleRepository;
 use phpDocumentor\Reflection\Types\Null_;
 use Doctrine\Common\Collections\Collection;
@@ -45,9 +48,11 @@ class Article
     #[ORM\Column(type: Types::TEXT)]
     private ?string $sous_categorie = null;
 
-
     #[ORM\Column(type: "decimal", scale: 2)]
     private ?string $prix = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $slug = null;
 
     #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Image::class)]
     private Collection $images;
@@ -71,7 +76,35 @@ class Article
         $this->commandes = new ArrayCollection();
     }
 
+    public function prePersist()
+    {
+        $this->slug = (new Slugify())->slugify($this->id);
+        return $this->slug;
+    }
 
+    // ...
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $encodedId;
+
+    // ...
+
+    public function setEncodedId(string $encodedId): self
+    {
+        $this->encodedId = $encodedId;
+
+        return $this;
+    }
+
+    public function getEncodedId(): ?string
+    {
+        return $this->encodedId;
+    }
+
+    // ... 
+    
     /**
      * @return Collection|Categorie[]
      */
@@ -97,6 +130,12 @@ class Article
 
         return $this;
     }
+
+    public function getSlug($slug): string
+    {
+        return (new Slugify())->slugify($this->id);
+    }
+
 
     public function getDescription(): ?string
     {
