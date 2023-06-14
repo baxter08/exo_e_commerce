@@ -13,6 +13,7 @@ use App\Repository\ArticleRepository;
 use phpDocumentor\Reflection\Types\Null_;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
@@ -184,7 +185,20 @@ class Article
 
         return $this;
     }
+    #[ORM\Column(type: 'string', length: 255)]
+    private $slug;
 
+    // ...
+
+    public function setSlug(string $id, SluggerInterface $slugger): void
+    {
+        $this->slug = $slugger->slug($id)->lower();
+    }
+
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
     /**
      * @return Collection<int, Image>
      */

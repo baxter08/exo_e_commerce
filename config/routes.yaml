@@ -1,6 +1,18 @@
 controllers:
-    resource: ../src/Controller/
+    resource: '../src/Controller/'
     type: attribute
+
 app_categorie:
     path: '/categorie'
     controller: 'App\Controller\ArticleController::showArticlesByCategory'
+
+# app_detail_articles:
+#     path: '/detail/articles/{id}'
+#     controller: 'App\Controller\DetailArticlesController::index'
+#     methods: GET
+#     requirements:
+#         id: \d+
+app_detail_articles:
+    path: /detail/articles/{slug}
+    controller: App\Controller\DetailArticlesController::index
+    methods: GET
