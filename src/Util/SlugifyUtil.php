@@ -4,7 +4,7 @@ namespace App\Util;
 
 class SlugifyUtil
 {
-    public static function slugify($text)
+    public static function slugify(string $text): string
     {
         // Implémentez ici la logique de génération du slug à partir du texte
         // Vous pouvez utiliser des fonctions comme strtolower(), preg_replace(), etc.

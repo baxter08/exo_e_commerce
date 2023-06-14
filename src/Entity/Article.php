@@ -11,13 +11,16 @@ use Cocur\Slugify\Slugify;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\DBAL\Types\DecimalType;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\ArticleRepository;
 use phpDocumentor\Reflection\Types\Null_;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
+
+#[Assert\Expression("this.getId() === null or this.getId() === value",message:"L'ID de l'article ne peut pas être modifié.")]
+ 
 class Article
 {
 
