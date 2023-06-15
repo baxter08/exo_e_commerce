@@ -4,3 +4,8 @@ controllers:
 app_categorie:
     path: '/categorie'
     controller: 'App\Controller\ArticleController::showArticlesByCategory'
+app_detail_articles_show:
+    path: /article/{slug}-{id<[0-9]+>}
+    controller: App\Controller\DetailArticlesController::show
+    requirements:
+        id: '\d+'

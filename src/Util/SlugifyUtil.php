@@ -6,6 +6,7 @@ class SlugifyUtil
 {
     public static function slugify($text)
     {
+        
         // Implémentez ici la logique de génération du slug à partir du texte
         // Vous pouvez utiliser des fonctions comme strtolower(), preg_replace(), etc.
         // pour formater le texte et supprimer les caractères indésirables
