@@ -83,7 +83,8 @@
 									<div class="titre_lesplus2">
 										<img class="w-full p-3 object-cover" src="{{ asset('build/images/' ~ articles.images[(5)]) }}" alt="les_configue"></div>
 								</div>
-								<a href="{{path("cart_add", {'id' : articles.id})}}" class="btn btn-info mt-16 ml-40 text-black " type="button" style="align-items:center;border:1px solid grey">Ajouter</a>
+								 <a href="{{ path('cart_add', {'id': articles.id}) }}" class="btn btn-info mt-16 ml-40 text-black" type="button" style="align-items:center;border:1px solid grey">Ajouter</a>
+								 
 							</div>
 					</div>
 				</div>

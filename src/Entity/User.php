@@ -21,7 +21,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $email = null;
 
     #[ORM\Column]
-    private array $roles = [];
+    private array $roles = ['ROLE_ADMIN','ROLE_SUPER_ADMIN','ROLE_USER'];
 
     /**
      * @var string The hashed password
@@ -70,6 +70,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    
 
     /**
      * A visual identifier that represents this user.

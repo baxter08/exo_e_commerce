@@ -12,15 +12,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DetailArticlesController extends AbstractController
 {
-    #[Route('/detail/articles/{id}', name: 'app_detail_articles')]
-    public function index(int $id, ArticleRepository $articleRepo): Response
+    #[Route('/detail/articles/{slug}', name: 'app_detail_articles')]
+    public function index(Article $article): Response
     {
-
-        $articles = $articleRepo->findOneBy(["id" => $id]);
-
-
         return $this->render('detail_articles/index.html.twig', [
-            'articles' => $articles,
+            'articles' => $article,
         ]);
     }
 

@@ -37,11 +37,16 @@
 	    <div class="card-1">
 		{# {{ dump(article) }} #}
             <div class="titre_produit_jp text-lg">{{article.nom}}</div>
-	    	<div class="image_jp"><a href="https://127.0.0.1:8000/detail/articles/3"><img  src="{{ asset('build/images/' ~ article.images[0]) }}"></a></div>
+	    	<div class="image_jp"><a href="#"><img  src="{{ asset('build/images/' ~ article.images[0]) }}"></a></div>
     
 	    	{# <div class="prix_produit_jp mr-8 text-xl">1190 €</div> #}
-            <input type="hidden" id="article-id" value="{{ article.id }}">
-    
+            {# <input type="hidden" id="article-id" value="{{ article.slug }}"> #}
+    <div class="div11">
+            <a href="{{ path('app_detail_articles' , {'slug' : article.slug}) }}" type="button" class="btn btn-outline-info mb-1 px-4 m-2">Voir</a>
+				{# <a href="{{ path('app_detail_articles' , {'id' : article.id}) }}" class="btn btn-light mb-1 px-4 m-2">Voir</a> #}
+				<a href="{{path("cart_add", {'id' : article.id})}}" class="btn btn-outline-info mb-2 px-4 m-2">Ajouter</a>
+				<i class="bi bi-cart-plus"></i>
+			</div>
 	    </div>
 	{% endfor %}
     </div>

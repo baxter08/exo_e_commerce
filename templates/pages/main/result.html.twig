@@ -2,7 +2,7 @@
 
 	<div class="card-1">
         <div class="titre_produit_jp text-lg">{{ article.nom }}</div>
-		<div class="image_jp"><img src="{{ asset('build/images/' ~ article.images[0]) }}"></div>
+		<div class="image_jp"><img src="{{ asset('build/images/' ~ article.images[0]|default('missing.png')) }}"></div>
 
 
 		
@@ -11,7 +11,7 @@
 		<div class="voir_article_jp">
 
 			<div class="div11">
-            <a href="{{ path('app_detail_articles' , {'id' : article.id}) }}" type="button" class="btn btn-outline-info mb-1 px-4 m-2">Voir</a>
+            <a href="{{ path('app_detail_articles' , {'slug' : article.slug}) }}" type="button" class="btn btn-outline-info mb-1 px-4 m-2">Voir</a>
 				{# <a href="{{ path('app_detail_articles' , {'id' : article.id}) }}" class="btn btn-light mb-1 px-4 m-2">Voir</a> #}
 				<a href="{{path("cart_add", {'id' : article.id})}}" class="btn btn-outline-info mb-2 px-4 m-2">Ajouter</a>
 				<i class="bi bi-cart-plus"></i>

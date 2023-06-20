@@ -25,7 +25,7 @@ class UserCrudController extends AbstractCrudController
             ->setEntityLabelInPlural('Utilisateurs') // permet de mettre Utilisateurs au lieu de User dans le Crud Users
             ->setEntityLabelInSingular('Utilisateur');
     }
-    public function configureFields(string $pageName): iterable
+    public function configureFields(string $pageName,): iterable
     {
         return [
             IdField::new('id'),
@@ -33,7 +33,7 @@ class UserCrudController extends AbstractCrudController
             TextField::new('prenom'),
             TextField::new('email'),
             DateTimeField::new('created_at'),
-            ChoiceField::new('roles'),
+            ChoiceField::new('roles', 'Rôles',User::class)->allowMultipleChoices('roles'),
         ];
     }
 
@@ -42,9 +42,11 @@ class UserCrudController extends AbstractCrudController
     yield MenuItem::linkToDashboard('Tableau de bord', 'fa fa-home');
 
     yield MenuItem::section('Utilisateurs');
+    yield ChoiceField::new('roles','Rôles', User::class)->allowMultipleChoices('ROLE_SUPER_ADMIN','ROLE_USER','ROLE_ADMIN');
     yield MenuItem::subMenu('Actions', 'fas fa-bars')->setSubItems([
         MenuItem::linkToCrud('Ajouter un utilisateur', 'fa fa-plus', User::class)->setAction(Crud::PAGE_NEW),
         MenuItem::linkToCrud('Consulter utilisateurs', 'fa fa-eye', User::class)
+        
     ]);
  
 
@@ -55,5 +57,6 @@ class UserCrudController extends AbstractCrudController
     ]);
     yield MenuItem::linkToCrud('Article', 'fa fa-user', Article::class);
     yield MenuItem::linkToCrud('Commande', 'fa fa-user', Commande::class);
+    
 }
 }

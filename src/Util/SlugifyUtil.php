@@ -2,9 +2,14 @@
 
 namespace App\Util;
 
+use Symfony\Component\String\Slugger\SluggerInterface;
+
 class SlugifyUtil
 {
-    public static function slugify($text)
+    public function __construct(private SluggerInterface $slugger) {
+    }
+
+    public function slugify($text)
     {
         
         // Implémentez ici la logique de génération du slug à partir du texte
@@ -12,6 +17,8 @@ class SlugifyUtil
         // pour formater le texte et supprimer les caractères indésirables
         // afin d'obtenir un slug valide.
         // Voici un exemple simple qui remplace les espaces par des tirets :
-        return str_replace(' ', '-', $text);
+
+
+        return $this->slugger->slug(substr(trim($text), 0, 30)) . '-' . uniqid();
     }
 }

@@ -2,22 +2,24 @@
 
 namespace App\Entity;
 
-// use Cocur\Slugify\Slugify;
 use App\Entity\Image;
 use App\Entity\Panier;
 use App\Entity\Commande;
 use App\Entity\Categorie;
-use Cocur\Slugify\Slugify;
 use Doctrine\DBAL\Types\Types;
+
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\DBAL\Types\DecimalType;
-
 use App\Repository\ArticleRepository;
 use phpDocumentor\Reflection\Types\Null_;
+
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\String\Slugger\AsciiSlugger;
+use Symfony\Component\Uid\Uuid;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Article
 {
 
@@ -51,7 +53,7 @@ class Article
     #[ORM\Column(type: "decimal", scale: 2)]
     private ?string $prix = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(length: 55, unique: true)]
     private ?string $slug = null;
 
     #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Image::class)]
@@ -63,6 +65,8 @@ class Article
     #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Commande::class, orphanRemoval: true)]
     private Collection $commandes;
 
+    #[ORM\Column(type: 'uuid', unique: true)]
+    private ?Uuid $uuid = null;
     
     #[ORM\ManyToMany(targetEntity:"Categorie", inversedBy:"articles")]
     #[ORM\JoinTable(name:"article_categorie")]
@@ -74,11 +78,16 @@ class Article
         $this->images = new ArrayCollection();
         $this->y = new ArrayCollection();
         $this->commandes = new ArrayCollection();
+        $this->uuid = Uuid::v4();
     }
 
-    public function prePersist()
+
+    #[ORM\PrePersist]
+    #[ORM\PreUpdate]
+    public function setNewSlug()
     {
-        $this->slug = (new Slugify())->slugify($this->id);
+        $slugger = new AsciiSlugger();
+        $this->slug = $slugger->slug(substr(trim($this->getNom()), 0, 30)) . '-' . uniqid();;
         return $this->slug;
     }
 
@@ -88,6 +97,7 @@ class Article
      * @ORM\Column(type="string", length=255)
      */
     private $encodedId;
+
 
     // ...
 
@@ -131,11 +141,17 @@ class Article
         return $this;
     }
 
-    public function getSlug($slug): string
+    public function getSlug(): ?string
     {
-        return (new Slugify())->slugify($this->id);
+        return $this->slug;
     }
 
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
 
     public function getDescription(): ?string
     {
@@ -338,6 +354,18 @@ class Article
     public function removeCategorie(Categorie $categorie): self
     {
         $this->categories->removeElement($categorie);
+
+        return $this;
+    }
+
+    public function getUuid(): ?Uuid
+    {
+        return $this->uuid;
+    }
+
+    public function setUuid(Uuid $uuid): self
+    {
+        $this->uuid = $uuid;
 
         return $this;
     }
