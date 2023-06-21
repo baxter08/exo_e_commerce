@@ -54,7 +54,7 @@ class CartController extends AbstractController
         }
         
         //on sauvgarde ds la session
-        $session->set("panier", $panier);
+        $session->set("panier", $panier,'panier', $panier, );
 
         return $this->redirectToRoute("cart_index");
        
@@ -80,7 +80,7 @@ class CartController extends AbstractController
         }
         
         //on sauvgarde ds la session
-        $session->set("panier", $panier);
+        $session->set("panier", $panier,'panier', $panier, );
 
         return $this->redirectToRoute("cart_index");
        

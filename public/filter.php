@@ -3,7 +3,7 @@
 //fetch_data.php
 error_reporting(0);
 
-$bdd = new PDO("mysql:host=127.0.0.1;dbname=exo_e_commerce;charset=utf8", "root", "");
+$bdd = new PDO("mysql:host=127.0.0.1;dbname=securiteplus;charset=utf8", "root", "");
 
 if(isset($_GET["data-action"]))
 {

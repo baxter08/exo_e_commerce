@@ -15,7 +15,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    protected ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
     private ?string $email = null;
@@ -47,6 +47,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'User', targetEntity: Commande::class)]
     private Collection $commandes;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
     public function __construct()
     {
         $this->paniers = new ArrayCollection();
@@ -54,11 +59,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->created_at = new \DateTimeImmutable();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
+   
     public function getEmail(): ?string
     {
         return $this->email;
@@ -109,6 +110,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->password;
     }
+    
+  
 
     public function setPassword(string $password): self
     {

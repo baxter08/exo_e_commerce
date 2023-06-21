@@ -25,6 +25,7 @@ class CreateuuidsCommand extends Command
     public function __construct(private ArticleRepository $ar, private EntityManagerInterface $manager, private SluggerInterface $slugger)
     {
         parent::__construct();
+        
     }
 
 

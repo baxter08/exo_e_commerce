@@ -27,6 +27,10 @@
   background-color: #f8f8f8;
 }
 
+.contenu_mod{
+  border:solid red 2px;
+}
+
 h1 {
   font-family: 'Libre Baskerville', 'DM Serif Display', serif;
 }
