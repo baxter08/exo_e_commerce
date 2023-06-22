@@ -7,30 +7,35 @@ use App\Entity\Panier;
 use App\Entity\Commande;
 use App\Entity\Categorie;
 use Doctrine\DBAL\Types\Types;
-
+use Symfony\Component\Uid\Uuid;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\DBAL\Types\DecimalType;
 use App\Repository\ArticleRepository;
-use phpDocumentor\Reflection\Types\Null_;
-
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\String\Slugger\AsciiSlugger;
-use Symfony\Component\Uid\Uuid;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 #[ORM\HasLifecycleCallbacks]
 class Article
 {
 
-
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $nom = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\NotBlank(message:'Ce champs ne doit pas etre vide')]
+    #[Assert\Length(
+        min: 8,
+        max: 15,
+        minMessage: 'Le titre doit faire au moins {{ limit }} caractères',
+        maxMessage: 'Le titre ne doit pas contenir plus de {{ limit }} caractères'
+    )]
+    private ?string $nom;
+
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
@@ -50,7 +55,8 @@ class Article
     #[ORM\Column(type: Types::TEXT)]
     private ?string $sous_categorie = null;
 
-    #[ORM\Column(type: "decimal", scale: 2)]
+    #[ORM\Column(type: "decimal", scale: 2  )]
+    #[Assert\NotBlank(message:'Ce champs doit contenir des chiffres et ne doit pas etre vide')]
     private ?string $prix = null;
 
     #[ORM\Column(length: 55, unique: true)]
