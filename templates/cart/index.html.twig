@@ -92,7 +92,7 @@
         </svg>
 	</a>
 
-    <a><button id="validerCommande" class="btn btn-danger" style="background-color:green">Valider la commande</button></a>
+    <a><button id="validerCommande" class="btn btn-danger" style="background-color:green">Simuler votre Devis</button></a>
 
 	{# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
@@ -103,18 +103,21 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title font-semibold mr-20" id="modalCommandelLabel">Votre Commande</h5>
+        <h5 class="modal-title font-semibold mr-5" id="modalCommandelLabel">Simulation de devis</h5>
        <button type="button" class="close mt-2 mb-2 ml-10" data-dismiss="modal" aria-label="Close" style="background-color:red">
           <span aria-hidden="true" class="background-color:red">×</span>
         </button>
       </div>
       <div class="modal-body">
-	  Commande numeros: {{app.user.id}}
+	  Devis numeros: {{app.user.id}}
+
+	  <div>Vos informations personnelle </div>
 	  <div class="element_produit font-semibold">Nom: {{ app.user.nom }} </div>
 	  <div class="element_produit font-semibold">Prenom: {{ app.user.prenom}} </div></br>
          <ul>
                 {% for element in dataPanier %}
 				<div class="contenu_mod">
+				<div>Produit</div>
                     <div class="element_produit font-semibold">Nom: </div><div>{{  element.produit.nom }} </div>
 					<div class="element_produit font-semibold">Prix: </div><div>{{  element.produit.prix }} € </div>
 					<div class="element_produit font-semibold">Quantité: </div><div>{{  element.quantite }} </div></br>
