@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use TCPDF;
+use DateTime;
 use App\Entity\Devis;
 use App\Entity\Article;
 use App\Form\DevisType;
@@ -55,6 +56,10 @@ class DevisController extends AbstractController
                 }
             }
 
+            // Avant de générer le PDF
+            $aujourdhui = new DateTime();
+            $dateDuJour = $aujourdhui->format('d/m/Y'); // Format de la date : jour/mois/année (par exemple : 25/07/2023)
+
             // Mettre à jour la session avec le nouveau panier
             $session->set("panier", $panier);
             // Générer le PDF du devis
@@ -63,7 +68,7 @@ class DevisController extends AbstractController
             $pdf->SetMargins(10, 10, 10);
             $pdf->AddPage();
 
-            
+
             // Données à afficher en face du logo
             $donnees = 'Sanitaire Sécurité +'; // Le texte à écrire 
 
@@ -136,7 +141,7 @@ class DevisController extends AbstractController
             $pdf->SetFont('dejavusans', 'B', 14); // Remettre le style normal pour le reste du texte
             $pdf->SetFillColor(255, 193, 7); // Définir la couleur de remplissage
             $pdf->SetXY(10, 80); // Position de la nouvelle ligne de texte (X, Y)
-            $pdf->Cell(0, 10, 'Vos donnees personnel', 0, 1, 'L',true); // Le texte à écrire
+            $pdf->Cell(0, 10, 'Vos donnees personnel', 0, 1, 'L', true); // Le texte à écrire
             $pdf->Ln(3); // Ajouter une marge de 10 unités en dessous du texte de la description des travaux
 
             $pdf->SetFont('dejavusans', 'B', 11);
@@ -162,13 +167,13 @@ class DevisController extends AbstractController
             $pdf->Write(5, 'Description des travaux: ', '', 0, 'L', false, 0, false, false, 0);
             $pdf->SetFont('dejavusans', '', 11); // Remettre le style normal pour le reste du texte
             $pdf->Write(5, $devis->getDescriptionTravaux(), '', 0, 'L', true, 0, false, false, 0);
-            $pdf->Ln(10); // Ajouter une marge de 10 unités en dessous du texte de la description des travaux
+            $pdf->Ln(12); // Ajouter une marge de 10 unités en dessous du texte de la description des travaux
 
             $pdf->SetFont('dejavusans', 'B', 11);
             // Mettre en gras pour la description des travaux seulement
             $pdf->Write(5, 'Facture: ', '', 0, 'L', false, 0, false, false, 0);
             $pdf->SetFont('dejavusans', '', 11); // Remettre le style normal pour le reste du texte
-            $pdf->Write(5, 'Produit Commander', '', 0, 'L', true, 0, false, false, 0);
+            $pdf->Write(5, 'Article Commander', '', 0, 'L', true, 0, false, false, 0);
             $pdf->Ln(3); // Ajouter une marge de 10 unités en dessous du texte de la description des travaux
 
             // Gérer le panier
@@ -266,7 +271,48 @@ class DevisController extends AbstractController
             $pdf->Cell($w[3], 10, number_format($totalTTC, 2, ',', ' '), 1, 1, 'R');
             $pdf->Ln();
 
+            $pdf->SetFont('dejavusans', '', 11);
+            $pdf->Write(5, 'Nous restons à votre diposition pour toute information complémentaire.', '', 0, 'L', false, 0, false, false, 0);
+            $pdf->Ln(5); // Ajouter une marge de 10 unités en dessous du texte de la description des travaux
+
+            $pdf->SetFont('dejavusans', '', 11);
+            $pdf->Write(5, 'Cordialement', '', 0, 'L', true, 0, false, false, 0);
+            $pdf->Ln(6); // Ajouter une marge de 10 unités en dessous du texte de la description des travaux
+
+            $pdf->SetFont('dejavusans', '', 11);
+            $pdf->Write(5, 'Si ce devis vous convient, veuillez nous le retourner signé précédé de la mention :', '', 0, 'L', true, 0, false, false, 0);
+
+
+            $pdf->SetFont('dejavusans', '', 11);
+            $pdf->Write(5, '"BON POUR ACCORD ET EXECUTION DU DEVIS" la durée de validité du devis et de 1 mois.', '', 0, 'L', true, 0, false, false, 0);
+            $pdf->Ln(3); // Ajouter une marge de 10 unités en dessous du texte de la description des travaux
+
+             // Ajouter la date du jour après "Nos coordonnees"
+             $pdf->SetFont('dejavusans', 'B', 11); // Utiliser une police normale pour la date
+             $pdf->SetXY(10, 250); // Position pour afficher la date (ajustez selon vos besoins)
+             $pdf->Cell(0, 10, 'Date : ', 0, 1, 'L'); // Afficher la date du jour
+
+             $pdf->SetFont('dejavusans', '', 11); // Remettre le style normal pour le reste du texte
+             $pdf->SetXY(40, 250); // Position pour afficher la date (ajustez selon vos besoins)
+             $pdf->Cell(0, 10, $dateDuJour, 0, 1, 'L'); // Afficher la date du jour
+
+              // Ajouter la date du jour après "Nos coordonnees"
+              $pdf->SetFont('dejavusans', 'B', 11); // Utiliser une police normale pour la date
+              $pdf->SetXY(120, 250); // Position pour afficher la date (ajustez selon vos besoins)
+              $pdf->Cell(0, 10, 'Signature : ', 0, 1, 'L'); // Afficher la date du jour
+
+              $pdf->SetFont('dejavusans', '', 8);
+              $pdf->SetXY(80, 262); // Position pour afficher la date (ajustez selon vos besoins)
+              $pdf->Write(5, 'FR 40 123456824 ', '', 0, 'L', true, 0, false, false, 0);
+              $pdf->Ln(2); // Ajouter une marge de 10 unités en dessous du texte de la description des travaux
+              
+              $pdf->SetFont('dejavusans', '', 8);
+              $pdf->SetXY(60, 265); // Position pour afficher la date (ajustez selon vos besoins)
+              $pdf->Write(5, 'code clé (40) + numéro SIREN (123456824)]', '', 0, 'L', true, 0, false, false, 0);
+              
+
             $pdfContent = $pdf->Output('', 'S');
+
 
             // Rediriger vers une page de confirmation du devis avec le contenu PDF et les données du devis
             return $this->render('devis/confirmation.html.twig', [
