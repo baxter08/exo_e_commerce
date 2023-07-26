@@ -1,0 +1,13 @@
+{# templates/devis/confirmation.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de devis{% endblock %}
+
+{% block body %}
+    <h1>Votre demande de devis a été soumise avec succès !</h1>
+    <p>Nous vous contacterons bientôt.</p>
+
+    {% if pdfContent is defined %}
+        <a href="data:application/pdf;base64,{{ pdfContent }}" download="devis.pdf" class="btn btn-primary">Télécharger le devis au format PDF</a>
+    {% endif %}
+{% endblock %}

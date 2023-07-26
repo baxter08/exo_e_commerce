@@ -12,7 +12,7 @@
 }
 
 .ensemble_article {
-   border: solid red 1px;
+   /* border: solid red 1px; */
    background-color: rgb(255, 255, 255);
    width: 90%;
    height: auto;

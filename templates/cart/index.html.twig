@@ -91,8 +91,8 @@
             <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7.354 5.646 8.5 6.793l1.146-1.147a.5.5 0 0 1 .708.708L9.207 7.5l1.147 1.146a.5.5 0 0 1-.708.708L8.5 8.207 7.354 9.354a.5.5 0 1 1-.708-.708L7.793 7.5 6.646 6.354a.5.5 0 1 1 .708-.708z"/>
         </svg>
 	</a>
-
-    <a><button id="validerCommande" class="btn btn-danger" style="background-color:green">Simuler votre Devis</button></a>
+<a href="{{ path('devis') }}" class="btn btn-danger" style="background-color:green">Devis</a>
+    {# <a><button id="validerCommande" class="btn btn-success" style="background-color:green">Simuler votre Devis</button></a> #}
 
 	{# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Launch demo modal
@@ -103,21 +103,18 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title font-semibold mr-5" id="modalCommandelLabel">Simulation de devis</h5>
+        <h5 class="modal-title font-semibold mr-20" id="modalCommandelLabel">Simulation de Devis</h5>
        <button type="button" class="close mt-2 mb-2 ml-10" data-dismiss="modal" aria-label="Close" style="background-color:red">
-          <span aria-hidden="true" class="background-color:red"></span>
+          <span aria-hidden="true" class="background-color:red">×</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body w-96">
 	  Devis numeros: {{app.user.id}}
-
-	  <div>Vos informations personnelle </div>
 	  <div class="element_produit font-semibold">Nom: {{ app.user.nom }} </div>
 	  <div class="element_produit font-semibold">Prenom: {{ app.user.prenom}} </div></br>
          <ul>
                 {% for element in dataPanier %}
-				<div class="contenu_mod">
-				<div>Produit</div>
+				<div class="contenu_mod11">
                     <div class="element_produit font-semibold">Nom: </div><div>{{  element.produit.nom }} </div>
 					<div class="element_produit font-semibold">Prix: </div><div>{{  element.produit.prix }} € </div>
 					<div class="element_produit font-semibold">Quantité: </div><div>{{  element.quantite }} </div></br>

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devis{% endblock %}
+
+{% block body %}
+    {# ... Your other HTML content ... #}
+bonjour
+   <div class="modal-body w-96">
+                
+                    {# Utilize the variable 'form' passed from the controller to display the form  #}
+                     {{ form_start(form) }}
+                     <div class="m-2">{{ form_row(form.nom) }}</div>
+                     {{ form_row(form.email) }} 
+                     {{ form_row(form.telephone) }} 
+                     {{ form_row(form.descriptionTravaux) }} 
+                     {{ form_end(form) }}
+                </div> 
+    <div class="modal" id="modalDevis" tabindex="-50" role="dialog" aria-labelledby="modalDevisLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-semibold mr-20" id="modalDevisLabel">Demande de devis</h5>
+                    <button type="button" class="close mt-2 mb-2 ml-10" data-dismiss="modal" aria-label="Close" style="background-color: red">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                
+             
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: red">Fermer</button>
+                    <button type="button" id="submitDevisBtn" class="btn btn-primary" style="background-color: green">Envoyer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# ... Your other HTML content ... #}
+{% endblock %}
