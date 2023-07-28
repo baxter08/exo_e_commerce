@@ -3,18 +3,37 @@
 {% block title %}Devis{% endblock %}
 
 {% block body %}
-    {# ... Your other HTML content ... #}
-bonjour
-   <div class="modal-body w-96">
-                
-                    {# Utilize the variable 'form' passed from the controller to display the form  #}
-                     {{ form_start(form) }}
-                     <div class="m-2">{{ form_row(form.nom) }}</div>
-                     {{ form_row(form.email) }} 
-                     {{ form_row(form.telephone) }} 
-                     {{ form_row(form.descriptionTravaux) }} 
-                     {{ form_end(form) }}
-                </div> 
+   
+<div class="text-center mt-5 mb-5 font-semibold text-lg">Remplissez votre demande de devis </div>
+  <div class="modal-body w-96 p-4 border border-black">
+
+    {{ form_start(form) }}
+
+    <div class="mb-4 font-semibold">
+        {{ form_row(form.nom, {'label': 'Nom', 'attr': {'class': 'border w-full p-2 font-normal'}}) }}
+    </div>
+
+    
+    <div class="mb-4 font-semibold">
+        {{ form_row(form.prenom, {'label': 'Prenom', 'attr': {'class': 'border w-full p-2 font-normal'}}) }}
+    </div>
+
+    <div class="mb-4 font-semibold">
+        {{ form_row(form.email, {'label': 'Email', 'attr': {'class': 'border w-full p-2 font-normal'}}) }}
+    </div>
+
+    <div class="mb-4 font-semibold">
+        {{ form_row(form.telephone, {'label': 'Téléphone (fixe ou portable)', 'attr': {'class': 'border w-full p-2 font-normal'}}) }}
+    </div>
+
+    <div class="mb-4 font-semibold">
+        {{ form_row(form.descriptionTravaux, {'label': 'Description de vos travaux a prévoir', 'attr': {'class': 'border w-full p-2 font-normal'}}) }}
+    </div>
+
+    {{ form_rest(form) }}
+    
+    {{ form_end(form) }}
+</div>
     <div class="modal" id="modalDevis" tabindex="-50" role="dialog" aria-labelledby="modalDevisLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

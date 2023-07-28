@@ -33,9 +33,9 @@ class DevisController extends AbstractController
             // Récupérer les données du formulaire
             $devisData = $form->getData();
 
-            // Créer une nouvelle instance de l'entité Devis et définir ses propriétés
             $devis = new Devis();
             $devis->setNom($devisData['nom']);
+            $devis->setPrenom($devisData['prenom']);
             $devis->setEmail($devisData['email']);
             $devis->setTelephone($devisData['telephone']);
             $devis->setDescriptionTravaux($devisData['descriptionTravaux']);
@@ -96,7 +96,7 @@ class DevisController extends AbstractController
             $pdf->SetFont('dejavusans', 'B', 14); // Remettre le style normal pour le reste du texte
             $pdf->SetFillColor(255, 193, 7); // Définir la couleur de remplissage
             $pdf->SetXY(10, 30); // Position de la nouvelle ligne de texte (X, Y)
-            $pdf->Cell(0, 10, 'Nos coordonnees', 0, 1, 'L', true); // Le texte à écrire avec l'arrière-plan coloré
+            $pdf->Cell(0, 10, 'Nos coordonnees', 0, 1, 'L', true); // Le texte à écrire avec l'arrière-plan coloré avec true
             $pdf->Ln(3); // Ajouter une marge de 10 unités en dessous du texte de la description des travaux
 
 
@@ -149,6 +149,13 @@ class DevisController extends AbstractController
             $pdf->Write(5, 'Nom: ', '', 0, 'L', false, 0, false, false, 0);
             $pdf->SetFont('dejavusans', '', 11); // Remettre le style normal pour le reste du texte
             $pdf->Write(5, $devis->getNom(), '', 0, 'L', true, 0, false, false, 0);
+
+            
+            $pdf->SetFont('dejavusans', 'B', 11);
+            // Mettre en gras pour le nom seulement
+            $pdf->Write(5, 'Prenom: ', '', 0, 'L', false, 0, false, false, 0);
+            $pdf->SetFont('dejavusans', '', 11); // Remettre le style normal pour le reste du texte
+            $pdf->Write(5, $devis->getPrenom(), '', 0, 'L', true, 0, false, false, 0);
 
             $pdf->SetFont('dejavusans', 'B', 11);
             // Mettre en gras pour l'e-mail seulement

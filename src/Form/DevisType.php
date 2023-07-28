@@ -16,12 +16,13 @@ class DevisType extends AbstractType
     {
         $builder
             ->add('nom', TextType::class)
+            ->add('prenom', TextType::class)
             ->add('email', EmailType::class)
             ->add('telephone', TextType::class)
             ->add('descriptionTravaux', TextareaType::class)
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer', 
-                'attr' => ['class' => 'btn btn-primary'], 
+                'attr' => ['class' => 'btn btn-outline-info text-black font-semibold'], 
             ]);
         ;
     }
