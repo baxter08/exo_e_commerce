@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Entity\Article;
+use App\Entity\Devis;
+use App\Entity\Panier;
 use App\Entity\Commande;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -71,6 +73,8 @@ class DashboardController extends AbstractDashboardController
         ]);
         yield MenuItem::linkToCrud('Article', 'fa fa-user', Article::class);
         yield MenuItem::linkToCrud('Commande', 'fa fa-user', Commande::class);
+        yield MenuItem::linkToCrud('Devis', 'fa fa-user', Devis::class);
+        
     }
 
 }

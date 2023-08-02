@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstracCrudController;
+
 use App\Repository\DevisRepository;
 use Doctrine\ORM\Mapping as ORM;
 

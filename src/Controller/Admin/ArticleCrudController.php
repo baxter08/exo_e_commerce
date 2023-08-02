@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -32,7 +33,7 @@ class ArticleCrudController extends AbstractCrudController
         yield TextareaField::new('description4');
         yield TextareaField::new('essentiel');
         // yield AssociationField::new('categories');
-        yield NumberField::new('prix')->setNumDecimals(2);
+        yield NumberField::new('prix');
 
         // yield AssociationField::new('categories')
         // ->setFormTypeOptions([

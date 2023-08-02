@@ -3,6 +3,9 @@
 parameters:
 
 services:
+    # App\Form\DevisType:
+    #     tags: ['form.type']
+        
     # Configuration par défaut pour les services de ce fichier
     _defaults:
         autowire: true       # Injecte automatiquement les dépendances dans vos services.

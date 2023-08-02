@@ -10,3 +10,8 @@ app_detail_articles_show:
     requirements:
         slug: '[a-z0-9\-]*'
         id: '\d+'
+# devis:
+#     path: /devis
+#     controller: App\Controller\DevisController::showDevis
+#     methods: [GET, POST]
+

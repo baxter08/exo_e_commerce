@@ -32,13 +32,12 @@ class DevisController extends AbstractController
 
             // Récupérer les données du formulaire
             $devisData = $form->getData();
-
             $devis = new Devis();
-            $devis->setNom($devisData['nom']);
-            $devis->setPrenom($devisData['prenom']);
-            $devis->setEmail($devisData['email']);
-            $devis->setTelephone($devisData['telephone']);
-            $devis->setDescriptionTravaux($devisData['descriptionTravaux']);
+            $devis->setNom($devisData->getNom());
+            $devis->setPrenom($devisData->getPrenom());
+            $devis->setEmail($devisData->getEmail());
+            $devis->setTelephone($devisData->getTelephone());
+            $devis->setDescriptionTravaux($devisData->getDescriptionTravaux());
 
             // Enregistrer l'entité dans la base de données
             $manager->persist($devis);
