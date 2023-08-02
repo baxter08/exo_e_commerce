@@ -37,7 +37,7 @@ class Image
         return $this->id;
     }
 
-    public function getImage(): ?ImageField 
+    public function getImage(): ?string 
     {
         return $this->image;
         

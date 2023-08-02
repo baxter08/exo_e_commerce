@@ -48,11 +48,10 @@ class CartController extends AbstractController
         $id = $article->getId();
       
 
-        if(!empty($panier[$id])){
-            $panier[$id]++;   
-        }else{
-            $panier[$id] = 1;
+        if(empty($panier[$id])){
+            $panier[$id] = 0;
         }
+        $panier[$id]++;   
         
         //on sauvgarde ds la session
         $session->set("panier", $panier,'panier', $panier, );

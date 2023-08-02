@@ -20,7 +20,8 @@ class DetailArticlesController extends AbstractController
         ]);
     }
 
-    #[Route('/article/{slug}-{id<[0-9]+>}', name: 'app_detail_articles_show', requirements: ["slug" => "[a-z0-9\-]*"])]
+    // #[Route('/detail/article/{slug}', name: 'app_detail_articles_show', requirements: ["slug" => "[a-z0-9\-]*"])]
+    #[Route('/detail/article/{slug}', name: 'app_detail_articles_show')]
     public function show(Article $article, string $slug, int $id): Response
     {
         $slugFromId = SlugifyUtil::slugify($id);

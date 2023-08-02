@@ -12,12 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 #[ORM\HasLifecycleCallbacks]
+#[UniqueEntity('slug')]
 class Article
 {
 
@@ -93,7 +95,7 @@ class Article
     public function setNewSlug()
     {
         $slugger = new AsciiSlugger();
-        $this->slug = $slugger->slug(substr(trim($this->getNom()), 0, 30)) . '-' . uniqid();;
+        $this->slug = $slugger->slug(substr(trim($this->getNom()), 0, 30)) . '-' . uniqid();
         return $this->slug;
     }
 
