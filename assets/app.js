@@ -8,19 +8,23 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 import './styles/style.css';
+// import './styles/bootstrap.min.css';
 
 
 
 // start the Stimulus application
+import {
+    Carousel,
+    initTE,
+  } from "tw-elements";
+  
+  
 import './bootstrap';
-import 'tw-elements';
+
+initTE({ Carousel });
 
 
 
-
-
-import 'htmx.org';
-window.htmx = require('htmx.org');
 
 
 

@@ -28,5 +28,5 @@ function ajaxRequest() {
 }
 
 let input = document.getElementById("search_q");
-console.log(search_q);
 input.onkeyup = (e) => ajaxRequest();
+// console.log(search_q);
