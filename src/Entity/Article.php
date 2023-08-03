@@ -40,31 +40,31 @@ class Article
 
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $description = null;
+    private ?string $description ;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $description2 = null;
+    private ?string $description2 ;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $description3 = null;
+    private ?string $description3 ;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $description4 = null;
+    private ?string $description4 ;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $essentiel = null;
+    private ?string $essentiel ;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $sous_categorie = null;
+    private ?string $sous_categorie ;
 
     #[ORM\Column(type: "decimal", scale: 2  )]
     #[Assert\NotBlank(message:'Ce champs doit contenir des chiffres et ne doit pas etre vide')]
-    private ?string $prix = null;
+    private ?string $prix ;
 
     #[ORM\Column(length: 55, unique: true)]
-    private ?string $slug = null;
+    private ?string $slug ;
 
-    #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Image::class)]
+    #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Image::class, nullable: true)]
     private Collection $images;
 
     #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Panier::class, orphanRemoval: true)]
@@ -74,7 +74,7 @@ class Article
     private Collection $commandes;
 
     #[ORM\Column(type: 'uuid', unique: true)]
-    private ?Uuid $uuid = null;
+    private ?Uuid $uuid ;
     
     #[ORM\ManyToMany(targetEntity:"Categorie", inversedBy:"articles")]
     #[ORM\JoinTable(name:"article_categorie")]

@@ -13,22 +13,22 @@ class Devis
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id ;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $nom = null;
+    private ?string $nom ;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $prenom = null;
+    private ?string $prenom ;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $email = null;
+    private ?string $email ;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $telephone = null;
+    private ?string $telephone ;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $description_travaux = null;
+    private ?string $description_travaux ;
 
     public function getId(): ?int
     {

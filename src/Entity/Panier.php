@@ -11,18 +11,18 @@ class Panier
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id ;
 
     #[ORM\Column]
-    private ?int $quantite = null;
+    private ?int $quantite ;
 
     #[ORM\ManyToOne(inversedBy: 'paniers')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $User = null;
+    private ?User $User ;
 
     #[ORM\ManyToOne(inversedBy: 'y')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Article $Article = null;
+    private ?Article $Article ;
 
     public function getId(): ?int
     {

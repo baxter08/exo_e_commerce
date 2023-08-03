@@ -14,17 +14,17 @@ class Image
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id ;
 
     #[ORM\Column(length: 255)]
-    private ?string $image = null;
+    private ?string $image ;
 
     #[ORM\ManyToOne(inversedBy: 'images')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Article $Article = null;
+    private ?Article $Article ;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $created_at = null;
+    private ?\DateTimeImmutable $created_at ;
 
     public function __construct()
     {

@@ -14,13 +14,13 @@ class Categorie
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id ;
 
     #[ORM\Column(length: 255)]
-    private ?string $nom = null;
+    private ?string $nom ;
 
     #[ORM\Column(length: 255)]
-    private ?string $image_categorie= null;
+    private ?string $image_categorie ;
 
     
     #[ORM\ManyToMany(targetEntity:"Article", mappedBy:"categories")]

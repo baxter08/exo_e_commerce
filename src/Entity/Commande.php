@@ -12,30 +12,30 @@ class Commande
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $id ;
 
     #[ORM\Column(length: 255)]
-    private ?string $numero = null;
+    private ?string $numero ;
 
     #[ORM\Column]
-    private ?int $quantite = null;
+    private ?int $quantite ;
 
     #[ORM\Column]
-    private ?float $prix = null;
+    private ?float $prix ;
 
     #[ORM\Column]
-    private ?float $montant = null;
+    private ?float $montant ;
 
     #[ORM\ManyToOne(inversedBy: 'commandes')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $User = null;
+    private ?User $User ;
 
     #[ORM\ManyToOne(inversedBy: 'commandes')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Article $Article = null;
+    private ?Article $Article ;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    private ?\DateTimeImmutable $createdAt ;
 
     public function __construct() {
         $this->createdAt = new \DateTimeImmutable();

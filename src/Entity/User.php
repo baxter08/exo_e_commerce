@@ -17,10 +17,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    protected ?int $id = null;
+    protected ?int $id ;
 
     #[ORM\Column(length: 180, unique: true)]
-    private ?string $email = null;
+    private ?string $email ;
 
     #[ORM\Column]
     private array $roles = ['ROLE_ADMIN','ROLE_SUPER_ADMIN','ROLE_USER'];
@@ -29,19 +29,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
-    private ?string $password = null;
+    private ?string $password ;
 
     #[ORM\Column(length: 255)]
-    private ?string $nom = null;
+    private ?string $nom ;
 
     #[ORM\Column(length: 255)]
-    private ?string $prenom = null;
+    private ?string $prenom ;
 
     #[ORM\Column(length: 255)]
-    private ?string $pseudo = null;
+    private ?string $pseudo ;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $created_at = null;
+    private ?\DateTimeImmutable $created_at ;
 
     #[ORM\OneToMany(mappedBy: 'User', targetEntity: Panier::class, orphanRemoval: true)]
     private Collection $paniers;
