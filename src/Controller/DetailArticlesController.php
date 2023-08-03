@@ -16,7 +16,7 @@ class DetailArticlesController extends AbstractController
     public function index(Article $article): Response
     {
         return $this->render('detail_articles/index.html.twig', [
-            'articles' => $article,
+            'article' => $article,
         ]);
     }
 

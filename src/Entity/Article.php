@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTimeImmutable;
 use App\Entity\Image;
 use App\Entity\Panier;
 use App\Entity\Commande;
@@ -28,16 +29,15 @@ class Article
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(length: 30, nullable: true)]
     #[Assert\NotBlank(message:'Ce champs ne doit pas etre vide')]
     #[Assert\Length(
         min: 8,
-        max: 15,
+        max: 30,
         minMessage: 'Le titre doit faire au moins {{ limit }} caractères',
         maxMessage: 'Le titre ne doit pas contenir plus de {{ limit }} caractères'
     )]
     private ?string $nom;
-
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description ;
@@ -64,9 +64,6 @@ class Article
     #[ORM\Column(length: 55, unique: true)]
     private ?string $slug ;
 
-    #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Image::class, nullable: true)]
-    private Collection $images;
-
     #[ORM\OneToMany(mappedBy: 'Article', targetEntity: Panier::class, orphanRemoval: true)]
     private Collection $y;
 
@@ -83,10 +80,11 @@ class Article
      public function __construct()
     {
         $this->categories = new ArrayCollection();
-        $this->images = new ArrayCollection();
         $this->y = new ArrayCollection();
         $this->commandes = new ArrayCollection();
         $this->uuid = Uuid::v4();
+        $this->images = new ArrayCollection();
+        $this->created_at = new DateTimeImmutable();
     }
 
 
@@ -105,6 +103,12 @@ class Article
      * @ORM\Column(type="string", length=255)
      */
     private $encodedId;
+
+    #[ORM\OneToMany(mappedBy: 'article', targetEntity: Image::class, orphanRemoval: true)]
+    private Collection $images;
+
+    #[ORM\Column]
+    private ?\DateTimeImmutable $created_at = null;
 
 
     // ...
@@ -248,39 +252,6 @@ class Article
         return $this;
     }
 
-    /**
-     * @return Collection<int, Image>
-     */
-    public function getImages(): Collection
-    {
-
-        return $this->images;
-    }
-
-
-    public function addImage(Image $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images->add($image);
-            $image->setArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(Image $image): self
-    {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getArticle() === $this) {
-                $image->setArticle(null);
-            }
-        }
-
-        return $this;
-    }
-
-
 
     /**
      * @return Collection<int, Panier>
@@ -374,6 +345,48 @@ class Article
     public function setUuid(Uuid $uuid): self
     {
         $this->uuid = $uuid;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Image>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): static
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): static
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getArticle() === $this) {
+                $image->setArticle(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $created_at): static
+    {
+        $this->created_at = $created_at;
 
         return $this;
     }

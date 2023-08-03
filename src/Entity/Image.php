@@ -19,12 +19,15 @@ class Image
     #[ORM\Column(length: 255)]
     private ?string $image ;
 
-    #[ORM\ManyToOne(inversedBy: 'images')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Article $Article ;
-
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at ;
+
+    #[ORM\ManyToOne(inversedBy: 'images')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Article $article = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $intitule = null;
 
     public function __construct()
     {
@@ -50,18 +53,6 @@ class Image
         return $this;
     }
 
-    public function getArticle(): ?Article
-    {
-        return $this->Article;
-    }
-
-    public function setArticle(?Article $Article): self
-    {
-        $this->Article = $Article;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->created_at;
@@ -77,6 +68,30 @@ class Image
     public function __toString()
     {
         return $this->image;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): static
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
+    public function getIntitule(): ?string
+    {
+        return $this->intitule;
+    }
+
+    public function setIntitule(?string $intitule): static
+    {
+        $this->intitule = $intitule;
+
+        return $this;
     }
     
 }
