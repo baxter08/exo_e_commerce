@@ -18,10 +18,10 @@ import {
     initTE,
   } from "tw-elements";
   
+initTE({ Carousel });
   
 import './bootstrap';
 
-initTE({ Carousel });
 
 
 
