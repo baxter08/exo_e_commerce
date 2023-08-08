@@ -23,9 +23,9 @@
 	    			<h1 class="text-black text-3xl font-bold hover:text-tahiti-500 mt-4">{{categories.nom}}</h1>
 	    		</div>
  
-	    		<div class="container_vector_image">
+	    		<div class="container_vector_image p-2">
 				{# {{dump(categories.image_categorie)}} #}
-	    			<img class="w-16" src="{{ asset('build/images/' ~ categories.image_categorie) }}">
+	    			<img class="w-16 p-2" src="{{ asset('build/images/' ~ categories.image_categorie) }}">
 	    		</div>
     
 	    	</div>
@@ -37,7 +37,7 @@
 	    <div class="card-1">
 		{# {{ dump(article) }} #}
             <div class="titre_produit_jp text-lg">{{article.nom}}</div>
-	    	<div class="image_jp"><a href="https://127.0.0.1:8000/detail/articles/3"><img  src="{{ asset('build/images/' ~ article.images[0]) }}"></a></div>
+	    	<div class="image_jp p-2"><a href="https://127.0.0.1:8000/detail/articles/3"><img  src="{{ asset('build/images/' ~ article.images[0]) }}"></a></div>
     
 	    	{# <div class="prix_produit_jp mr-8 text-xl">1190 €</div> #}
               <input type="hidden" id="article-id" value="{{ article.slug }}">

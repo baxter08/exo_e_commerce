@@ -12,79 +12,90 @@
 
 {% block body %}
 
-	<div class="ensemble_caroussel">
-	
-		<div class="ensemble_article">
-			<div
-				id="carouselExampleIndicators" class="relative" data-te-carousel-init data-te-carousel-slide>
-				<!--Carousel indicators-->
-				<div class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0" data-te-carousel-indicators>
-					<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="0" data-te-carousel-active class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-current="true" aria-label="Slide 1"></button>
-					<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="1" class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-label="Slide 2"></button>
-					<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="2" class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-label="Slide 3"></button>
-				</div>
 
-				<!--Carousel items-->
+	<div class="container mx-auto px-4">
+
+		<div class="ensemble_caroussel">
+
+			<div class="ensemble_article">
 				<div
-					class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
-					<!--First item-->
-					<div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item data-te-carousel-active>
-						<img src="{{ asset('build/images/carrelage_bleu.png') }}" class="block w-full" alt="Wild Landscape"/>
+					id="carouselExampleIndicators" class="relative" data-te-carousel-init data-te-carousel-slide>
+					<!--Carousel indicators-->
+					<div class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0" data-te-carousel-indicators>
+						<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="0" data-te-carousel-active class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-current="true" aria-label="Slide 1"></button>
+						<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="1" class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-label="Slide 2"></button>
+						<button type="button" data-te-target="#carouselExampleIndicators" data-te-slide-to="2" class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none" aria-label="Slide 3"></button>
 					</div>
-					<!--Second item-->
-					<div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
-						<img src="{{ asset('build/images/bain_douche.png') }}" class="block w-full" alt="Camera"/>
+
+					<!--Carousel items-->
+					<div
+						class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+						<!--First item-->
+						<div class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item data-te-carousel-active>
+							<img src="{{ asset('build/images/carrelage_bleu.png') }}" class="block w-full" alt="Wild Landscape"/>
+						</div>
+						<!--Second item-->
+						<div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
+							<img src="{{ asset('build/images/bain_douche.png') }}" class="block w-full" alt="Camera"/>
+						</div>
+						<!--Third item-->
+						<div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
+							<img src="{{ asset('build/images/Bain_douche_blanc.png') }}" class="block w-full" alt="Exotic Fruits"/>
+						</div>
 					</div>
-					<!--Third item-->
-					<div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
-						<img src="{{ asset('build/images/Bain_douche_blanc.png') }}" class="block w-full" alt="Exotic Fruits"/>
+
+					<!--Carousel controls - prev item-->
+					<button class="btn btn-info px-1 rounded-full bg-neutral-100 text-neutral-900 group ml-2 absolute bottom-52 left-0 top-58 z-[1] flex w-[3%] items-center justify-center border-0 bg-none p-1 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none" type="button" data-te-target="#carouselExampleIndicators" data-te-slide="prev">
+						<span class="inline-block h-5 w-6 mr-1">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-5 w-6 mr-1">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
+							</svg>
+						</span>
+						<span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
+					</button>
+					<!--Carousel controls - next item-->
+					<button class="btn btn-info px-1 rounded-full bg-neutral-100 text-neutral-900 group mr-2 absolute bottom-52 right-0 top-58 z-[1] flex w-[3%] items-center justify-center border-0 bg-none p-1 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none" type="button" data-te-target="#carouselExampleIndicators" data-te-slide="next">
+						<span class="inline-block h-5 w-6 ml-1">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-5 w-6 mr-1">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
+							</svg>
+						</span>
+						<span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
+					</button>
+				</div>
+
+
+			</div>
+			<div class="flex flex-col items-center justify-center p-4 mt-8">
+				<div class="Qui_sommenous_haut">
+
+					<a class="w-full"><img src="{{ asset('build/images/logo_made_in_france-removebg-preview.png') }}"></a>
+
+					<div class="conception_fr text-black text-lg font-semibold hover:text-tahiti-500">CONCEPTION ET FABRICATION FRANÇAISES</div>
+				</div>
+			</div>
+			<div class="p-4 mt-8">
+				<div class="tout_nos_douche">
+					<div class="photos_douche w-full md:w-1/2" data-aos="fade-right">
+						<div class="p-4 mt-8">
+							<div class="divphoto object-cover object-center w-full h-full md:w-auto md:h-auto">
+								<div class="image-container">
+									<image src="{{ asset('build/images/kocoon.jpg') }}"></img>
+							</div>
+
+						</div>
 					</div>
 				</div>
 
-				<!--Carousel controls - prev item-->
-				<button class="btn btn-info px-1 rounded-full bg-neutral-100 text-neutral-900 group ml-2 absolute bottom-52 left-0 top-58 z-[1] flex w-[3%] items-center justify-center border-0 bg-none p-1 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none" type="button" data-te-target="#carouselExampleIndicators" data-te-slide="prev">
-					<span class="inline-block h-5 w-6 mr-1">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-5 w-6 mr-1">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
-						</svg>
-					</span>
-					<span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
-				</button>
-				<!--Carousel controls - next item-->
-				<button class="btn btn-info px-1 rounded-full bg-neutral-100 text-neutral-900 group mr-2 absolute bottom-52 right-0 top-58 z-[1] flex w-[3%] items-center justify-center border-0 bg-none p-1 text-center text-black opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none" type="button" data-te-target="#carouselExampleIndicators" data-te-slide="next">
-					<span class="inline-block h-5 w-6 ml-1">
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-5 w-6 mr-1">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
-						</svg>
-					</span>
-					<span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
-				</button>
+				<div class="description_douche">
+					<div class="p-4 mt-8">
+						<div class="titre_produit_douche text-black text-lg font-bold hover:text-tahiti-500">
+							<h1>Votre salle de bain, votre style : personnalisez chaque détail !</h1>
+						</div>
+						<div class="text_descript_douche text-black text-base ">Un large choix de cabines complètes ou d'espaces douche à composer</div>
+					</div>
+				</div>
 			</div>
-
-
-		</div>
-		<div class="Qui_sommenous_haut">
-			<div class="logo_artisan">
-				<a class="w-full"><img src="{{ asset('build/images/logo_made_in_france-removebg-preview.png') }}"></a>
-			</div>
-			<div class="conception_fr text-black text-lg font-semibold hover:text-tahiti-500">CONCEPTION ET FABRICATION FRANÇAISES</div>
-		</div>
-
-		<div class="tout_nos_douche">
-			<div class="photos_douche" data-aos="fade-right">
-				<div class="divphoto">
-				<div class="image-container">
-				<image  src="{{ asset('build/images/kocoon.jpg') }}"></img>
-			</div>
-			</div>
-		</div>
-
-		<div class="description_douche">
-
-			<div class="titre_produit_douche text-black text-lg font-bold hover:text-tahiti-500">
-				<h1>Votre salle de bain, votre style : personnalisez chaque détail !</h1>
-			</div>
-			<div class="text_descript_douche text-black text-base ">Un large choix de cabines complètes ou d'espaces douche à composer</div>
 		</div>
 	</div>
 </div>
@@ -100,15 +111,15 @@
 </div>
 
 <div class="box_slide_article_lien" style="background-image: linear-gradient(to bottom, white 50%, black 50%);">
-	<div id="app" class="containerslider_articletransition-all w-4/5 duration-500 ease-linear">
-		<div class="relative">
-			<div class="slides-container flex snap-x snap-mandatory overflow-hidden overflow-x-auto space-x-2 rounded scroll-smooth  after:shrink-0 md:before:w-0 md:after:w-0 ml-32">
-				<div class="slide aspect-square h-full flex-shrink-0 snap-center rounded overflow-hidden card-width card-height">
-					<div class="image-container">
-						<a href="https://127.0.0.1:8000/article"><img class="w-full h-72 object-cover zoomable-image"  src="{{ asset('build/images/Parois.png') }}" alt="mountain_image"></a>
+	<div id="app" class="containerslider_articletransition-all w-3/5 duration-500 ease-linear">
+		<div class="relative ">
+			<div class="slides-container flex snap-x snap-mandatory overflow-hidden overflow-x-auto space-x-2 rounded scroll-smooth after:shrink-0 md:before:w-0 md:after:w-0 ml-28">
+				<div class="slide aspect-w-10 aspect-h-9 md:aspect-w-4 md:aspect-h-3 pb-4">
+					<div class="image-container ">
+						<a href="https://127.0.0.1:8000/article"><img class="w-full h-72 object-cover zoomable-image" src="{{ asset('build/images/Parois.png') }}" alt="mountain_image"></a>
 					</div>
-					<h5 class="card-title text-white text-2xl font-medium hover:text-tahiti-500 pt-2 text-left p-1">Parois</h5>
-					<p class="card-text text-white text-base text-left p-1">Design et pratique, une parois doit repondre a vos envi ...
+					<h5 class="card-title text-white text-lg font-bold md:container md:mx-auto">Parois</h5>
+					<p class="card-text text-white text-base text-center md:container md:mx-auto">Design et pratique, une parois doit repondre a vos envi ...
 					</p>
 
 				</div>
@@ -116,56 +127,56 @@
 					<div class="image-container">
 						<a href="https://127.0.0.1:8000/article"><img class="w-full h-72 object-cover zoomable-image" href="https://127.0.0.1:8000/article" src="{{ asset('build/images/Panneux_muraux.png') }}" alt="mountain_image"></a>
 					</div>
-					<h5 class="card-title text-white text-2xl font-medium hover:text-tahiti-500 pt-2 text-left p-1 ">Panneaux muraux</h5>
-					<p class="card-text text-white text-base text-left p-1">L'alternative à la faïence, 100% étanche ! Optez pour des ...</p>
+					<h5 class="card-title text-white text-lg font-bold md:container md:mx-auto">Panneaux muraux</h5>
+					<p class="card-text text-white text-base text-center md:container md:mx-auto">L'alternative à la faïence, 100% étanche ! Optez pour des ...</p>
 
 				</div>
 				<div class="slide aspect-square h-full flex-shrink-0 snap-center rounded overflow-hidden card-width card-height">
 					<div class="image-container">
 						<a href="https://127.0.0.1:8000/article"><img class="w-full h-72 object-cover zoomable-image" href="https://127.0.0.1:8000/article" src="{{ asset('build/images/Receveur_douche.png') }}" alt="mountain_image"></a>
 					</div>
-					<h5 class="card-title text-white text-2xl font-medium hover:text-tahiti-500 pt-2 text-left p-1">Receveur</h5>
-					<p class="card-text text-white text-base text-left p-1">Aussi connu sous le nom "bac de douche" ...</p>
+					<h5 class="card-title text-white text-lg font-bold md:container md:mx-auto">Receveur</h5>
+					<p class="card-text text-white text-base text-center md:container md:mx-auto">Aussi connu sous le nom "bac de douche" ...</p>
 
 				</div>
 				<div class="slide aspect-square h-full flex-shrink-0 snap-center rounded overflow-hidden card-width card-height">
 					<div class="image-container">
-						<a href="https://127.0.0.1:8000/article"><img class="w-full h-72 object-cover zoomable-image" href="https://127.0.0.1:8000/article"  src="{{ asset('build/images/Colonne.png') }}" alt="mountain_image"></a>
+						<a href="https://127.0.0.1:8000/article"><img class="w-full h-72 object-cover zoomable-image" href="https://127.0.0.1:8000/article" src="{{ asset('build/images/Colonne.png') }}" alt="mountain_image"></a>
 					</div>
-					<h5 class="card-title text-white text-2xl font-medium hover:text-tahiti-500 pt-2 text-left p-1">Colonnes</h5>
-					<p class="card-text text-white text-base text-left p-1">Avec douche de tête ou buses hydromassantes, un plaisir ...</p>
+					<h5 class="card-title text-white text-lg font-bold md:container md:mx-auto">Colonnes</h5>
+					<p class="card-text text-white text-base text-center md:container md:mx-auto">Avec douche de tête ou buses hydromassantes, un plaisir ...</p>
 
 				</div>
 				<div class="slide aspect-square h-full flex-shrink-0 snap-center rounded overflow-hidden card-width card-height">
 					<div class="image-container">
 						<a href="https://127.0.0.1:8000/article"><img class="w-full h-72 object-cover zoomable-image" href="https://127.0.0.1:8000/article" src="{{ asset('build/images/Cabine.png') }}" alt="mountain_image"></a>
 					</div>
-					<h5 class="card-title text-white text-2xl font-medium hover:text-tahiti-500 pt-2 text-left p-1">Cabines</h5>
-					<p class="card-text text-white text-base text-left p-1">La cabine de douche est une solution complète, clé en main ...</p>
+					<h5 class="card-title text-white text-lg font-bold md:container md:mx-auto">Cabines</h5>
+					<p class="card-text text-white text-base text-center md:container md:mx-auto">La cabine de douche est une solution complète, clé en main ...</p>
 
 				</div>
 				<div class="slide aspect-square h-full flex-shrink-0 snap-center rounded overflow-hidden card-width card-height">
 					<div class="image-container">
 						<a href="https://127.0.0.1:8000/article"><img class="w-full h-72 object-cover zoomable-image" href="https://127.0.0.1:8000/article" src="{{ asset('build/images/Pare_bain.png') }}" alt="mountain_image"></a>
 					</div>
-					<h5 class="card-title text-white text-2xl font-medium hover:text-tahiti-500 pt-2 text-left p-1">Pare-Bains</h5>
-					<p class="card-text text-white text-base text-left p-1">Fini les douches dans la baignoire qui se terminent en inondation ...</p>
+					<h5 class="card-title text-white text-lg font-bold md:container md:mx-auto">Pare-Bains</h5>
+					<p class="card-text text-white text-base text-center md:container md:mx-auto">Fini les douches dans la baignoire qui se terminent en inondation ...</p>
 
 				</div>
 				<div class="slide aspect-square h-full flex-shrink-0 snap-center rounded overflow-hidden card-width card-height">
 					<div class="image-container">
 						<a href="https://127.0.0.1:8000/article"><img class="w-full h-72 object-cover zoomable-image" href="https://127.0.0.1:8000/article" src="{{ asset('build/images/Douche_securiser.png') }}" alt="mountain_image"></a>
 					</div>
-					<h5 class="card-title text-white text-2xl font-medium hover:text-tahiti-500 pt-2 text-left p-1">Douche sécurisée</h5>
-					<p class="card-text text-white text-base text-left p-1">Remplacez votre ancienne baignoire par une douche toute équipée ...</p>
+					<h5 class="card-title text-white text-lg font-bold md:container md:mx-auto">Douche sécurisée</h5>
+					<p class="card-text text-white text-base text-center md:container md:mx-auto">Remplacez votre ancienne baignoire par une douche toute équipée ...</p>
 
 				</div>
 				<div class="slide aspect-square h-full flex-shrink-0 snap-center rounded overflow-hidden card-width card-height">
 					<div class="image-container">
 						<a href="https://127.0.0.1:8000/article"><img class="w-full h-72 object-cover zoomable-image" href="https://127.0.0.1:8000/article" src="{{ asset('build/images/Design.png') }}" alt="mountain_image"></a>
 					</div>
-					<h5 class="card-title text-white text-2xl font-medium hover:text-tahiti-500 pt-2 text-left p-1">Douche design</h5>
-					<p class="card-text text-white text-base text-left p-1">Vous souhaitez remplacer une baignoire par une douche ...
+					<h5 class="card-title text-white text-lg font-bold md:container md:mx-auto">Douche design</h5>
+					<p class="card-text text-white text-base text-center md:container md:mx-auto">Vous souhaitez remplacer une baignoire par une douche ...
 					</p>
 				</div>
 
@@ -173,13 +184,13 @@
 					<div class="image-container">
 						<a href="https://127.0.0.1:8000/article"><img class="w-full h-72 object-cover zoomable-image" href="https://127.0.0.1:8000/article" src="{{ asset('build/images/Cabine_bain.png') }}" alt="mountain_image"></a>
 					</div>
-					<h5 class="card-title text-white text-2xl font-medium hover:text-tahiti-500 text-left">Combiné Douche/Bain</h5>
-					<p class="card-text text-white text-base text-left p-1">Douche ou Bain ? Offrez-vous le luxe d'avoir le choix ...</p>
+					<h5 class="card-title text-white text-lg font-bold md:container md:mx-auto">Combiné Douche/Bain</h5>
+					<p class="card-text text-white text-base text-center md:container md:mx-auto">Douche ou Bain ? Offrez-vous le luxe d'avoir le choix ...</p>
 				</div>
 
 			</div>
 
-			<div class="absolute top-0 -left-4 h-full items-center hidden md:flex">
+			<div class="absolute top-0 -left-16 h-full items-center hidden md:flex">
 				<button role="button" class="btn btn-info prev px-2 py-2 rounded-full bg-neutral-100 text-neutral-900 group ml-40" aria-label="prev">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 group-active:-translate-x-2 transition-all duration-200 ease-linear">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"/>
@@ -187,8 +198,8 @@
 
 				</button>
 			</div>
-			<div class="absolute top-0 -right-4 h-full items-center hidden md:flex">
-				<button role="button" class="btn btn-info next px-2 py-2 rounded-full bg-neutral-100 text-neutral-900 group mr-10" aria-label="next">
+			<div class="absolute top-0 -right-12 h-full items-center hidden md:flex">
+				<button role="button" class="btn btn-info next px-2 py-2 rounded-full bg-neutral-100 text-neutral-900 group" aria-label="next">
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 group-active:translate-x-2 transition-all duration-200 ease-linear">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/>
 					</svg>
@@ -196,24 +207,22 @@
 			</div>
 		</div>
 	</div>
-	<div class="containerdescription_article">
-	<a type="button" href="https://127.0.0.1:8000/article" class="btn btn-info text-black mr-14 mt-4 bg-beige-100">Nos catégories produits</a>
-		<div class="decouvrez_texte text-white text-2xl font-bold hover:text-tahiti-500 text-center">
-			<h2>Décontraction, tonicité et apaisement...</h2>
-			
-		</div>
-		<div class="descript_decouvrez text-white">Nous vous proposont un large choix de receveurs, parois, colonnes, cabines de douche...
-		
-		</div>
-		
-	</div>
+	<div class="containerdescription_article mx-auto  max-w-screen-xl">
+    <a href="https://127.0.0.1:8000/article" class="btn btn-info text-black mb-8 pl-2 ">Nos catégories produits</a>
+    <div class="decouvrez_texte text-center text-white text-xl  font-bold md:container md:mx-auto ">
+        <h2>Décontraction, tonicité et apaisement...</h2>
+    </div>
+    <div class="descript_decouvrez text-white text-base text-center md:container md:mx-auto">
+        Nous vous proposons un large choix de receveurs, parois, colonnes ...
+    </div>
+</div>
 </div>
 <div class="container_bande">
 	<div class="container_bande2">
-	
+
 		<div class="tourecherche">
 
-			<div class="div_placeholder w-48 h-9">
+			<div class="div_placeholder w-48 h-9 md:container md:mx-fixe">
 				{{form_start(form, {'id': 'search_q'})}}
 				{{form_row(form.q)}}
 			</div>
@@ -224,7 +233,7 @@
 	</div>
 </div>
 <div
-	class="ensemble_article2 pl-40">
+	class="ensemble_article2 pl-24">
 	{# <div class="list-group"> #}
 	<div class="col-12 col-sm-7 col-md-9 col-xxl-9">
 		<div class="row">
@@ -236,20 +245,13 @@
 	<br>
 
 	{# <div id="container" style="widt:723px">
-																														{% include 'pages/main/result.html.twig'%}
-																														</div> #}
+																																		{% include 'pages/main/result.html.twig'%}
+																																		</div> #}
 
 	<div class="container_jp" id="container_jp">
 		{% include 'pages/main/result.html.twig'%}
 	</div>
-</div>
-</div>
-{% include 'partials/footer.html.twig' %}
-<script src="./assets/js/app.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
+</div></div>{% include 'partials/footer.html.twig' %}<script src="./assets/js/app.js"></script><script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script><script src="https://unpkg.com/aos@next/dist/aos.js"></script><script>
 const slidesContainer = document.querySelector(".slides-container");
 const slideWidth = slidesContainer.querySelector(".slide").clientWidth;
 const prevButton = document.querySelector(".prev");

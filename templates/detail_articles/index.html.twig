@@ -29,19 +29,19 @@
 										class="relative w-2/2 overflow-hidden after:clear-both after:block after:content-['']">
 										<!--First item-->
 										<div class="relative float-left -mr-[100%] w-2/2 transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item data-te-carousel-active>
-											<img src="{{ asset('build/images/' ~ articles.images[0]) }}" class="block w-2/2" alt="Wild Landscape"/>
+											<img src="{{ asset('build/images/' ~ article.images[0]) }}" class="block w-2/2" alt="Wild Landscape"/>
 										</div>
 										<!--Second item-->
 										<div class="relative float-left -mr-[100%] hidden w-2/2 transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
-											<img src="{{ asset('build/images/' ~ articles.images[1]) }}" class="block w-2/2" alt="Camera"/>
+											<img src="{{ asset('build/images/' ~ article.images[1]) }}" class="block w-2/2" alt="Camera"/>
 										</div>
 										<!--Third item-->
 										<div class="relative float-left -mr-[100%] hidden w-2/2 transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
-											<img src="{{ asset('build/images/' ~ articles.images[2]) }}" class="block w-2/2" alt="Exotic Fruits"/>
+											<img src="{{ asset('build/images/' ~ article.images[2]) }}" class="block w-2/2" alt="Exotic Fruits"/>
 										</div>
 
 										<div class="relative float-left -mr-[100%] hidden w-2/2 transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none" data-te-carousel-item>
-											<img src="{{ asset('build/images/' ~ articles.images[3]) }}" class="block w-2/2" alt="handicap"/>
+											<img src="{{ asset('build/images/' ~ article.images[3]) }}" class="block w-2/2" alt="handicap"/>
 										</div>
 									</div>
 
@@ -67,23 +67,23 @@
 							</div>
 							<div class="container_info_article">
 								<div class="container_infos_1">
-									<h3 class="card-head text-2xl font-bold hover:text-tahiti-500 text-left">{{ articles.nom }}</h3>
+									<h3 class="card-head text-2xl font-bold hover:text-tahiti-500 text-left">{{ article.nom }}</h3>
 								</div>
 								<div class="container_infos_2">
 									<div class="titre_lesplus font-semibold">
 										<h5>LES PLUS</h5>
 									</div>
 									<div class="titre_lesplus2">
-										<img class="w-full p-3 object-cover" src="{{ asset('build/images/' ~ articles.images[4]) }}" alt="les_plus"></div>
+										<img class="w-full p-3 object-cover" src="{{ asset('build/images/' ~ article.images[4]) }}" alt="les_plus"></div>
 								</div>
 								<div class="container_infos_3">
 									<div class="titre_lesplus font-semibold pl-2">
 										<h5>LES CONFIGURATIONS POSSIBLES</h5>
 									</div>
 									<div class="titre_lesplus2">
-										<img class="w-full p-3 object-cover" src="{{ asset('build/images/' ~ articles.images[(5)]) }}" alt="les_configue"></div>
+										<img class="w-full p-3 object-cover" src="{{ asset('build/images/' ~ article.images[(5)]) }}" alt="les_configue"></div>
 								</div>
-								 <a href="{{ path('cart_add', {'id': articles.id}) }}" class="btn btn-info mt-16 ml-40 text-black" type="button" style="align-items:center;border:1px solid grey">Ajouter</a>
+								 <a href="{{ path('cart_add', {'id': article.id}) }}" class="btn btn-info mt-16 ml-40 text-black" type="button" style="align-items:center;border:1px solid grey">Ajouter</a>
 								 
 							</div>
 					</div>
@@ -107,7 +107,7 @@
 								<div class="blok_text_essenssiel2">
 							<lu class="list-inside">
 								<li class="mb-2 text-base">antidérapant PN24</li>
-								<li class="mb-2 text-base">{{ articles.essentiel}}</li>
+								<li class="mb-2 text-base">{{ article.essentiel}}</li>
 								<li class="mb-2 text-base" >Espace douche ,meuble vasque suspendu, WC suspendu.</li>
 								<li class="mb-2 text-base">Accessoires : radiateur sèche-serviettes, miroir, étagères, prise électrique…</li>
 								<li class="mb-2 text-base">Sans gros travaux préliminaires a prévoir.</li>
@@ -124,7 +124,7 @@
 					<div class="container2_essentiel">
 						<div class="bg_2droite">
 							<div data-aos="fade-left" class="container_images">
-								<image class="w-full object-cover" src="{{ asset('build/images/' ~ articles.images[(6)]) }}"></img>
+								<image class="w-full object-cover" src="{{ asset('build/images/' ~ article.images[(6)]) }}"></img>
 						</div>
 					</div>
 					<div class="bg_1droite">
@@ -141,14 +141,14 @@
 							
 			   	 		</div>
 							<div class="text_desc_article2">
-								<div class="a_dscript p-4 text-left text-base font-bold">{{ articles.description}}</div>
-								<div class="a_dscript2 pl-4 pt-2 pb-2 text-left text-base font-bold">{{ articles.description2}}</div>
+								<div class="a_dscript p-4 text-left text-base font-bold">{{ article.description}}</div>
+								<div class="a_dscript2 pl-4 pt-2 pb-2 text-left text-base font-bold">{{ article.description2}}</div>
 								<div class="a_dscript3 pl-4 text-left text-base font-bold"> Pour un espace facilement accessible :</div>	
 									<p class="text-left pl-4">- flexible de douche ou (colonne)</p>
 									<p class="text-left pl-4">- possibiliter de large ouverture (jusqu’à 74 cm)</p>
 									<p class="text-left pl-4">- possibiliter d'ajoute de 3 barres de maintien ergonomiques</p>
 
-									<div class="a_dscript2 pl-4 pt-4 pb-2 text-left text-base font-bold">{{ articles.description3}}</div>
+									<div class="a_dscript2 pl-4 pt-4 pb-2 text-left text-base font-bold">{{ article.description3}}</div>
 
 									<p class="text-left pl-4">- antidérapant PN24</p>
 									<p class="text-left pl-4">- équipement complet : mitigeur Grohe, douchette ultra plate, barre de douche, flexible d’alimentation et porte-flacons.</p><br>
@@ -159,7 +159,7 @@
 									<p class="text-left pl-4">- securité: possibliter d'ajouter 3 barres de maintien ergonomiques en plus</p>
 
 									<div class="a_dscript3 p-4 text-left text-base font-bold"> Au-delà de l’accessibilité, simple et rapide à installer</div>
-									<div class="a_dscript2 pl-4 text-left text-base text-justify ">{{ articles.description4}}</div>
+									<div class="a_dscript2 pl-4 text-left text-base text-justify ">{{ article.description4}}</div>
 								</div>	
 								
 									<div class="description_art2"></div>
@@ -171,7 +171,7 @@
 			   	</div>
 
 				<div class="caracteristique_technique mb-10">
-					<image class="object-cover" src="{{ asset('build/images/' ~ articles.images[(7)]) }}"></img>
+					<image class="object-cover" src="{{ asset('build/images/' ~ article.images[(7)]) }}"></img>
 				</div>
 
 
@@ -185,22 +185,22 @@
 							{# class="card-body"><h5 class="card-title" style="color:red">Promo du Jour</h5>
 																							<h6 class="card-subtitle text-muted">Made in France</h6>
 						</div>
-						<img src="{{ asset('build/images/' ~ articles.images[0]) }}" class="d-block user-select-none" width="27%" height="50px" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle;margin-bottom:87px;margin-top:63px;">
+						<img src="{{ asset('build/images/' ~ article.images[0]) }}" class="d-block user-select-none" width="27%" height="50px" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveaspectratio="xMidYMid slice" viewbox="0 0 318 180" style="font-size:1.100rem;text-anchor:middle;margin-bottom:87px;margin-top:63px;">
 							<rect width="27%" height="100%" fill="#868e96"></rect>
 							<text x="30%" y="50%" fill="#dee2e6" dy=".4em">
-								<div class="prix_produit">{{ articles.prix}}€</div>
+								<div class="prix_produit">{{ article.prix}}€</div>
 							</text> #}
 						{# </img>
 						<div
 							class="voir_article">
-							<a href="{{ path('app_detail_articles' , {'id' : articles.id}) }}" class="btn btn-light mb-2 " style="margin-top:10px:margin-left:10px" >Voir</a>
+							<a href="{{ path('app_detail_articles' , {'id' : article.id}) }}" class="btn btn-light mb-2 " style="margin-top:10px:margin-left:10px" >Voir</a>
 							
 						</div>
 					</div>
 					<div class="descript">
 						<h5 class="card-title1" style="color:red">Promo du Jour</h5>
 						<h6 class="card-subtitle1 text-muted">Made in France</h6>
-						<div class="description_produit1">{{ articles.essentiel}}</div>
+						<div class="description_produit1">{{ article.essentiel}}</div>
 						<img src="{{ asset('build/images/Capture_-_20_-removebg-preview (1).png')}}" class="solde"></div>
 				</div>  #}
 			</div>
