@@ -23,7 +23,7 @@
 				<!-- Features link -->
 				<li class="lg:pr-2" data-te-nav-item-ref>
 					<a class="pt-1 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="{{path('app_inscription')}}" data-te-nav-link-ref>Inscription</a>
-				<span class="visually-hidden">(current)</span>
+				<span class="visually-hidden"></span>
 				</li>
 				<!-- Pricing link -->
 				<li class="lg:pr-2" data-te-nav-item-ref>
@@ -43,11 +43,12 @@
 				</li>
 							{% if is_granted('IS_AUTHENTICATED_FULLY')%}
 				{% if app.user %}
-					<div class="mb-3 mt-3 h8">
+					<div class="mb-3 mt-3 w-29 text-center">
 						Bienvenue
 						{{ app.user.pseudo }},
-						<a type="button" class="btn btn-outline-info" href="{{ path('app_logout') }}">Deconnexion</a>
-					</div>
+						<a type="button" class="dark:active:shadow-[0_3px_4px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]] text-center inline-block w-full rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-rgb(51,224,255) hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_9px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" href="{{ path('app_logout') }}">Déconnexion</a>
+
+
 				{% endif %}
 			{% endif %}
 			</ul>

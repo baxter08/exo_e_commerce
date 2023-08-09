@@ -20,7 +20,7 @@
 	    <div class="ensemble_titre_container_vide mt-3 mb-3">
 	    	<div class="bandeau_categorie1 mt-3 mb-3">
 	    		<div class="titre_cat ml-3">
-	    			<h1 class="text-black text-3xl font-bold hover:text-tahiti-500 mt-4">{{categories.nom}}</h1>
+	    			<h1 class="text-black text-3xl font-bold hover:text-tahiti-500 mt-4 pt-2">{{categories.nom}}</h1>
 	    		</div>
  
 	    		<div class="container_vector_image p-2">
@@ -36,15 +36,15 @@
      {% for article in categories.articles %} 
 	    <div class="card-1 md:w-1/4 sm:w-full">
 		{# {{ dump(article) }} #}
-            <div class="titre_produit_jp text-lg">{{article.nom}}</div>
+            <div class="titre_produit_jp text-lg pt-2">{{article.nom}}</div>
 	    	<div class="image_jp p-4"><a href="#"><img  src="{{ asset('build/images/' ~ article.images[0]) }}"></a></div>
     
 	    	{# <div class="prix_produit_jp mr-8 text-xl">1190 €</div> #}
             {# <input type="hidden" id="article-id" value="{{ article.slug }}"> #}
-    <div class="div11">
-            <a href="{{ path('app_detail_articles' , {'slug' : article.slug}) }}" type="button" class="btn btn-outline-info mb-1 px-4 m-2">Voir</a>
+    <div class="div11 p-3">
+            <a href="{{ path('app_detail_articles' , {'slug' : article.slug}) }}" type="button" class="dark:active:shadow-[0_3px_4px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]] text-center inline-block w-full rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-rgb(51,224,255) hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_9px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]p-2">Voir</a>
 				{# <a href="{{ path('app_detail_articles' , {'id' : article.id}) }}" class="btn btn-light mb-1 px-4 m-2">Voir</a> #}
-				<a href="{{path("cart_add", {'id' : article.id})}}" class="btn btn-outline-info mb-2 px-4 m-2">Ajouter</a>
+				<a href="{{path("cart_add", {'id' : article.id})}}" class="dark:active:shadow-[0_3px_4px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]] text-center inline-block w-full rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-rgb(51,224,255) hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_9px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]p-2">Ajouter</a>
 				<i class="bi bi-cart-plus"></i>
 			</div>
 	    </div>
