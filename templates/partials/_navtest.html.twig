@@ -1,41 +1,28 @@
-<!-- Main navigation container -->
-<nav class="relative flex w-full flex-nowrap items-center justify-between bg-white py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4" data-te-navbar-ref>
-		<!-- Collapsible navbar container -->
-		<div
-			class="!visible mt-2 hidden flex-grow basis-[80%] items-center lg:mt-0 lg:!flex lg:basis-auto" id="navbarSupportedContent3" data-te-collapse-item>
-			<!-- Navbar title -->
-			<div class="titre_nom_entreprise1">
-				{# <div class="w-16 text-black dark:text-neutral-200"> #}
-					<a class="logo_entreprise w-16 " href="{{path('app_index')}}"><img src="{{ asset('build/images/plumberie-logo-removebg-preview.png') }}"></img></a>
-						<div class="nom_entreprise text-black text-xl dark:text-neutral-200">Sanitaire Sécuritè+</div>
-				{# </div> #}
-			</div>
-			<!-- Left links -->
-			<ul
-				class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
-				<!-- Home link -->
-				<li class="nav-item">
-					<a class="pt-1 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="{{path('app_index')}}">Accueil</a>
-				</li>
-				<li class="lg:pr-2" data-te-nav-item-ref>
-					{# <a class="active disabled:text-black/30 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" aria-current="page" href="{{path('app_index')}}"data-te-nav-link-ref>Accueil</a> #}
-				</li>
-				<!-- Features link -->
-				<li class="lg:pr-2" data-te-nav-item-ref>
-					<a class="pt-1 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="{{path('app_inscription')}}" data-te-nav-link-ref>Inscription</a>
-				<span class="visually-hidden"></span>
-				</li>
-				<!-- Pricing link -->
-				<li class="lg:pr-2" data-te-nav-item-ref>
-					<a class="p-0 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="{{path('app_login')}}" data-te-nav-link-ref>Connexion</a>
-				</li>
-				 <!-- Dashboard link visible only for super admin -->
-            {% if is_granted('ROLE_SUPER_ADMIN') %}
+
+<nav class="relative flex w-full flex-wrap items-center justify-between bg-white py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600" data-te-navbar-ref>
+    <!-- Navbar title -->
+    <div class="titre_nom_entreprise1 md:w-1/4">
+        <a class="logo_entreprise w-16 " href="{{path('app_index')}}"><img src="{{ asset('build/images/plumberie-logo-removebg-preview.png') }}" alt="Logo"></a>
+        <div class="nom_entreprise text-black text-xl dark:text-neutral-200">Sanitaire Sécuritè+</div>
+    </div>
+    <!-- Hamburger menu icon for mobile -->
+    <button id="hamburger" class="md:hidden focus:outline-none">
+        <svg class="h-6 w-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+    <!-- Menu Déroulant -->
+    <div id="menu" class="md:flex md:items-center hidden">
+        <ul class="md:flex md:ml-4 md:space-x-4">
+            <li><a href="{{path('app_index')}}" class="text-gray-800 hover:text-gray-600">Accueil</a></li>
+            <li><a href="{{path('app_inscription')}}" class="text-gray-800 hover:text-gray-600">Inscription</a></li>
+            <li><a href="{{path('app_login')}}" class="text-gray-800 hover:text-gray-600">Connexion</a></li>
+             {% if is_granted('ROLE_SUPER_ADMIN') %}
             <li class="lg:pr-2" data-te-nav-item-ref>
                 <a class="p-0 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="{{ path('admin') }}" data-te-nav-link-ref>Dashboard</a>
             </li>
 			{% endif %}
-				<!-- Disabled link -->
+				<!-- lien panier -->
 				<li class="lg:pr-2" >
 					<a class="nav-link" href="{{path('cart_index')}}">
 						<i class="fa-solid fa-cart-arrow-down"></i>
@@ -46,16 +33,15 @@
 					<div class="mb-3 mt-3 w-29 text-center">
 						Bienvenue
 						{{ app.user.pseudo }},
-						<a type="button" class="dark:active:shadow-[0_3px_4px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]] text-center inline-block w-full rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-rgb(51,224,255) hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_9px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" href="{{ path('app_logout') }}">Déconnexion</a>
+						<a type="button" class="dark:active:shadow-[0_3px_4px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]] inline-block rounded bg-primary pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-rgb(51,224,255) hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_9px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] w-2/4 text-center" href="{{ path('app_logout') }}">Déconnexion</a>
 
 
 				{% endif %}
 			{% endif %}
-			</ul>
-		</div>
-	</div>
-	
+        </ul>
+    </div>
 </nav>
+
 		<script src="./assets/js/app.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
 	<script src="https://cdn.tailwindcss.com/3.3.0"></script>

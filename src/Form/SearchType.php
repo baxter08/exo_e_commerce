@@ -15,7 +15,7 @@ class SearchType extends AbstractType
         $builder
         ->add('q', TextType::class, [
             'attr' => [
-                'placeholder' => 'Recherche via un mots clés...'
+                'placeholder' => 'Rechercher ici...'
             ],
             'label' => false
             ])
@@ -23,7 +23,7 @@ class SearchType extends AbstractType
         ->add('submit', SubmitType::class,[
             'label_format' => 'border:1px solid black',
             'attr'=> [
-                'class'=> 'btn btn-outline-info mb-1 px-4 m-2'
+                'class'=> 'btn btn-outline-info mb-1 text-center m-2'
             ],
             'label' => 'Rechercher'
             

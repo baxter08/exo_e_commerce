@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+
 {% block title %}
 	Votre panier
 {% endblock %}
@@ -8,167 +9,80 @@
 		<h1 class="font-bold text-lg">Votre panier</h1>
 	</section>
 
-	<table class="table">
-		<thead>
-			<tr>
-				<th></th>
-				<th></th>
-				<th class="text-center">Images</th>
-				<th>Produit</th>
-				<th>Prix</th>
-				<th>Quantite</th>
-				<th>Total</th>
-				<th></th>
-				<th>Actions</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for element in dataPanier %}
-				<tr class="hauteur">
-					<td></td>
-					<td></td>
-					<td><img src="{{ asset('build/images/' ~ element.produit.images[0]) }}" style="width:10%"></td>
-					<td>
-						<div class="ligne_top">{{ element.produit.nom}}</div>
-					</td>
-					<td>
-						<div class="ligne_top">{{ element.produit.Prix}}
-							€</div>
-					</td>
-					<td>
-						<div class="ligne_top text-center">{{ element.quantite}}</div>
-					</td>
-					<td>
-						<div class="ligne_top">{{ element.quantite * element.produit.prix}}
-
-							€</div>
-					</td>
-					<td></td>
-					<td>
-						<div class="ligne_top text-center">
-							<a href="{{path("cart_add", {id: element.produit.id})}}" class="btn btn-success" style="background-color:green">
-								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-plus-fill" viewbox="0 0 16 16">
-									<path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"/>
-								</svg>
-							</a>
-
-							<a href="{{path("cart_remove", {id: element.produit.id})}}" class="btn btn-warning;hover:grey" style="background-color:yellow">
-								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-cart-dash-fill" viewbox="0 0 16 16">
-									<path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.5 7h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1 0-1z"/>
-								</svg>
-
-							</a>
-
-							<a href="{{path("cart_delete", {id: element.produit.id})}}" class="btn btn-danger" style="background-color:red">
-								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-x-fill" viewbox="0 0 16 16">
-									<path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7.354 5.646 8.5 6.793l1.146-1.147a.5.5 0 0 1 .708.708L9.207 7.5l1.147 1.146a.5.5 0 0 1-.708.708L8.5 8.207 7.354 9.354a.5.5 0 1 1-.708-.708L7.793 7.5 6.646 6.354a.5.5 0 1 1 .708-.708z"/>
-								</svg>
-							</a>
-						</div>
-					</td>
+	<div class="overflow-x-auto">
+		<table class="w-full table-auto">
+			<thead>
+				<tr class="bg-gray-200">
+					<th class="p-3 border"></th>
+					<th class="p-3 border"></th>
+					<th class="p-3 text-center border">Images</th>
+					<th class="p-3 border">Produit</th>
+					<th class="p-3 border">Prix</th>
+					<th class="p-3 border">Quantité</th>
+					<th class="p-3 border">Total</th>
+					<th class="p-3 border"></th>
+					<th class="p-3 border">Actions</th>
+					<th class="p-3 border"></th>
 				</tr>
-			{% else %}
-				<tr>
-					<td></td>
-					<td colspan="8" class="text-center text-xl font-semibold" style="color:red">Votre panier est vide</td>
+			</thead>
+			<tbody>
+				{% for element in dataPanier %}
+					<tr class="bg-white">
+						<td class="p-3 border"></td>
+						<td class="p-3 border"></td>
+						<td class="p-3 text-center border"><img src="{{ asset('build/images/' ~ element.produit.images[0]) }}" alt="Image du produit" class="w-16 mx-auto"></td>
+						<td class="p-3 border">{{ element.produit.nom}}</td>
+						<td class="p-3 border">{{ element.produit.Prix}}
+							€</td>
+						<td class="p-3 border text-center">{{ element.quantite}}</td>
+						<td class="p-3 border">{{ element.quantite * element.produit.prix}}
+							€</td>
+						<td class="p-3 border"></td>
+								<td class="p-3 flex items-center justify-center space-x-5">
+
+							<span class="text-black">{{ element.quantite }}</span>
+							<a href="{{ path('cart_remove', {id: element.produit.id}) }}" class="flex items-center justify-center w-8 h-8 rounded-full bg-yellow-400 hover:bg-yellow-500">
+								<span class="text-white">-</span>
+							</a>
+
+							<a href="{{ path('cart_add', {id: element.produit.id}) }}" class="flex items-center justify-center w-8 h-8 rounded-full bg-green-500 hover:bg-green-600">
+								<span class="text-white">+</span>
+							</a>
+							
+							<a href="{{ path('cart_delete', {id: element.produit.id}) }}" class="flex items-center justify-center w-8 h-8 rounded-full bg-red-500 hover:bg-red-600">
+								<span class="text-white">×</span>
+							</a>
+						</td>
+
+					</tr>
+				{% else %}
+					<tr class="bg-white">
+						<td class="p-3 border"></td>
+						<td class="p-3 text-center border text-xl font-semibold" colspan="8" style="color:red">Votre panier est vide</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				<tr class="bg-gray-200">
+					<td class="p-3 border"></td>
+					<td class="p-3 border"></td>
+					<td class="p-3 border"></td>
+					<td class="p-3 border" colspan="3" style="font-size:20px;font-weight:bold;">Total</td>
+					<td class="p-3 border">{{ total }}
+						€</td>
+					<td class="p-3 border"></td>
+					<td
+						class="p-3 border flex justify-between space-x-4">
+						{# <a href="{{ path('cart_delete_all') }}" class="btn btn-danger p-1 bg-red-500 hover:bg-red-600">
+						                            <span class="text-white">Supprimer tout</span>
+						                        </a> #}
+						<a href="{{ path('devis') }}" class="btn btn-success p-1 bg-green-500 hover:bg-green-600">
+							Simuler votre devis
+						</a>
+					</td>
+					<td class="p-3 border"></td>
 				</tr>
-			{% endfor %}
-		</tbody>
-		<tfoot>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-
-				<td colspan="3" style="font-size:20px;font-weight : bold;" ;>Total</td>
-				<td>{{ total }}
-					€</td>
-				<td></td>
-				<td>
-    <a href="{{ path('cart_delete_all') }}" class="btn btn-danger" style="background-color:red">
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-x" viewBox="0 0 16 16">
-            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7.354 5.646 8.5 6.793l1.146-1.147a.5.5 0 0 1 .708.708L9.207 7.5l1.147 1.146a.5.5 0 0 1-.708.708L8.5 8.207 7.354 9.354a.5.5 0 1 1-.708-.708L7.793 7.5 6.646 6.354a.5.5 0 1 1 .708-.708z"/>
-        </svg>
-	</a>
-<a href="{{ path('devis') }}" class="btn btn-danger" style="background-color:green">Simuler votre devis</a>
-    {# <a><button id="validerCommande" class="btn btn-success" style="background-color:green">Simuler votre Devis</button></a> #}
-
-	{# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button> #}
-
-<!-- Modal -->
-<div class="modal" id="modalCommande" tabindex="-50" role="dialog" aria-labelledby="modalCommandeLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title font-semibold mr-20" id="modalCommandelLabel">Simulation de Devis</h5>
-       <button type="button" class="close mt-2 mb-2 ml-10" data-dismiss="modal" aria-label="Close" style="background-color:red">
-          <span aria-hidden="true" class="background-color:red">×</span>
-        </button>
-      </div>
-      <div class="modal-body w-96">
-	  Devis numeros: {{app.user.id}}
-	  <div class="element_produit font-semibold">Nom: {{ app.user.nom }} </div>
-	  <div class="element_produit font-semibold">Prenom: {{ app.user.prenom}} </div></br>
-         <ul>
-                {% for element in dataPanier %}
-				<div class="contenu_mod11">
-                    <div class="element_produit font-semibold">Nom: </div><div>{{  element.produit.nom }} </div>
-					<div class="element_produit font-semibold">Prix: </div><div>{{  element.produit.prix }} € </div>
-					<div class="element_produit font-semibold">Quantité: </div><div>{{  element.quantite }} </div></br>
-					{# <lu>{{ element.quantite * element.produit.prix}}</lu> #}
-				</div>
-                {% endfor %}
-        </ul>
-      </div>
-      <div class="modal-footer">
-        {# <button type="button" class="btn-secondary" data-dismiss="modal" data-dismiss="modal" style="background-color:red" aria-label="Close">Close</button> #}
-        <button type="button" class="btn-primary" style="background-color:green">valider </button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-{# <div id="modalCommande" class="modal mt-200px">
-    <div class="modal-content">
-        <h2>Récapitulatif de la commande</h2>
-        <ul>
-            {% if panier is defined %}
-                {% for panier in panier %}
-                    <li>{{  element.produit.nom }} - {{ element.produit.Prix }}</li>
-                {% endfor %}
-            {% endif %}
-        </ul>
-    </div>
-</div> #}
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Récupérez la référence de la modale
-  var modal = document.getElementById('modalCommande');
-
-  // Récupérez la référence du bouton de fermeture
-  var closeButton = modal.querySelector('.close');
-
-  // Ajoutez un écouteur d'événement pour le clic sur le bouton de fermeture
-  closeButton.addEventListener('click', function() {
-    // Fermez la modale en modifiant le style de la modale
-    modal.style.display = 'none';
-  });
-});
-</script>
-    <script>
-        // Lorsque le bouton de validation de commande est cliqué
-        document.getElementById('validerCommande').addEventListener('click', function () {
-            // Récupérer les données de la commande (vous pouvez utiliser des requêtes AJAX pour les récupérer depuis le serveur si nécessaire)
-
-            // Afficher la modale
-            document.getElementById('modalCommande').style.display = 'block';
-        });
-    </script>
+			</tfoot>
+		</table>
+	</div>
 {% endblock %}
