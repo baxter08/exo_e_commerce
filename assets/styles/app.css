@@ -615,6 +615,14 @@ h1 {
   margin-left: 34px;
   border: solid black 1px;
 }
+.trai_cara{
+  width: 5%;
+  /* position: absolute; */
+  margin-left: 597px;
+  margin-top: -63px;
+  border: solid black 1px;
+}
+
 .trai_droit_article_desc {
   width: 5%;
   /* position: absolute; */
@@ -734,9 +742,11 @@ h1 {
 .titre_description {
   /* border: solid red 1px; */
   width: 51%;
-  /* margin-top: 100px; */
+  margin-top: 10px;
   height: 57px;
 }
+
+
 
 .titre_description2 {
   border-bottom: solid black 1px;
@@ -1174,34 +1184,15 @@ a .redirect {
 }
 .bandeau_categorie_article {
   /* border: solid rgb(25, 99, 189) 1px; */
-  width: 80%;
+  width: 100%;
   display: flex;
   height: auto;
-  padding: 10px 10px 10px 130px;
+  padding-left: 233px;
   flex-wrap: wrap;
   align-items: center;
 }
 
-.bandeau_categorie_article2 {
-  /* border: solid rgb(25, 99, 189) 1px; */
-  width: 80%;
-  display: flex;
-  height: 333px;
-  padding: 10px 10px 10px 130px;
-  background-color: #e0ccad33;
-  flex-wrap: nowrap;
-  align-items: center;
-}
 
-.bandeau_categorie_article3 {
-  /* border: solid rgb(25, 99, 189) 1px; */
-  width: 80%;
-  display: flex;
-  height: 333px;
-  flex-wrap: nowrap;
-  align-items: center;
-  padding: 10px 10px 10px 130px;
-}
 
 .container_vide_right {
   /* border: solid rgb(25, 99, 189) 1px; */
@@ -1250,7 +1241,7 @@ a .redirect {
 
 .container_vector_image {
   /* border: solid rgb(130, 238, 134) 1px; */
-  width: 16%;
+  width: 34%;
   height: auto;
   margin-left: 100px;
 }

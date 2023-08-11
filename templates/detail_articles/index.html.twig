@@ -74,26 +74,27 @@
 				<div class="titre_lesplus2">
 					<img class="w-full p-3 object-cover" src="{{ asset('build/images/' ~ article.images[(5)]) }}" alt="les_configue"></div>
 			</div>
-			<a href="{{ path('cart_add', {'id': article.id}) }}" class="btn btn-info mt-16 ml-40 text-black" type="button" style="align-items:center;border:1px solid grey">Ajouter</a>
+			<a href="{{ path('cart_add', {'id': article.id}) }}" class="mt-16 ml-56 text-black text-center inline-block rounded bg-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] w-1/4"
+			 type="button" style="align-items:center;">Ajouter</a>
 
 		</div>
 	</div>
 </div>
-<div class="bande_lien_encre mb-8 flex flex-wrap justify-center md:justify-start items-center">
-	<div class="lien"></div>
-	<div class="lien_1 text-black font-bold ">LES ESSENTIELS</div>
-	<div class="lien_2 text-black font-bold ">DESCRIPTION</div>
-	<div class="lien_3 text-black font-bold ">CARACTÉRISTIQUES TECHNIQUES</div>
-	<div class="lien"></div>
-</div>
+    <div class="bande_lien_encre mb-8 flex flex-wrap justify-center md:justify-start items-center">
+        <div class="lien"></div>
+        <a class="lien_1 text-black font-bold" href="#essentiels">LES ESSENTIELS</a>
+        <a class="lien_2 text-black font-bold" href="#description">DESCRIPTION</a>
+        <a class="lien_3 text-black font-bold" href="#caracteristique">CARACTÉRISTIQUES TECHNIQUES</a>
+        <div class="lien"></div>
+    </div>
 
-<div class="container_essentiel">
+<div class="container_essentiel" id="essentiels">
 	<div class="container1_essentiel">
 
 		<div class="bg_1">
-			<div class="blok_text_essenssiel">
+			<div class="blok_text_essenssiel" ">
 				<div class="titre_esentiel text-black text-3xl font-bold hover:text-tahiti-500">Les essentiels</div>
-				<div class="trai_droit_article hidden xl:block lg:hidden md:hidden sm:hidden"></div>
+				<div class="trai_droit_article hidden xl:block lg:hidden md:hidden sm:hidden" ></div>
 
 			</div>
 
@@ -114,9 +115,9 @@
 
 	</div>
 
-	<div class="container2_essentiel">
+	<div class="container2_essentiel" >
 		<div class="bg_2droite">
-			<div data-aos="fade-left" class="container_images">
+			<div data-aos="fade-left" class="container_images"id="description">
 				<image class="w-full object-cover" src="{{ asset('build/images/' ~ article.images[(6)]) }}"></img>
 		</div>
 	</div>
@@ -125,24 +126,25 @@
 <div class="container_desc_1"></div>
 
 <div class="container_desc_2">
-	<div class="description_art1">
-		<div class="titre_description text-black text-3xl font-bold hover:text-tahiti-500">Description du produit</div>
+	<div class="description_art1" >
+		<div class="titre_description text-black text-3xl font-bold hover:text-tahiti-500 mt-5">Description du produit</div>
 		<div class="trai_droit_article_desc hidden xl:block lg:hidden md:hidden sm:hidden"></div>
 
 	</div>
-	<div class="text_desc_article2">
+	<div class="text_desc_article2" >
 		<div class="a_dscript p-4 text-left text-base font-bold">{{ article.description}}</div>
-		<div class="a_dscript2 pl-4 pt-2 pb-2 text-left text-base font-bold">{{ article.description2}}</div>
-		<div class="a_dscript3 pl-4 text-left text-base font-bold">
-			Pour un espace facilement accessible :</div>
+		<div class="a_dscript2 pl-4 pt-2 pb-2 text-left text-base ">{{ article.description2}}</div>
+		<div class="a_dscript3 pl-4 text-left font-bold text-base">Pour un espace facilement accessible :</div>
 		<p class="text-left pl-4">- flexible de douche ou (colonne)</p>
 		<p class="text-left pl-4">- possibiliter de large ouverture (jusqu’à 74 cm)</p>
 		<p class="text-left pl-4">- possibiliter d'ajoute de 3 barres de maintien ergonomiques</p>
 
-		<div class="a_dscript2 pl-4 pt-4 pb-2 text-left text-base font-bold">{{ article.description3}}</div>
+		<div class="a_dscript2 pl-4 pt-4 pb-2 text-left text-base font-bold" id="caracteristique">{{ article.description3}}</div>
 
 		<p class="text-left pl-4">- antidérapant PN24</p>
 		<p class="text-left pl-4">- équipement complet : mitigeur Grohe, douchette ultra plate, barre de douche, flexible d’alimentation et porte-flacons.</p><br>
+
+		<div class="text-black text-3xl font-bold hover:text-tahiti-500 ml-10 mb-4 w-3/4">Caractéristique Techniques </div>
 
 		<div class="a_dscript3 pl-4 pb-2 text-left text-base">
 			Elle s’installe en niche, en angle ou contre un mur (avec le kit de montage spécifique). Selon la configuration de votre salle de bain, vous pouvez choisir parmi 3 versions :
