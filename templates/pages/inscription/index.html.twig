@@ -4,13 +4,15 @@
 {% endblock %}
 
 {% block body %}
-<div class="ensemble_form">
- <h1 class="h3 mb-2 mt-3 text-center font-weight-normal">Inscription</h1>
+<div class="ensemble_form md:container md:mx-auto sm:w-5/12">
+    
+         <h1 class="h3 mb-2 mt-3 text-center text-2xl font-semibold mb-4">Inscription</h1>
 
-{{form(form)}}
-{% for message in app.flashes('success') %}
-<div class="alert alert-success mt-4">
-{{ message }}
+        {{form(form)}}
+        {% for message in app.flashes('success') %}
+        <div class="alert alert-success mt-4">
+        {{ message }}
+    
 </div>
 {% endfor %}
 

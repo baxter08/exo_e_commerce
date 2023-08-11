@@ -1,13 +1,23 @@
-<div class="footer1">
-	<a class="logo_F w-8" href="{{path('app_index')}}"><img class="w-20" src="{{ asset('build/images/plumberie-logo-removebg-preview.png')}}">
-
-    </a><div class="titre_entreprise text-white text-center font-semibold">Sanitaire Sécuritè+</div>
-
-	<div class=" Qui_somme_nous text-lg text-white hover:text-tahiti-500" href="#">Qui somme nous ?<br>
-		<div class=" Demandeurs_demploi text-lg text-white hover:text-tahiti-500" href="#">Nos Articles<br></div>
-		<div class=" Nos_vidéos text-lg text-white hover:text-tahiti-500" href="#">Nos Engagements<br></div>
-		<div class=" Contactez-nous text-lg text-white hover:text-tahiti-500" href="#">Contactez-nous<br></div>
-	</div>
-
+<div class="footer1 flex flex-col items-center justify-center bg-black py-4">
+    <div class="text-white text-center font-semibold mb-4">
+        <a class="logo_F" href="{{ path('app_index') }}">
+            <img class="w-20 mx-auto" src="{{ asset('build/images/plumberie-logo-removebg-preview.png') }}" alt="Logo">
+        </a>
+        Sanitaire Sécurité+
+    </div>
+    <div class="text-white text-center mb-4">
+        <div class="md:flex md:justify-center">
+            <div class="text-lg hover:text-tahiti-500 md:mx-4">Qui sommes-nous ?</div>
+            <div class="text-lg hover:text-tahiti-500 md:mx-4">Nos Articles</div>
+            <div class="text-lg hover:text-tahiti-500 md:mx-4">Nos Engagements</div>
+        </div>
+    </div>
+    <div class="text-white text-center">
+        <div class="text-lg hover:text-tahiti-500">Contactez-nous</div>
+    </div>
 </div>
+
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
