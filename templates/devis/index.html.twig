@@ -4,7 +4,7 @@
 
 {% block body %}
    
-<div class="text-center mt-5 mb-5 font-semibold text-lg">Remplissez votre demande de devis </div>
+<div class="text-center mt-5 mb-5 font-semibold text-lg">Demande de devis </div>
   <div class="modal-body w-96 p-4 border border-black">
 
     {{ form_start(form) }}
@@ -35,6 +35,17 @@
     {{ form_end(form) }}
 </div>
    
-
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6LfwSiImAAAAANrrpXNh5_y5gLSSWIAstMxRK4bb"></script>
+<script>
+   grecaptcha.ready(function() {
+    grecaptcha.execute('6LfwSiImAAAAANrrpXNh5_y5gLSSWIAstMxRK4bb', {action: 'homepage'}).then(function(token) {
+        document.getElementById('recaptchaResponse').value = token
+   
+    });
+});
+</script>
+		<script src="./assets/js/app.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+	<script src="https://cdn.tailwindcss.com/3.3.0"></script>
  
 {% endblock %}
