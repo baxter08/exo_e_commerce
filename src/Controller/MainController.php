@@ -46,21 +46,6 @@ class MainController extends AbstractController
         ]);
     }
 
-    // #[Route('/', name: 'ajax')]
-    // public function isXmlHttpRequest($headers)
-    // {
-
-    //     $response = new JsonResponse([
-    //         'data' => 123,
-    //         'code' => 200
-    //     ]);
-
-    //     return 'XMLHttpRequest' == $this->$headers->get('search',[
-    //         'response' => $response,
-    //         'headers' => $headers
-    //     ]);
-
-    // }
 
 
     #[Route('/', name: 'search_text')]

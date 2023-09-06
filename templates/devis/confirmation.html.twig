@@ -1,20 +1,24 @@
-{% extends 'base.html.twig' %}         {# templates/devis/confirmation.html.twig #}
+{% extends 'base.html.twig' %}
 
-{% block title %}Confirmation de devis
-{% endblock %}
+{% block title %}Confirmation de devis{% endblock %}
 
 {% block body %}
+
+	<!-- Titre de la page de confirmation -->
 	<h1 class="text-center mt-20 font-semibold mb-4 text-2xl">Votre demande de devis a été soumise avec succès !</h1>
+	
+	<!-- Message de confirmation -->
 	<p class="text-center">Nous vous contacterons bientôt.</p>
 
 	{% if pdfContent is defined %}
+
+		<!-- Vérifie si un contenu PDF est défini -->
 		<div class="fixed inset-0 flex flex-col items-center justify-center">
+
+			<!-- Crée un lien pour télécharger le devis au format PDF -->
 			<a href="data:application/pdf;base64,{{ pdfContent }}" download="devis.pdf" class="text-center inline-block rounded bg-white px-6 pb-2 pt-2 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] w-1/5 ">
 				Télécharger le devis au format PDF
-			</a></div> 
-		
-        
-
+			</a>
+		</div>
 	{% endif %}
-    
 {% endblock %}

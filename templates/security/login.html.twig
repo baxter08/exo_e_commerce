@@ -7,34 +7,30 @@
 <div class="ensemble_form md:container md:mx-auto sm:w-5/12">
     <h1 class="h3 mt-3 text-center text-2xl font-semibold mb-4">Connexion</h1>
     <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control border flex flex-wrap w-1/2 " autocomplete="email" required autofocus>
-    <label for="inputPassword mt-2">Mots de passe</label>
+    <input type="email" value="{{ last_username | raw }}" name="email" id="inputEmail" class="form-control border flex flex-wrap w-1/2 " autocomplete="email" required autofocus>
+    <label for="inputPassword mt-2">Mot de passe</label>
     <input type="password" name="password" id="inputPassword" class="form-control border flex flex-wrap w-1/2 " autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
+           value="{{ csrf_token('authenticate') | raw }}"
     >
     <input type="hidden" id="recaptchaResponse" name="recaptcha-response">
      <button class="dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]] inline-block w-full rounded bg-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] xl:ml-48 sm:ml-24 mt-4 sm:w-2/5" type="submit">
         Soumettre
     </button>
     </div>
-    
-
-   
 </form>		
+
 <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfwSiImAAAAANrrpXNh5_y5gLSSWIAstMxRK4bb"></script>
 <script>
    grecaptcha.ready(function() {
     grecaptcha.execute('6LfwSiImAAAAANrrpXNh5_y5gLSSWIAstMxRK4bb', {action: 'homepage'}).then(function(token) {
         document.getElementById('recaptchaResponse').value = token
-   
     });
 });
 </script>
 
 <script src="./assets/js/app.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
-	<script src="https://cdn.tailwindcss.com/3.3.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+<script src="https://cdn.tailwindcss.com/3.3.0"></script>
 {% endblock %}
-

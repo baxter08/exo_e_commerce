@@ -51,11 +51,6 @@ class UserCrudController extends AbstractCrudController
             TextField::new('password'),
             TextField::new('email'),
             ChoiceField::new('roles')->allowMultipleChoices('roles')->setChoices(['Administrateur utilisateur' => 'ROLE_USER','Super Administrateur' => 'ROLE_SUPER_ADMIN']),
-            // TextField::new('password')->setFormType(PasswordType::class)->setRequired(true)->setFormTypeOption('constraints', [
-            //     new NotBlank(),
-            //     new Length(['min' => 6, 'max' => 32]),
-            //     new Regex('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,32}$/')
-            // ]),
             DateField::new('created_at'),
         ];
     }

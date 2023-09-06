@@ -43,12 +43,12 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
-     * Used to upgrade (rehash) the user's password automatically over time.
+     * Utilisé pour mettre à jour (rehash) le mot de passe de l’utilisateur automatiquement au fil du temps.
      */
     public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
     {
         if (!$user instanceof User) {
-            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', \get_class($user)));
+            throw new UnsupportedUserException(sprintf('Instances of "%s" non supporter.', \get_class($user)));
         }
 
         $user->setPassword($newHashedPassword);
@@ -57,7 +57,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
    /**
-    * @return User[] Returns an array of User objects
+    * @return User[] Retourne un tableau d’objets utilisateur
     */
    public function findByExampleField($search): array
    {

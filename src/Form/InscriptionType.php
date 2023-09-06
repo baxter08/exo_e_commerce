@@ -130,7 +130,8 @@ class InscriptionType extends AbstractType
                         'class' => 'mb-4', // Ajout de la classe pour espacement en dessous du champ
                     ]
                 ],
-                'invalid_message' => 'Les mots de passe ne correspondent pas. Veuillez choisir un mot de passe contenant au moins une lettre majuscule, une lettre minuscule et un chiffre.',
+                'invalid_message' => 'Les mots de passe ne correspondent pas. Veuillez choisir un mot de passe contenant au moins une lettre majuscule, une lettre minuscule et 
+                un chiffre.',
             ])
 
             ->add('submit',SubmitType::class,[
