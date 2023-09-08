@@ -9,7 +9,7 @@ class SlugifyUtil
     public function __construct(private SluggerInterface $slugger) {
     }
 
-    public function slugify(string$text) : string
+    public function slugify(string $text) : string
     {
         
         // Implémentez ici la logique de génération du slug à partir du texte

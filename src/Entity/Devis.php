@@ -30,6 +30,9 @@ class Devis
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description_travaux ;
 
+    #[ORM\ManyToOne(inversedBy: 'devis')]
+    private ?User $user = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -91,6 +94,18 @@ class Devis
     public function setDescriptionTravaux(?string $description_travaux): static
     {
         $this->description_travaux = $description_travaux;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

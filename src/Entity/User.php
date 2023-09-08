@@ -24,7 +24,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $email ;
 
     #[ORM\Column]
-    private array $roles = ['ROLE_ADMIN','ROLE_SUPER_ADMIN','ROLE_USER'];
+    private array $roles = ['ROLE_USER'];
 
     /**
      * @var string The hashed password
@@ -50,6 +50,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'User', targetEntity: Commande::class)]
     private Collection $commandes;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Devis::class)]
+    private Collection $devis;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,8 +63,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->paniers = new ArrayCollection();
         $this->commandes = new ArrayCollection();
         $this->created_at = new \DateTimeImmutable();
+        $this->devis = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->nom . ' ' . $this->prenom;   
+    }
    
     public function getEmail(): ?string
     {
@@ -239,10 +247,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
-    
     }
-    public function __toString()
+
+    /**
+     * @return Collection<int, Devis>
+     */
+    public function getDevis(): Collection
     {
-        return $this->id;
+        return $this->devis;
+    }
+
+    public function addDevi(Devis $devi): static
+    {
+        if (!$this->devis->contains($devi)) {
+            $this->devis->add($devi);
+            $devi->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDevi(Devis $devi): static
+    {
+        if ($this->devis->removeElement($devi)) {
+            // set the owning side to null (unless already changed)
+            if ($devi->getUser() === $this) {
+                $devi->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

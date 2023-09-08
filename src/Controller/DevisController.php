@@ -38,6 +38,11 @@ class DevisController extends AbstractController
             $devis->setEmail($devisData->getEmail());
             $devis->setTelephone($devisData->getTelephone());
             $devis->setDescriptionTravaux($devisData->getDescriptionTravaux());
+            $user = $this->getUser();
+            if($user !== null)
+            {
+                $devis->setUser($user);
+            }
 
             // Enregistrer l'entité dans la base de données
             $manager->persist($devis);

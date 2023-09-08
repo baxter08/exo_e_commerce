@@ -59,6 +59,12 @@
    background-size: 200px;
 }
 
+.contenaire_article_description {
+   display: flex;
+   height: auto;
+   margin-top: 140px;
+   width: 91%;
+ }
 
 .card .card-action-titre {
    width: 100%;

@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class DevisCrudController extends AbstractCrudController
@@ -24,6 +25,9 @@ class DevisCrudController extends AbstractCrudController
             EmailField::new('email'),
             TelephoneField::new('telephone'),
             TextareaField::new('description_travaux'),
+           
+
+            AssociationField::new('user', 'Utilisateur')
         ];
     }
 }
