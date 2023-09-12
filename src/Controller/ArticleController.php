@@ -45,21 +45,6 @@ class ArticleController extends AbstractController
         ]);
     }
 
-
-    // #[Route('/article/{slug}-{id<[0-9]+>}', name: 'app_article', requirements: ['slug' => '[a-z0-9\-_]*'])]
-    // public function show(ArticleRepository $articleRepo, string $slug, int $id): Response
-    // {
-    //     $article = $articleRepo->find($id);
-
-    //     if (!$article || $article->getSlug($id) !== $slug) {
-    //         throw new NotFoundHttpException('Article not found');
-    //     }
-
-    //     return $this->render('article/show.html.twig', [
-    //         'article' => $article,
-    //     ]);
-    // }
-
     #[Route('/article/{slug}-{id<[0-9]+>}', name: 'app_detail_articles_show', requirements: ["slug" => "[a-z0-9\-]*"])]
     public function show(Article $article, string $slug, int $id): Response
     {
@@ -84,29 +69,6 @@ class ArticleController extends AbstractController
     }
 
     
-
-
-
-    //     #[Route('/article', name: 'article')]
-    //     public function showArticlesByCategory(CategorieRepository $categorieRepo): Response
-    //     {
-    //         $categorieId = 1; // Remplacez 1 par l'ID de la catégorie souhaitée
-    //         $categorie = $categorieRepo->find($categorieId);
-
-    //         if (!$categorie) {
-    //             throw $this->createNotFoundException('La catégorie spécifiée n\'existe pas.');
-    //         }
-
-    //         $articles = $categorie->getArticles();
-    // // dd($articles);
-    //         return $this->render('article/index.html.twig', [
-    //             'articles' => $articles,
-    //             'categorie' => $categorie,
-    //         ]);
-
-
-    // }
-
     public function getBestSellingArticles(EntityManagerInterface $entityManager, int $limit = 10): array
     {
         $queryBuilder = $entityManager->createQueryBuilder();

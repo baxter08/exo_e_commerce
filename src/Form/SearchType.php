@@ -21,9 +21,9 @@ class SearchType extends AbstractType
             ])
 
         ->add('submit', SubmitType::class,[
-            'label_format' => 'border:1px solid black',
+            'label_format' => 'w-full border:1px solid black',
             'attr'=> [
-                'class'=> 'btn btn-outline-info mb-1 text-center m-2'
+                'class'=> 'w-full btn btn-outline-info mb-1 text-center m-2'
             ],
             'label' => 'Rechercher'
             
@@ -34,8 +34,7 @@ class SearchType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            // 'data_class' => searchData::class,
-            // 'method' => 'GET',
+          
             'csrf_protection' => false
         ]);
 

@@ -27,18 +27,17 @@ class MainController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // dd($form->get('q')->getData());
+        
 
             // on recherche les article coresponndant au mots de la recherche
             $articles = $articleRepos->search($form->get('q')->getData());
         } else {
             $articles = $articleRepos->findAll();
         }
-        // $articles = $articleRepos->findAll();
+      
         $categorie = $categorieRepos->findAll();
         
-        // dd($categorie);
-
+       
         return $this->render('pages/main/index.html.twig', [
             'articles' => $articles,
             'form' => $form->createView(),
@@ -53,7 +52,7 @@ class MainController extends AbstractController
         ArticleRepository $articleRepo,
         Request $request,
     ): Response {
-        //  dd($request);
+     
 
         if ($request) {
 

@@ -1,0 +1,7 @@
+easy_admin:
+  entities:
+    Devis:
+      class: App\Entity\Devis
+      list:
+        actions:
+          - { name: 'generer_pdf', label: 'Télécharger le devis', icon: 'file-pdf', type: 'route', route: 'generer_pdf', target: '_blank' }

@@ -15,8 +15,12 @@
     <div id="menu" class="md:flex md:items-center hidden">
         <ul class="md:flex md:ml-4 md:space-x-4">
             <li><a href="{{path('app_index')}}" class="text-gray-800 hover:text-gray-600">Accueil</a></li>
-            <li><a href="{{path('app_inscription')}}" class="text-gray-800 hover:text-gray-600">Inscription</a></li>
-            <li><a href="{{path('app_login')}}" class="text-gray-800 hover:text-gray-600">Connexion</a></li>
+            
+           {% if not app.user %}
+                <li><a href="{{ path('app_inscription') }}" class="text-gray-800 hover:text-gray-600">Inscription</a></li>
+                <li><a href="{{ path('app_login') }}" class="text-gray-800 hover:text-gray-600">Connexion</a></li>
+            {% endif %}
+
              {% if is_granted('ROLE_SUPER_ADMIN') %}
             <li class="lg:pr-2" data-te-nav-item-ref>
                 <a class="p-0 text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="{{ path('admin') }}" data-te-nav-link-ref>Dashboard</a>
@@ -34,6 +38,7 @@
 						Bienvenue
 						{{ app.user.pseudo }},
 						<a type="button" class="dark:active:shadow-[0_3px_4px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]] inline-block rounded bg-primary pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-rgb(51,224,255) hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_9px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] w-2/4 text-center" href="{{ path('app_logout') }}">Déconnexion</a>
+
 
 				{% endif %}
 			{% endif %}

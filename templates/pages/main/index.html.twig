@@ -101,7 +101,7 @@
 </div>
 <div class="contenaire_blanc">
 	<div class="NosExemple text-black text-center font-bold">
-		<h2>Nos produit</h2>
+		<h2>Nos produits</h2>
 		<div class="trai_droit"></div>
 	</div>
 	<div class="NosExemple_texte text-black text-3xl font-bold hover:text-tahiti-500 text-center">
@@ -119,7 +119,7 @@
 						<a href="https://127.0.0.1:8000/article"><img class="w-full h-72 object-cover zoomable-image" src="{{ asset('build/images/Parois.png') }}" alt="mountain_image"></a>
 					</div>
 					<h5 class="card-title text-white text-lg font-bold md:container md:mx-auto">Parois</h5>
-					<p class="card-text text-white text-base text-center md:container md:mx-auto">Design et pratique, une parois doit repondre a vos envi ...
+					<p class="card-text text-white text-base text-center md:container md:mx-auto">Design et pratique, une parois doit repondre a vos envis ...
 					</p>
 
 				</div>
@@ -136,7 +136,7 @@
 						<a href="https://127.0.0.1:8000/article"><img class="w-full h-72 object-cover zoomable-image" href="https://127.0.0.1:8000/article" src="{{ asset('build/images/Receveur_douche.png') }}" alt="mountain_image"></a>
 					</div>
 					<h5 class="card-title text-white text-lg font-bold md:container md:mx-auto">Receveur</h5>
-					<p class="card-text text-white text-base text-center md:container md:mx-auto">Aussi connu sous le nom "bac de douche" ...</p>
+					<p class="card-text text-white text-base text-center md:container md:mx-auto">Aussi connue sous le nom "bac de douche" ...</p>
 
 				</div>
 				<div class="slide aspect-square h-full flex-shrink-0 snap-center rounded overflow-hidden card-width card-height">
@@ -222,7 +222,7 @@
 
 		<div class="tourecherche">
 
-			<div class="div_placeholder w-48 h-9 md:container md:mx-fixe">
+			<div class="div_placeholder w-full h-9 md:container md:mx-fixe">
 				{{form_start(form, {'id': 'search_q'})}}
 				{{form_row(form.q)}}
 			</div>
@@ -234,7 +234,7 @@
 </div>
 <div
 	class="ensemble_article2 pl-24">
-	{# <div class="list-group"> #}
+
 	<div class="col-12 col-sm-7 col-md-9 col-xxl-9">
 		<div class="row">
 			<div class="col-10">
@@ -243,10 +243,6 @@
 		</div>
 	</div>
 	<br>
-
-	{# <div id="container" style="widt:723px">
-																																		{% include 'pages/main/result.html.twig'%}
-																																		</div> #}
 
 	<div class="container_jp" id="container_jp">
 		{% include 'pages/main/result.html.twig'%}

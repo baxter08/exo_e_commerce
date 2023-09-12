@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstracCrudController;
 
 use App\Repository\DevisRepository;
@@ -32,6 +33,12 @@ class Devis
 
     #[ORM\ManyToOne(inversedBy: 'devis')]
     private ?User $user = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $date_devis = null;
+
+    #[ORM\Column(nullable: true)]
+    private array $panier_info = [];
 
     public function getId(): ?int
     {
@@ -106,6 +113,30 @@ class Devis
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getDateDevis(): ?\DateTimeInterface
+    {
+        return $this->date_devis;
+    }
+
+    public function setDateDevis(\DateTimeInterface $date_devis): static
+    {
+        $this->date_devis = $date_devis;
+
+        return $this;
+    }
+
+    public function getPanierInfo(): array
+    {
+        return $this->panier_info;
+    }
+
+    public function setPanierInfo(?array $panier_info): static
+    {
+        $this->panier_info = $panier_info;
 
         return $this;
     }

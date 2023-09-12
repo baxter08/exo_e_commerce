@@ -27,7 +27,7 @@ class CommandeCrudController extends AbstractCrudController
         return [
             IdField::new('id'),
             IdField::new('user'),
-            // ArticleIdField::new('article_id'),
+      
             NumberField::new('numero'),
             NumberField::new('quantite'),
             MoneyField::new('prix')->setCurrency('EUR'),
